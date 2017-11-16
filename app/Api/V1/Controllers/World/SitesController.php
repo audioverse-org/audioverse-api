@@ -68,9 +68,7 @@ class SitesController extends BaseController
                 count($presentations),
                 $this->per_page,
                 $this->page,
-                [
-                    'path' => url('tags/'.$site) . '?'.$query_string,
-                ]
+                ['path' => url('tags/'.$site).'?'.$query_string]
             );
             return $this->response->paginator($presentations, new RecordingTransformer());
 
