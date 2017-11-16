@@ -60,7 +60,7 @@ class SitesController extends BaseController
                 $presentations->push($tagRecording->recording()->first());
             }
             // Dingo response paginator expects an object that must implement interface Illuminate\Contracts\Pagination\Paginator
-            $presentations = new LengthAwarePaginator($presentations, count($presentations), $this::PERPAGE);
+            $presentations = new LengthAwarePaginator($presentations, count($presentations), $this->per_page);
 
             return $this->response->paginator($presentations, new RecordingTransformer());
 
