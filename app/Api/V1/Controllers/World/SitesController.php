@@ -59,9 +59,19 @@ class SitesController extends BaseController
             foreach ($tagRecordings as $tagRecording) {
                 $presentations->push($tagRecording->recording()->first());
             }
-            // Dingo response paginator expects an object that must implement interface Illuminate\Contracts\Pagination\Paginator
-            $presentations = new LengthAwarePaginator($presentations, count($presentations), $this->per_page);
 
+            $query_string = urldecode(http_build_query(request()->except('page')));
+
+            // Dingo response paginator expects an object that must implement interface Illuminate\Contracts\Pagination\Paginator
+            $presentations = new LengthAwarePaginator(
+                $presentations->forPage($this->page,$this->per_page),
+                count($presentations),
+                $this->per_page,
+                $this->page,
+                [
+                    'path' => url('tags/'.$site) . '?'.$query_string,
+                ]
+            );
             return $this->response->paginator($presentations, new RecordingTransformer());
 
         } catch (ModelNotFoundException $e) {
