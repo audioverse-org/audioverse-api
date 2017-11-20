@@ -29,31 +29,37 @@ class SitesController extends BaseController
     public function tags(Request $request, $site) {
 
         try {
-
-            $tags = [];
+            // include site name
+            $tags = [$site];
             $tagIds = [];
             // get all the tags from get query string parameters
             if ( $request->input('tags') !== null)  {
-                $tags = $request->input('tags');
+                $tags = array_merge($tags, $request->input('tags'));
             }
-            // include
-            $tags[] = $site;
-
             // get ids of tags for look up on the pivot table
             $tagsCollection = Tag::whereIn('name', $tags)->get();
 
+            // need to know little about our data to build our query, distinguish between "sites" and tags
             foreach($tagsCollection as $tag) {
-                $tagIds[] = $tag->id;
+                if ( $site === $tag->name ) {
+                    $tagIds['site'] = [
+                        'id' => $tag->id,
+                        'name' => $tag->name
+                    ];
+                } else {
+                    $tagIds['tags'][] = [
+                        'id' => $tag->id,
+                        'name' => $tag->name
+                    ];
+                }
             }
-
+            // build first filter query
+            $siteFilterClause = $this->getWhereClause($tagIds);
+            $tagRecordings = TagRecording::where(function($query) use ($siteFilterClause) {
+                $query->whereRaw($siteFilterClause);
+            });
             // "Site" category id is constant
-            $tagRecordings = TagRecording::where(['tagCategoryId' => config('avorg.site_tag_category_id')])
-                                          ->whereIn('tagId',$tagIds)
-                                          ->get();
-            /*
-            DB::enableQueryLog();
-            dd(DB::getQueryLog());
-            */
+            $tagRecordings =  $tagRecordings->get();
             // empty collections
             $presentations = collect();
             foreach ($tagRecordings as $tagRecording) {
@@ -75,5 +81,23 @@ class SitesController extends BaseController
         } catch (ModelNotFoundException $e) {
             throw new ConflictHttpException('Site not found');
         }
+    }
+
+    private function getWhereClause($tagIds) {
+        // select site category and site id and general tag category id 0
+        $siteFilterClause = "((tagCategoryId=".config('avorg.site_tag_category_id')." AND tagId=".$tagIds['site']['id'].") OR (tagCategoryId = 0))";
+        if ( isset($tagIds['tags']) ) {
+            $siteFilterClause .= ' AND (';
+            for($i=0; $i<count($tagIds['tags']); $i++) {
+                if ( $i == 0 && (count($tagIds['tags']) > 1)) {
+                    $or = ' OR ';
+                } else {
+                    $or = '';
+                }
+                $siteFilterClause .= 'tagId='.$tagIds['tags'][$i]['id'].$or;
+            }
+            $siteFilterClause .= ')';
+        }
+        return $siteFilterClause;
     }
 }
