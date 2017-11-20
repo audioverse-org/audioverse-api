@@ -55,10 +55,10 @@ class SitesController extends BaseController
             }
             // build first filter query
             $siteFilterClause = $this->getWhereClause($tagIds);
-            $tagRecordings = TagRecording::where(function($query) use ($siteFilterClause) {
+            $tagRecordings = TagRecording::select('recordingId')->where(function($query) use ($siteFilterClause) {
                 $query->whereRaw($siteFilterClause);
-            });
-            // "Site" category id is constant
+            })->distinct();
+
             $tagRecordings =  $tagRecordings->get();
             // empty collections
             $presentations = collect();
@@ -84,7 +84,9 @@ class SitesController extends BaseController
     }
 
     private function getWhereClause($tagIds) {
+
         // select site category and site id and general tag category id 0
+        // "Site" category id is constant
         $siteFilterClause = "((tagCategoryId=".config('avorg.site_tag_category_id')." AND tagId=".$tagIds['site']['id'].") OR (tagCategoryId = 0))";
         if ( isset($tagIds['tags']) ) {
             $siteFilterClause .= ' AND (';
@@ -98,6 +100,7 @@ class SitesController extends BaseController
             }
             $siteFilterClause .= ')';
         }
-        return $siteFilterClause;
+
+        return "(".$siteFilterClause.")";
     }
 }
