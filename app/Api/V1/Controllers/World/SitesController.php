@@ -13,6 +13,7 @@ use App\Transformers\RecordingTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Cache;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 
@@ -38,7 +39,6 @@ class SitesController extends BaseController
             }
             // get ids of tags for look up on the pivot table
             $tagsCollection = Tag::whereIn('name', $tags)->get();
-
             // need to know little about our data to build our query, distinguish between "sites" and tags
             foreach($tagsCollection as $tag) {
                 if ( $site === $tag->name ) {
@@ -53,18 +53,22 @@ class SitesController extends BaseController
                     ];
                 }
             }
-            // build first filter query
-            $siteFilterClause = $this->getWhereClause($tagIds);
-            $tagRecordings = TagRecording::select('recordingId')->where(function($query) use ($siteFilterClause) {
-                $query->whereRaw($siteFilterClause);
-            })->distinct();
+            // retrieve from cache if not found then store it
+            $presentations = Cache::remember($this->getCacheName($site, $tagIds), 60, function() use ($tagIds) {
+                // build first filter query
+                $siteFilterClause = $this->getWhereClause($tagIds);
+                $tagRecordings = TagRecording::select('recordingId')->where(function($query) use ($siteFilterClause) {
+                    $query->whereRaw($siteFilterClause);
+                })->distinct();
 
-            $tagRecordings =  $tagRecordings->get();
-            // empty collections
-            $presentations = collect();
-            foreach ($tagRecordings as $tagRecording) {
-                $presentations->push($tagRecording->recording()->first());
-            }
+                $tagRecordings =  $tagRecordings->get();
+                // empty collections
+                $presentations = collect();
+                foreach ($tagRecordings as $tagRecording) {
+                    $presentations->push($tagRecording->recording()->first());
+                }
+                return $presentations;
+            });
 
             $query_string = urldecode(http_build_query(request()->except('page')));
 
@@ -84,7 +88,6 @@ class SitesController extends BaseController
     }
 
     private function getWhereClause($tagIds) {
-
         // select site category and site id and general tag category id 0
         // "Site" category id is constant
         $siteFilterClause = "((tagCategoryId=".config('avorg.site_tag_category_id')." AND tagId=".$tagIds['site']['id'].") OR (tagCategoryId = 0))";
@@ -100,7 +103,17 @@ class SitesController extends BaseController
             }
             $siteFilterClause .= ')';
         }
-
         return "(".$siteFilterClause.")";
+    }
+
+    private function getCacheName($site, $tagIds) {
+        $tags = '';
+        if ( isset($tagIds['tags']) ) {
+            $tags = 'tags.';
+            foreach ($tagIds['tags'] as $tag ) {
+                $tags .= $tag['id'].'.';
+            }
+        }
+        return "site.$site.page.{$this->page}.perpage.{$this->per_page}.$tags";
     }
 }
