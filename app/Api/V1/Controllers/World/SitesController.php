@@ -19,6 +19,7 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class SitesController extends BaseController
 {
+    private $sort = "title";
     /**
      * Tags
      *
@@ -70,6 +71,9 @@ class SitesController extends BaseController
                 return $presentations;
             });
 
+            //$presentations = $presentations->sortBy('title');
+            //$presentations = $presentations->sortByDesc('recordingDate');
+            //$presentations = $presentations->sortBy('speakerNamesGnfFormal');
             $query_string = urldecode(http_build_query(request()->except('page')));
 
             // Dingo response paginator expects an object that must implement interface Illuminate\Contracts\Pagination\Paginator
