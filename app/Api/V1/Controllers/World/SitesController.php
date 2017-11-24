@@ -19,7 +19,6 @@ use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class SitesController extends BaseController
 {
-    private $sort = "title";
     /**
      * Tags
      *
@@ -31,9 +30,13 @@ class SitesController extends BaseController
     public function tags(Request $request, $site) {
 
         try {
+
+            $sortBy = $this->getSortValue($request->input('sortby'));
+
             // include site name
             $tags = [$site];
             $tagIds = [];
+
             // get all the tags from get query string parameters
             if ( $request->input('tags') !== null)  {
                 $tags = array_merge($tags, $request->input('tags'));
@@ -55,7 +58,7 @@ class SitesController extends BaseController
                 }
             }
             // retrieve from cache if not found then store it
-            $presentations = Cache::remember($this->getCacheName($site, $tagIds), 60, function() use ($tagIds) {
+            $presentations = Cache::remember($this->getCacheName($site, $sortBy, $tagIds), 60, function() use ($tagIds, $sortBy) {
                 // build first filter query
                 $siteFilterClause = $this->getWhereClause($tagIds);
                 $tagRecordings = TagRecording::select('recordingId')->where(function($query) use ($siteFilterClause) {
@@ -68,12 +71,13 @@ class SitesController extends BaseController
                 foreach ($tagRecordings as $tagRecording) {
                     $presentations->push($tagRecording->recording()->first());
                 }
+
+                $presentations = $presentations->sortBy($sortBy);
+                //$presentations = $presentations->sortByDesc($sortBy)
+
                 return $presentations;
             });
 
-            //$presentations = $presentations->sortBy('title');
-            //$presentations = $presentations->sortByDesc('recordingDate');
-            //$presentations = $presentations->sortBy('speakerNamesGnfFormal');
             $query_string = urldecode(http_build_query(request()->except('page')));
 
             // Dingo response paginator expects an object that must implement interface Illuminate\Contracts\Pagination\Paginator
@@ -110,7 +114,7 @@ class SitesController extends BaseController
         return "(".$siteFilterClause.")";
     }
 
-    private function getCacheName($site, $tagIds) {
+    private function getCacheName($site, $sortBy, $tagIds) {
         $tags = '';
         if ( isset($tagIds['tags']) ) {
             $tags = 'tags.';
@@ -118,6 +122,20 @@ class SitesController extends BaseController
                 $tags .= $tag['id'].'.';
             }
         }
-        return "site.$site.page.{$this->page}.perpage.{$this->per_page}.$tags";
+        return "site.$site.page.{$this->page}.perpage.{$this->per_page}.sortby.$sortBy.tags.$tags";
     }
+
+    private function getSortValue($requestedSortValue) {
+
+        // possible values presentations can be sorted by, only asc, mapping to db column
+        $sortBy = ["title" => "title", "name" => "speakerNamesGnfFormal", "date" => "recordingDate"];
+        // get order criteria
+        if ( ($requestedSortValue !== null) && isset($sortBy[$requestedSortValue]) ) {
+            $sortValue = $sortBy[$requestedSortValue];
+        } else {
+            $sortValue = $sortBy["title"];
+        }
+        return $sortValue;
+    }
+
 }
