@@ -58,7 +58,7 @@ class SitesController extends BaseController
                 }
             }
             // retrieve from cache if not found then store it
-            $presentations = Cache::remember($this->getCacheName($site, $sortBy, $tagIds), 1444, function() use ($tagIds, $sortBy) {
+            $presentations = Cache::remember($this->getCacheName($site, $sortBy, $tagIds), 240, function() use ($tagIds, $sortBy) {
                 // build first filter query
                 $siteFilterClause = $this->getWhereClause($tagIds);
                 $tagRecordings = TagRecording::select('recordingId')->where(function($query) use ($siteFilterClause) {
