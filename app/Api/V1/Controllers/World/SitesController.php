@@ -98,7 +98,7 @@ class SitesController extends BaseController
     private function getWhereClause($tagIds) {
         // select site category and site id and general tag category id 0
         // "Site" category id is constant
-        $siteFilterClause = "((tagCategoryId=".config('avorg.site_tag_category_id')." AND tagId=".$tagIds['site']['id'].") OR (tagCategoryId = 0))";
+        $siteFilterClause = "((tagCategoryId=".config('avorg.site_tag_category_id')." AND tagId=".$tagIds['site']['id'].") OR (tagCategoryId = 0 AND tagId=".$tagIds['site']['id']."))";
         if ( isset($tagIds['tags']) ) {
             $siteFilterClause .= ' AND (';
             for($i=0; $i<count($tagIds['tags']); $i++) {
