@@ -15,15 +15,13 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-        //strip whitespace from the beginning and end of the email
-        $email = trim($request->get('email'));
-        $password = $request->get('password');
+        $credentials = $request->only(['email', 'password']);
 
-        if ( !Auth::attempt(['email' => $email, 'password' => $password]) ) {
+        if ( !Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']]) ) {
             return $this->response->errorForbidden();
         }
 
-        $user = User::where('email', '=', $email)->first();
+        $user = User::where('email', '=', $request->get('email'))->first();
         return $this->response->item($user, new UserTransformer);
     }
 }
