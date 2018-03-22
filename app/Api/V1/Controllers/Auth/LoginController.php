@@ -16,6 +16,8 @@ class LoginController extends Controller
     public function login(LoginRequest $request)
     {
         $credentials = $request->only(['email', 'password']);
+        //strip whitespace from the beginning and end of the email
+        $credentials['email'] = trim($credentials['email']);
 
         if ( !Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']]) ) {
             return $this->response->errorForbidden();
