@@ -17,7 +17,7 @@ class LoginController extends Controller
     {
         //strip whitespace from the beginning and end of the email
         $email = trim($request->get('email'));
-        $password = trim($request->get('password'));
+        $password = $request->get('password');
 
         if ( !Auth::attempt(['email' => $email, 'password' => $password]) ) {
             return $this->response->errorForbidden();
