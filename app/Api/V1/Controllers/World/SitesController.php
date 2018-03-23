@@ -58,12 +58,12 @@ class SitesController extends BaseController
                 }
             }
             // retrieve from cache if not found then store it
-            $presentations = Cache::remember($this->getCacheName($site, $sortBy, $tagIds), 240, function() use ($tagIds, $sortBy) {
+            $presentations = Cache::remember($this->getCacheName($site, $sortBy, $tagIds), 0, function() use ($tagIds, $sortBy) {
                 // build first filter query
                 $siteFilterClause = $this->getWhereClause($tagIds);
-                $tagRecordings = TagRecording::select('recordingId')->where(function($query) use ($siteFilterClause) {
+                $tagRecordings = TagRecording::select('recordingId', 'created')->where(function($query) use ($siteFilterClause) {
                     $query->whereRaw($siteFilterClause);
-                })->distinct();
+                })->distinct()->orderBy('created', 'desc');
 
                 $tagRecordings =  $tagRecordings->get();
                 // empty collections
@@ -72,8 +72,9 @@ class SitesController extends BaseController
                     $presentations->push($tagRecording->recording()->first());
                 }
 
-                $presentations = $presentations->sortBy($sortBy);
-                //$presentations = $presentations->sortByDesc($sortBy)
+                if ( $sortBy != 'date' ) {
+                    $presentations = $presentations->sortBy($sortBy);
+                }
 
                 return $presentations;
             });
@@ -128,12 +129,12 @@ class SitesController extends BaseController
     private function getSortValue($requestedSortValue) {
 
         // possible values presentations can be sorted by, only asc, mapping to db column
-        $sortBy = ["title" => "title", "name" => "speakerNamesGnfFormal", "date" => "recordingDate"];
+        $sortBy = ["title" => "title", "name" => "speakerNamesGnfFormal", "date" => "date"];
         // get order criteria
         if ( ($requestedSortValue !== null) && isset($sortBy[$requestedSortValue]) ) {
             $sortValue = $sortBy[$requestedSortValue];
         } else {
-            $sortValue = $sortBy["title"];
+            $sortValue = $sortBy["date"];
         }
         return $sortValue;
     }
