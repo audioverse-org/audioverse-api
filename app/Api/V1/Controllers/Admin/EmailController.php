@@ -25,7 +25,9 @@ class EmailController extends Controller
             ));
         // to admin
 
-        Mail::to(config('avorg.contact_email'))
+        $avorgDonationEmail = explode(',', config('avorg.avorg_donation_email'));
+
+        Mail::to($avorgDonationEmail)
             ->queue(new DonationReceivedAdmin(
                 $request->input('amount', 0),
                 $request->input('is_recurring', 0),

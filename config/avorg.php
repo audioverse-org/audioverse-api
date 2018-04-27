@@ -46,7 +46,7 @@ return [
         'ja' => 'ja',
     ],
 
-    'contact_email' => env('AVORG_DONATION_EMAIL','contact@audioverse.org'),
+    'avorg_donation_email' => env('AVORG_DONATION_EMAIL','contact@audioverse.org'),
     /*
     |--------------------------------------------------------------------------
     | Content Types
