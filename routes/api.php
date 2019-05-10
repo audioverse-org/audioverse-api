@@ -81,4 +81,9 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
     $api->group(['prefix' => 'messenger'], function(Router $api) {
         $api->post('donation/confirmation', 'App\Api\V1\Controllers\Admin\EmailController@donation_confirmation');
     });
+
+    $api->group(['prefix' => 'admin'], function(Router $api) {
+      $api->get('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+      $api->get('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@all');
+    });
 });

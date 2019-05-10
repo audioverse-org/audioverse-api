@@ -3,7 +3,7 @@
 namespace App\Api\V1\Controllers\World;
 
 use App\Conference;
-use App\Transformers\ConferenceTransformer;
+use App\Transformers\World\ConferenceTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ConferenceController extends BaseController {

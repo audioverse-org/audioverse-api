@@ -1,18 +1,16 @@
 <?php
-
 namespace App\Api\V1\Controllers\World;
 
+use App\Recording;
+use App\Transformers\World\RecordingTransformer;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use App\Recording;
-use App\Transformers\RecordingTransformer;
 
-class BaseController extends Controller
-{
+class BaseController extends Controller {
+   
     use Helpers;
-
-    //
+    
     public $per_page;
     public $page;
     public $where = ['active' => 1, 'hidden' => 0];

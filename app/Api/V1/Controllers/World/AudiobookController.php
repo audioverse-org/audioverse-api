@@ -3,7 +3,7 @@
 namespace App\Api\V1\Controllers\World;
 
 use App\Series;
-use App\Transformers\SeriesTransformer;
+use App\Transformers\World\SeriesTransformer;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

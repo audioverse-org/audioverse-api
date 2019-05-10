@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Transformers;
+namespace App\Transformers\World;
+
 use League\Fractal\TransformerAbstract;
 use App\MediaFile;
 

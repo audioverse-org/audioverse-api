@@ -1,9 +1,8 @@
 <?php
-namespace App\Transformers;
+namespace App\Transformers\World;
 
 use App\UserPreferences;
 use League\Fractal\TransformerAbstract;
-
 
 class UserPreferencesTransformer extends TransformerAbstract
 {

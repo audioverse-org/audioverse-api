@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -52,5 +51,10 @@ class Conference extends Model
             $file_name = config('avorg.static_url') . '/' . $language . '/gallery/sponsors/_/500/500/default-logo.png';
         }
         return $file_name;
+    }
+
+    public function sponsor()
+    {
+        return $this->hasOne('App\Sponsor', 'sponsorId', 'sponsorId');
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Api\V1\Controllers\World;
+namespace App\Api\V1\Controllers\Admin;
 
 use App\Sponsor;
 use App\Transformers\World\SponsorTransformer;

@@ -13,7 +13,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+       // Set custom serializer to remove 'data' key in API output when desired
+      app('Dingo\Api\Transformer\Factory')->setAdapter(function () {
+         $fractalManager = new \League\Fractal\Manager;
+         $fractalManager->setSerializer(new \App\Foundations\Fractal\NoDataArraySerializer);
+         return new \Dingo\Api\Transformer\Adapter\Fractal($fractalManager);
+      });
     }
 
     /**

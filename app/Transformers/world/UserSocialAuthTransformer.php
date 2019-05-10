@@ -1,5 +1,5 @@
 <?php
-namespace App\Transformers;
+namespace App\Transformers\World;
 
 use App\UserSocialAuth;
 use League\Fractal\TransformerAbstract;
