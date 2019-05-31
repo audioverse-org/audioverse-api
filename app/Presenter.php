@@ -3,59 +3,69 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Presenter extends Model
-{
-    protected $table = 'catalogPersons';
-    protected $primaryKey = 'personId';
-    protected $appends = [
-        'logoSmall',
-        'logoMedium',
-        'logoLarge'
-    ];
-    const CREATED_AT = 'created';
-    const UPDATED_AT = 'modified';
+class Presenter extends Model {
 
-    public function recordings() {
-        return $this->belongsToMany('App\Recording',  'catalogPersonsMap', 'personId', 'recordingId' );
-    }
+   protected $table = 'catalogPersons';
+   protected $primaryKey = 'personId';
+   protected $appends = [
+      'logoSmall',
+      'logoMedium',
+      'logoLarge'
+   ];
 
-    public function getLogoSmallAttribute() {
+   /**
+    * The event map for the model.
+      *
+      * @var array
+      */
+   protected $events = [
+      'updated' => \App\Events\UpdateHiddenFields::class
+   ];
 
-        $language = config('avorg.lang_hash')[config('avorg.default_lang')];
-        if ( $this->photo != "" ) {
-            $file_name = config('avorg.static_url') . '/' . $language . '/gallery/persons/_/86/86/' . $this->photo;
-        } else {
-            $file_name = $file_name = config('avorg.static_url') . '/' . $language . '/gallery/sponsors/_/86/86/default-logo.png';
-        }
-        return $file_name;
-    }
+   const CREATED_AT = 'created';
+   const UPDATED_AT = 'modified';
 
-    public function getLogoMediumAttribute() {
+   public function recordings() {
+      return $this->belongsToMany('App\Recording',  'catalogPersonsMap', 'personId', 'recordingId' );
+   }
 
-        $language = config('avorg.lang_hash')[config('avorg.default_lang')];
-        if ( $this->photo != "" ) {
-            $file_name = config('avorg.static_url') . '/' . $language . '/gallery/persons/_/256/256/' . $this->photo;
-        } else {
-            $file_name = $file_name = config('avorg.static_url') . '/' . $language . '/gallery/sponsors/_/256/256/default-logo.png';
-        }
-        return $file_name;
-    }
+   public function getLogoSmallAttribute() {
 
-    public function getLogoLargeAttribute() {
+      $language = config('avorg.lang_hash')[config('avorg.default_lang')];
+      if ( $this->photo != "" ) {
+         $file_name = config('avorg.static_url') . '/' . $language . '/gallery/persons/_/86/86/' . $this->photo;
+      } else {
+         $file_name = $file_name = config('avorg.static_url') . '/' . $language . '/gallery/sponsors/_/86/86/default-logo.png';
+      }
+      return $file_name;
+   }
 
-        $language = config('avorg.lang_hash')[config('avorg.default_lang')];
-        if ( $this->photo != "" ) {
-            $file_name = config('avorg.static_url') . '/' . $language . '/gallery/persons/_/500/500/' . $this->photo;
-        } else {
-            $file_name = $file_name = config('avorg.static_url') . '/' . $language . '/gallery/sponsors/_/500/500/default-logo.png';
-        }
-        return $file_name;
-    }
+   public function getLogoMediumAttribute() {
 
-    public function getSummaryAttribute($value) {
-        return preg_replace("/[\r\n]+/", "", strip_tags(html_entity_decode($value)));
-    }
-    public function getDescriptionAttribute($value) {
-        return preg_replace("/[\r\n]+/", "", strip_tags(html_entity_decode($value)));
-    }
+      $language = config('avorg.lang_hash')[config('avorg.default_lang')];
+      if ( $this->photo != "" ) {
+         $file_name = config('avorg.static_url') . '/' . $language . '/gallery/persons/_/256/256/' . $this->photo;
+      } else {
+         $file_name = $file_name = config('avorg.static_url') . '/' . $language . '/gallery/sponsors/_/256/256/default-logo.png';
+      }
+      return $file_name;
+   }
+
+   public function getLogoLargeAttribute() {
+
+      $language = config('avorg.lang_hash')[config('avorg.default_lang')];
+      if ( $this->photo != "" ) {
+         $file_name = config('avorg.static_url') . '/' . $language . '/gallery/persons/_/500/500/' . $this->photo;
+      } else {
+         $file_name = $file_name = config('avorg.static_url') . '/' . $language . '/gallery/sponsors/_/500/500/default-logo.png';
+      }
+      return $file_name;
+   }
+
+   public function getSummaryAttribute($value) {
+      return preg_replace("/[\r\n]+/", "", strip_tags(html_entity_decode($value)));
+   }
+   public function getDescriptionAttribute($value) {
+      return preg_replace("/[\r\n]+/", "", strip_tags(html_entity_decode($value)));
+   }
 }

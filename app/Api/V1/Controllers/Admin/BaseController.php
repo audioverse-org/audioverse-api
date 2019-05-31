@@ -14,6 +14,9 @@ class BaseController extends Controller
     public $page;
     public $where = ['active' => 1, 'hidden' => 0];
 
+    private $conferenceHidden = 0;
+    private $sponsorHidden = 0;
+    
     public function __construct(Request $request)
     {
         config(['avorg.default_lang' => $request->input('lang', config('avorg.default_lang')) ]);

@@ -84,6 +84,23 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
 
     $api->group(['prefix' => 'admin'], function(Router $api) {
       $api->get('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+      $api->post('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@create');
+      $api->put('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@update');
+      $api->delete('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@delete');
+
+      $api->get('presenter', 'App\Api\V1\Controllers\Admin\PresenterController@all');
+      $api->post('presenter', 'App\Api\V1\Controllers\Admin\PresenterController@create');
+      $api->put('presenter', 'App\Api\V1\Controllers\Admin\PresenterController@update');
+      $api->delete('presenter', 'App\Api\V1\Controllers\Admin\PresenterController@delete');
+
+      $api->get('series', 'App\Api\V1\Controllers\Admin\SeriesController@all');
+      $api->post('series', 'App\Api\V1\Controllers\Admin\SeriesController@create');
+      $api->put('series', 'App\Api\V1\Controllers\Admin\SeriesController@update');
+      $api->delete('series', 'App\Api\V1\Controllers\Admin\SeriesController@delete');
+
       $api->get('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@all');
+      $api->post('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@create');
+      $api->put('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@update');
+      $api->delete('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@delete');
     });
 });

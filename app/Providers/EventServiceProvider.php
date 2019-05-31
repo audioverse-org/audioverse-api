@@ -13,10 +13,13 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SignUp' => [
+         'App\Events\SignUp' => [
             'App\Listeners\SubscribeNewsletter',
             'App\Listeners\AddUserSocialAuth'
-        ],
+         ],
+        'App\Events\UpdateHiddenFields' => [
+            'App\Listeners\SetHiddenFields',
+         ],
     ];
 
     /**
