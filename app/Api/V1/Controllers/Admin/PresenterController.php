@@ -29,7 +29,7 @@ class PresenterController extends BaseController {
          $item = Presenter::where($this->where)->findOrFail($id);
          return $this->response->item($item, new PresenterTransformer);
       } catch ( ModelNotFoundException $e) {
-         return $this->response->errorNotFound("Presenter {$id} not found");
+         return $this->response->errorNotFound("Presenter {$id} not found.");
       }
    }
 
@@ -48,7 +48,6 @@ class PresenterController extends BaseController {
    public function update(PresenterRequest $request) {
 
       try {
-
          $presenter = Presenter::findOrFail($request->id);
          $this->setFields($request, $presenter);
          $presenter->update();

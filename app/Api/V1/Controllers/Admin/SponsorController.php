@@ -4,7 +4,7 @@ namespace App\Api\V1\Controllers\Admin;
 use App\Api\V1\Requests\SponsorRequest;
 use App\Api\V1\Requests\UpdateSponsorRequest;
 use App\Sponsor;
-use App\Transformers\World\SponsorTransformer;
+use App\Transformers\Admin\SponsorTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class SponsorController extends BaseController 
@@ -22,20 +22,17 @@ class SponsorController extends BaseController
          ->paginate(config('avorg.page_size'));
 
       if ($sponsor->count() == 0) {
-         return $this->response->errorNotFound("Sponsors not found");
+         return $this->response->errorNotFound("Sponsors not found.");
       }
 
       return $this->response->paginator($sponsor, new SponsorTransformer);
    }
 
    public function one($sponsor_id) {
-      try 
-      {
+      try {
          $item = Sponsor::where($this->where)->findOrFail($sponsor_id);
          return $this->response->item($item, new SponsorTransformer);
-      } 
-      catch (ModelNotFoundException $e) 
-      {
+      } catch (ModelNotFoundException $e) {
          return $this->response->errorNotFound("Sponsor {$sponsor_id} not found.");
       }
    }

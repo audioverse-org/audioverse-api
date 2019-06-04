@@ -3,6 +3,7 @@ namespace App\Api\V1\Controllers\Admin;
 
 use App\Conference;
 use App\Series;
+use App\Sponsor;
 use App\Api\V1\Requests\SeriesRequest;
 use App\Transformers\Admin\SeriesTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -42,8 +43,7 @@ class SeriesController extends BaseController
 
    public function create(SeriesRequest $request) 
    {
-      try 
-      {
+      try {
          $series = new Series();
          $this->setFields($request, $series);
          $series->save();
@@ -93,32 +93,33 @@ class SeriesController extends BaseController
          }
       
          else {
-            return $this->response->errorNotFound("Conference {$request->id} is referenced in another table thus can not be deleted.");
+            return $this->response->errorNotFound("Series {$request->id} is referenced in another table thus can not be deleted.");
          }
       } catch (ModelNotFoundException $e) {
          return $this->response->errorNotFound("Series {$request->id} not found.");
       }
    }
    private function setFields(SeriesRequest $request, Series $series) {
-
+      
       try {
          $item = Sponsor::where([
             'active' => 1
          ])->findOrFail($request->sponsorId);
       } 
       catch (ModelNotFoundException $e) {
-         throw new ModelNotFoundException("Series $request->seriesId does not exist.");
+         throw new ModelNotFoundException("Sponsor $request->sponsorId does not exist.");
       }
 
-      try {
-         $item = Conference::where([
-            'active' => 1
-         ])->findOrFail($request->conferenceId);
-      } 
-      catch (ModelNotFoundException $e) {
-         throw new ModelNotFoundException("Conference $request->conferenceId does not exist.");
+      if ($request->conferenceId > 0) {
+         try {
+            $item = Conference::where([
+               'active' => 1
+            ])->findOrFail($request->conferenceId);
+         } 
+         catch (ModelNotFoundException $e) {
+            throw new ModelNotFoundException("Conference $request->conferenceId does not exist.");
+         }
       }
-
       $series->contentType = $request->contentType;
       $series->sponsorId = $request->sponsorId;
       $series->conferenceId = $request->conferenceId;
@@ -129,6 +130,12 @@ class SeriesController extends BaseController
       $series->logo = $request->logo;
       $series->isbn = $request->isbn;
       $series->lang = $request->lang;
+
+      // We are not using these fiels anymore, but we still need to set it to blank
+      $series->sponsorTitle = '';
+      $series->sponsorLogo = '';
+      $series->conferenceTitle = '';
+      $series->conferenceLogo = '';
 
       // When update, hidden calculation will be handled by UpdateHiddenFields event.
       $series->hiddenBySelf = $request->hidden;

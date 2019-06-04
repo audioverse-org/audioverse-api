@@ -53,17 +53,18 @@ class SetHiddenFields
    }
 
    private function updateSeries(\App\Series $series) {
+
+      app('log')->info("SET hidden = {$series->hiddenBySelf} for series {$series->seriesId}");
       $series->hidden = 
          $series->hiddenBySelf + 
          $series->hiddenByConference + 
          $series->hiddenBySponsor;
-      $series->save();
    }
 
    private function updateRecordingsBySeries(\App\Series $series) {
 
-      $recordings = $series->recordings()->getResuls();
-      if ($recording->isNotEmpty()) {
+      $recordings = $series->recordings()->getResults();
+      if ($recordings->isNotEmpty()) {
          foreach ($recordings as $recording) {
             app('log')->info("SET hiddenBySeries = {$series->hiddenBySelf} for recording {$recording->recordingId}");
             $recording->hiddenBySeries = $series->hiddenBySelf;
@@ -82,8 +83,8 @@ class SetHiddenFields
 
    private function updateRecordingsByConference(\App\Conference $conference) {
 
-      $recordings = $conference->recordings()->getResuls();
-      if ($recording->isNotEmpty()) {
+      $recordings = $conference->recordings()->getResults();
+      if ($recordings->isNotEmpty()) {
          foreach ($recordings as $recording) {
             app('log')->info("SET hiddenByConference = {$conference->hiddenBySelf} for recording {$recording->recordingId}");
             $recording->hiddenByConference = $conference->hiddenBySelf;

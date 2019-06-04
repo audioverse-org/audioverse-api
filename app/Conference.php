@@ -31,7 +31,7 @@ class Conference extends Model {
    }
 
    public function seriess() {
-      return $this->hasMany('App\Seriess', 'conferenceId', 'conferenceId')->where([
+      return $this->hasMany('App\Series', 'conferenceId', 'conferenceId')->where([
          'active' => 1
       ]);
    }

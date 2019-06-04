@@ -29,10 +29,20 @@ class ConferenceController extends BaseController
 
       if ( $presenter->count() == 0 ) 
       {
-         return $this->response->errorNotFound("Conference not found");
+         return $this->response->errorNotFound("Conference not found.");
       }
 
       return $this->response->paginator($presenter, new ConferenceTransformer);
+   }
+
+   public function one($conference_id) {
+
+      try {
+         $item = Conference::where($this->where)->findOrFail($conference_id);
+         return $this->response->item($item, new ConferenceTransformer);
+      } catch( ModelNotFoundException $e) {
+         return $this->response->errorNotFound("Conference {$conference_id} not found.");
+      }
    }
 
    public function create(ConferenceRequest $request) {
