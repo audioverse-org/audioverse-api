@@ -1,12 +1,12 @@
 <?php
 namespace App\Transformers\Admin;
 
-use League\Fractal\TransformerAbstract;
 use App\Presenter;
+use App\Transformers\BaseTransformer;
 
-class PresenterTransformer extends TransformerAbstract {
+class PresenterTransformer extends BaseTransformer {
 
-    public function transform(Presenter $presenter) {
+   public function transform(Presenter $presenter) {
 
       return [
          'id' => $presenter->personId,
@@ -36,12 +36,12 @@ class PresenterTransformer extends TransformerAbstract {
          'contactAddress' => $presenter->contactAddress,
          'contactPhone' => $presenter->contactPhone,
          'contactEmail' => $presenter->contactEmail,
-         'created' => $presenter->created,
-         'modified' => $presenter->modified,
+         'created' => $presenter->created->toDateTimeString(),
+         'modified' => $this->checkModifiedDateIfValid($presenter),
          'lang' => $presenter->lang,
          'hiddenBySelf' => $presenter->hiddenBySelf,
          'hidden' => $presenter->hidden,
          'notes' => $presenter->notes,
       ];
-    }
+   }
 }

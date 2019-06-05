@@ -1,12 +1,12 @@
 <?php
 namespace App\Transformers\Admin;
 
-use League\Fractal\TransformerAbstract;
 use App\Series;
+use App\Transformers\BaseTransformer;
 use App\Transformers\Joins\ConferenceIncludeTransformer;
 use App\Transformers\Joins\SponsorIncludeTransformer;
 
-class SeriesTransformer extends TransformerAbstract {
+class SeriesTransformer extends BaseTransformer {
    
    protected $defaultIncludes = [
       'sponsor',
@@ -30,8 +30,8 @@ class SeriesTransformer extends TransformerAbstract {
             'large' => $series->logoLarge,
          ],
          'isbn' => $series->isbn,
-         'created' => $series->created,
-         'modified' => $series->modified,
+         'created' => $series->created->toDateTimeString(),
+         'modified' => $this->checkModifiedDateIfValid($series),
          'lang' => $series->lang,
          'hiddenBySelf' => $series->hiddenBySelf,
          'hiddenByConference' => $series->hiddenByConference,

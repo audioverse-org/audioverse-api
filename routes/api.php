@@ -83,28 +83,29 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
     });
 
     $api->group(['prefix' => 'admin'], function(Router $api) {
-      $api->get('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
-      $api->get('conference/{id}', 'App\Api\V1\Controllers\Admin\ConferenceController@one');
-      $api->post('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@create');
-      $api->put('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@update');
-      $api->delete('conference', 'App\Api\V1\Controllers\Admin\ConferenceController@delete');
+      $api->get('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+      $api->get('conferences/{id}', 'App\Api\V1\Controllers\Admin\ConferenceController@one');
+      $api->post('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@create');
+      $api->put('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@update');
+      $api->delete('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@delete');
 
-      $api->get('presenter', 'App\Api\V1\Controllers\Admin\PresenterController@all');
-      $api->get('presenter/{id}', 'App\Api\V1\Controllers\Admin\PresenterController@one');
-      $api->post('presenter', 'App\Api\V1\Controllers\Admin\PresenterController@create');
-      $api->put('presenter', 'App\Api\V1\Controllers\Admin\PresenterController@update');
-      $api->delete('presenter', 'App\Api\V1\Controllers\Admin\PresenterController@delete');
+      $api->get('presenters', 'App\Api\V1\Controllers\Admin\PresenterController@all');
+      $api->get('presenters/mass', 'App\Api\V1\Controllers\Admin\PresenterController@mass');
+      $api->get('presenters/{id}', 'App\Api\V1\Controllers\Admin\PresenterController@one');
+      $api->post('presenters', 'App\Api\V1\Controllers\Admin\PresenterController@create');
+      $api->put('presenters', 'App\Api\V1\Controllers\Admin\PresenterController@update');
+      $api->delete('presenters', 'App\Api\V1\Controllers\Admin\PresenterController@delete');
 
-      $api->get('series', 'App\Api\V1\Controllers\Admin\SeriesController@all');
-      $api->get('series/{id}', 'App\Api\V1\Controllers\Admin\SeriesController@one');
-      $api->post('series', 'App\Api\V1\Controllers\Admin\SeriesController@create');
-      $api->put('series', 'App\Api\V1\Controllers\Admin\SeriesController@update');
-      $api->delete('series', 'App\Api\V1\Controllers\Admin\SeriesController@delete');
+      $api->get('seriess', 'App\Api\V1\Controllers\Admin\SeriesController@all');
+      $api->get('seriess/{id}', 'App\Api\V1\Controllers\Admin\SeriesController@one');
+      $api->post('seriess', 'App\Api\V1\Controllers\Admin\SeriesController@create');
+      $api->put('seriess', 'App\Api\V1\Controllers\Admin\SeriesController@update');
+      $api->delete('seriess', 'App\Api\V1\Controllers\Admin\SeriesController@delete');
 
-      $api->get('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@all');
-      $api->get('sponsor/{id}', 'App\Api\V1\Controllers\Admin\SponsorController@one');
-      $api->post('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@create');
-      $api->put('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@update');
-      $api->delete('sponsor', 'App\Api\V1\Controllers\Admin\SponsorController@delete');
+      $api->get('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@all');
+      $api->get('sponsors/{id}', 'App\Api\V1\Controllers\Admin\SponsorController@one');
+      $api->post('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@create');
+      $api->put('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@update');
+      $api->delete('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@delete');
     });
 });

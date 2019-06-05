@@ -2,16 +2,17 @@
 namespace App\Transformers\Admin;
 
 use App\Conference;
+use App\Transformers\BaseTransformer;
 use App\Transformers\Joins\SponsorIncludeTransformer;
-use League\Fractal\TransformerAbstract;
 
-class ConferenceTransformer extends TransformerAbstract {
+class ConferenceTransformer extends BaseTransformer {
 
    protected $defaultIncludes = [
       'sponsor',
    ];
 
    public function transform(Conference $conference) {
+      
       return [
          'id' => $conference->conferenceId,
          'contentType' => $conference->contentType,
@@ -26,8 +27,8 @@ class ConferenceTransformer extends TransformerAbstract {
             'medium' => $conference->logoMedium,
             'large' => $conference->logoLarge,
          ],
-         'created' => $conference->created,
-         'modified' => $conference->modified,
+         'created' => $conference->created->toDateTimeString(),
+         'modified' => $this->checkModifiedDateIfValid($conference),
          'lang' => $conference->lang,
          'hiddenBySelf' => $conference->hiddenBySelf,
          'hiddenBySponsor' => $conference->hiddenBySponsor,

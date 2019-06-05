@@ -23,6 +23,21 @@ class PresenterController extends BaseController {
       return $this->response->paginator($presenter, new PresenterTransformer);
    }
 
+   public function mass() {
+
+      $this->where = array_merge($this->where, [
+         'lang' => config('avorg.default_lang'),
+      ]);
+
+      $presenter = Presenter::where($this->where)->get();
+
+      if ( $presenter->count() == 0 ) {
+         return $this->response->errorNotFound("Presenters not found");
+      }
+
+      return $this->response->collection($presenter, new PresenterTransformer);
+   }
+
    public function one($id) {
 
       try {

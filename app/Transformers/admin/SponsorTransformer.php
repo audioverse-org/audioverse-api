@@ -1,10 +1,10 @@
 <?php
 namespace App\Transformers\Admin;
 
-use League\Fractal\TransformerAbstract;
 use App\Sponsor;
+use App\Transformers\BaseTransformer;
 
-class SponsorTransformer extends TransformerAbstract {
+class SponsorTransformer extends BaseTransformer {
 
     public function transform(Sponsor $sponsor) {
 
@@ -29,8 +29,8 @@ class SponsorTransformer extends TransformerAbstract {
          'contactName' => $sponsor->contactName,
          'contactAddress' => $sponsor->contactAddress,
          'contactPhone' => $sponsor->contactPhone,
-         'created' => $sponsor->created,
-         'modified' => $sponsor->modified,
+         'created' => $sponsor->created->toDateTimeString(),
+         'modified' => $this->checkModifiedDateIfValid($sponsor),
          'lang' => $sponsor->lang,
          'hiddenBySelf' => $sponsor->hiddenBySelf,
          'hidden' => $sponsor->hidden,
