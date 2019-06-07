@@ -21,36 +21,36 @@ $api = app(Router::class);
 // Only access tokens with the "read_user_data" scope will be given access.
 $api->version('v1', ['middleware' => 'api.auth'], function($api) {
 
-    $api->get('presentation', 'App\Api\V1\Controllers\World\PresentationController@presentations');
-    $api->get('presentation/{id}', 'App\Api\V1\Controllers\World\PresentationController@one');
+    $api->get('presentations', 'App\Api\V1\Controllers\World\PresentationController@presentations');
+    $api->get('presentations/{id}', 'App\Api\V1\Controllers\World\PresentationController@one');
 
-    $api->get('audiobook', 'App\Api\V1\Controllers\World\AudiobookController@audiobooks');
-    $api->get('audiobook/{id}', 'App\Api\V1\Controllers\World\AudiobookController@audiobook');
-    $api->get('audiobook/{id}/chapter', 'App\Api\V1\Controllers\World\AudiobookController@presentations');
+    $api->get('audiobooks', 'App\Api\V1\Controllers\World\AudiobookController@audiobooks');
+    $api->get('audiobooks/{id}', 'App\Api\V1\Controllers\World\AudiobookController@audiobook');
+    $api->get('audiobooks/{id}/chapters', 'App\Api\V1\Controllers\World\AudiobookController@presentations');
 
-    $api->get('story', 'App\Api\V1\Controllers\World\AudiobookController@audiobooks');
-    $api->get('story/{id}', 'App\Api\V1\Controllers\World\AudiobookController@audiobook');
-    $api->get('story/{id}/chapter', 'App\Api\V1\Controllers\World\AudiobookController@presentations');
+    $api->get('stories', 'App\Api\V1\Controllers\World\AudiobookController@audiobooks');
+    $api->get('stories/{id}', 'App\Api\V1\Controllers\World\AudiobookController@audiobook');
+    $api->get('stories/{id}/chapters', 'App\Api\V1\Controllers\World\AudiobookController@presentations');
 
-    $api->get('presenter', 'App\Api\V1\Controllers\World\PresenterController@all');
-    $api->get('presenter/{id}', 'App\Api\V1\Controllers\World\PresenterController@one');
-    $api->get('presenter/{id}/presentation', 'App\Api\V1\Controllers\World\PresenterController@presentation ');
+    $api->get('presenters', 'App\Api\V1\Controllers\World\PresenterController@all');
+    $api->get('presenters/{id}', 'App\Api\V1\Controllers\World\PresenterController@one');
+    $api->get('presenters/{id}/presentations', 'App\Api\V1\Controllers\World\PresenterController@presentation ');
 
-    $api->get('conference', 'App\Api\V1\Controllers\World\ConferenceController@all');
-    $api->get('conference/{id}', 'App\Api\V1\Controllers\World\ConferenceController@one');
-    $api->get('conference/{id}/presentation', 'App\Api\V1\Controllers\World\ConferenceController@presentations');
+    $api->get('conferences', 'App\Api\V1\Controllers\World\ConferenceController@all');
+    $api->get('conferences/{id}', 'App\Api\V1\Controllers\World\ConferenceController@one');
+    $api->get('conferences/{id}/presentations', 'App\Api\V1\Controllers\World\ConferenceController@presentations');
 
-    $api->get('series', 'App\Api\V1\Controllers\World\SeriesController@all');
-    $api->get('series/{id}', 'App\Api\V1\Controllers\World\SeriesController@one');
-    $api->get('series/{id}/presentation', 'App\Api\V1\Controllers\World\SeriesController@presentations');
+    $api->get('seriess', 'App\Api\V1\Controllers\World\SeriesController@all');
+    $api->get('seriess/{id}', 'App\Api\V1\Controllers\World\SeriesController@one');
+    $api->get('seriess/{id}/presentations', 'App\Api\V1\Controllers\World\SeriesController@presentations');
 
-    $api->get('sponsor', 'App\Api\V1\Controllers\World\SponsorController@all');
-    $api->get('sponsor/{id}', 'App\Api\V1\Controllers\World\SponsorController@one');
-    $api->get('sponsor/{id}/presentation', 'App\Api\V1\Controllers\World\SponsorController@presentations');
+    $api->get('sponsors', 'App\Api\V1\Controllers\World\SponsorController@all');
+    $api->get('sponsors/{id}', 'App\Api\V1\Controllers\World\SponsorController@one');
+    $api->get('sponsors/{id}/presentations', 'App\Api\V1\Controllers\World\SponsorController@presentations');
 
-    $api->get('topic', 'App\Api\V1\Controllers\World\TopicController@all');
-    $api->get('topic/{id}', 'App\Api\V1\Controllers\World\TopicController@all');
-    $api->get('topic/{id}/presentation', 'App\Api\V1\Controllers\World\TopicController@presentations');
+    $api->get('topics', 'App\Api\V1\Controllers\World\TopicController@all');
+    $api->get('topics/{id}', 'App\Api\V1\Controllers\World\TopicController@all');
+    $api->get('topics/{id}/presentations', 'App\Api\V1\Controllers\World\TopicController@presentations');
 
     $api->get('music','App\Api\V1\Controllers\World\MusicController@latest');
     $api->get('music/albums','App\Api\V1\Controllers\World\MusicController@albums');
