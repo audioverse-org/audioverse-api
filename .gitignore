@@ -8,3 +8,4 @@ Homestead.yaml
 .env
 composer.phar
 /logs
+.vscode

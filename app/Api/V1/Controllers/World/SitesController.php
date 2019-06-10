@@ -9,7 +9,7 @@ namespace App\Api\V1\Controllers\World;
 
 use App\Tag;
 use App\TagRecording;
-use App\Transformers\RecordingTransformer;
+use App\Transformers\World\RecordingTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;

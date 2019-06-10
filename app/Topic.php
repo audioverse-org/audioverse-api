@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
-
     protected $table = 'catalogTopics';
     protected $primaryKey = 'topicId';
 

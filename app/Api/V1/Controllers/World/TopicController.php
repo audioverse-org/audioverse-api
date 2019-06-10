@@ -10,7 +10,7 @@ namespace App\Api\V1\Controllers\World;
 
 
 use App\Topic;
-use App\Transformers\TopicTransformer;
+use App\Transformers\World\TopicTransformer;
 
 class TopicController extends BaseController
 {

@@ -1,21 +1,15 @@
 <?php
-
-
-namespace App\Transformers;
-
+namespace App\Transformers\Joins;
 
 use League\Fractal\TransformerAbstract;
 use App\Conference;
 
-class ConferenceTransformer extends TransformerAbstract
-{
+class ConferenceIncludeTransformer extends TransformerAbstract {
+
     public function transform(Conference $conference) {
 
         return [
-            'id' => $conference->conferenceId,
             'title' => $conference->title,
-            'summary' => $conference->summary,
-            'description' => $conference->description,
             'logo' => [
                 'small' => $conference->logoSmall,
                 'medium' => $conference->logoMedium,

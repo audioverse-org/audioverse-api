@@ -1,9 +1,8 @@
 <?php
-
 namespace App\Api\V1\Controllers\World;
 
 use App\Sponsor;
-use App\Transformers\SponsorTransformer;
+use App\Transformers\World\SponsorTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class SponsorController extends BaseController {

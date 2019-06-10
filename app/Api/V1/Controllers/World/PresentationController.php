@@ -8,7 +8,7 @@
 namespace App\Api\V1\Controllers\World;
 
 use App\Recording;
-use App\Transformers\RecordingTransformer;
+use App\Transformers\World\RecordingTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PresentationController extends BaseController
