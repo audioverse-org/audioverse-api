@@ -16,7 +16,6 @@ class SeriesController extends BaseController
 
       $this->where = array_merge($this->where, [
          'lang' => config('avorg.default_lang'),
-         'hidden' => 0,
          'contentType' => config('avorg.content_type.presentation')
       ]);
 
@@ -25,7 +24,7 @@ class SeriesController extends BaseController
          ->paginate(config('avorg.page_size'));
 
       if ( $series->count() == 0 ) {
-         return $this->response->errorNotFound("Series not found");
+         return $this->response->errorNotFound("Seriess not found");
       }
 
       return $this->response->paginator($series, new SeriesTransformer);

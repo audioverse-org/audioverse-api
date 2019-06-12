@@ -13,8 +13,7 @@ class SponsorController extends BaseController
 
    public function all() {
       $this->where = array_merge($this->where, [
-         'lang' => config('avorg.default_lang'),
-         'hidden' => 0
+         'lang' => config('avorg.default_lang')
       ]);
 
       $sponsor = Sponsor::where($this->where)

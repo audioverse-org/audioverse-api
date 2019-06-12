@@ -137,4 +137,13 @@ return [
    'screening' => [
       'defaultPersonEvals' => 1
    ],
+
+   // Legal Terms Form Type
+   'formType' => [
+      'Conference' => 'Conference',
+      'Hosting' => 'Hosting',
+      'Regular' => 'Regular',
+      'Music' => 'Music',
+      'Master' => 'Master',
+   ],
 ];

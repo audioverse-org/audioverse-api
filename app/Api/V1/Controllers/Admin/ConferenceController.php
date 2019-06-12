@@ -18,9 +18,8 @@ class ConferenceController extends BaseController
    public function all() {
 
       $this->where = array_merge($this->where, [
-            'lang' => config('avorg.default_lang'),
-            'hidden' => 0,
-            'contentType' => config('avorg.content_type.presentation')
+         'lang' => config('avorg.default_lang'),
+         'contentType' => config('avorg.content_type.presentation')
       ]);
 
       $presenter = Conference::where($this->where)
@@ -29,7 +28,7 @@ class ConferenceController extends BaseController
 
       if ( $presenter->count() == 0 ) 
       {
-         return $this->response->errorNotFound("Conference not found.");
+         return $this->response->errorNotFound("Conferences not found.");
       }
 
       return $this->response->paginator($presenter, new ConferenceTransformer);
