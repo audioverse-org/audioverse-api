@@ -55,6 +55,9 @@ class Recording extends Model
                 ->where('active', '=', 1);
         });
     }
+    public function agreement() {
+      return $this->hasOne('App\Agreement', 'agreementId', 'agreementId');
+   }
 
     public function topics() {
         return $this->belongsToMany('App\Topic', 'catalogTopicsMap', 'recordingId', 'topicId' );

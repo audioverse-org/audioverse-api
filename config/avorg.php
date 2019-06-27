@@ -137,4 +137,29 @@ return [
    'screening' => [
       'defaultPersonEvals' => 1
    ],
+
+   // Legal Terms Form Type
+   'formType' => [
+      'Conference' => 'Conference',
+      'Hosting' => 'Hosting',
+      'Regular' => 'Regular',
+      'Music' => 'Music',
+      'Master' => 'Master',
+   ],
+
+   // TODO File status
+   'fileStatus' => [
+      'FINISHED' => 0,
+   ],
+
+   // TODO Content status
+   'contentStatus' => [
+
+   ],
+
+   'legalStatus' => [
+      'Approved' => 0,
+      'Rejected' => 10,
+      'Pending' => 20
+   ]
 ];

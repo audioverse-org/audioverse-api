@@ -12,7 +12,7 @@ class BaseController extends Controller
     
     public $per_page;
     public $page;
-    public $where = ['active' => 1, 'hidden' => 0];
+    public $where = ['active' => 1];
 
     private $conferenceHidden = 0;
     private $sponsorHidden = 0;
