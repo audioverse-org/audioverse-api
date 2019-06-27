@@ -11,6 +11,15 @@ class Agreement extends Model {
    const CREATED_AT = 'created';
    const UPDATED_AT = 'modified';
    
+   /**
+   * The event map for the model.
+   *
+   * @var array
+   */
+   protected $events = [
+      'updated' => \App\Events\UpdateHiddenFields::class
+   ];
+
    public function owner() {
       return $this->hasOne('App\Owner', 'ownerId', 'ownerId')->where(['active' => 1]);
    }

@@ -11,7 +11,7 @@ class LegalRelease extends Model {
    const UPDATED_AT = 'modified';
 
    public function term() {
-      return $this->hasOne('App\LegalTerm');
+      return $this->hasOne('App\LegalTerm', 'id', 'termsId');
    }
 
    public function presenter() {

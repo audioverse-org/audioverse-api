@@ -3,12 +3,39 @@ namespace App\Transformers\Admin;
 
 use App\LegalRelease;
 use App\Transformers\BaseTransformer;
+use App\Transformers\Joins\ConferenceIncludeTransformer;
+use App\Transformers\Joins\PresenterIncludeTransformer;
+use App\Transformers\Joins\LegalTermIncludeTransformer;
 
 class LegalReleaseTransformer extends BaseTransformer {
 
    public function transform(LegalRelease $legalRelease) {
-      
-      // TODO calculate coverage
+
+      $conferenceCoverage = 'N/A';
+      $presenterFullName = 'None';      
+      $legalTerm = '';
+      $recordingCoverage = 'N/A';
+
+      $term = $legalRelease->term;
+      if ($term) {
+         $recordingCoverage = $term->formType;
+         $legalTerm = $term->label;
+      }
+
+      $presenter = $legalRelease->presenter;
+      if ($presenter) {
+         $presenterFullName = $presenter->surname . ', ' . $presenter->givenName;
+      }
+
+      if ($recordingCoverage == 'Master') {
+         $conferenceCoverage = 'Master';
+      } else {
+         $conference = $legalRelease->conference;
+         if ($conference) {
+            $conferenceCoverage = $conference->title;
+         } 
+      }
+
       return [
          'id' => $legalRelease->id,
          'conferenceId' => $legalRelease->conferenceId,
@@ -16,8 +43,11 @@ class LegalReleaseTransformer extends BaseTransformer {
          'personId' => $legalRelease->personId,
          'recordingId' => $legalRelease->recordingId,
          'agree' => $legalRelease->agree,
-         'firstName' => $legalRelease->firstName,
-         'lastName' => $legalRelease->lastName,
+         'speaker' => $legalRelease->lastName .', '.$legalRelease->firstName,
+         'presenter' => $presenterFullName,
+         'legalTerm' => $legalTerm,
+         'recordingCoverage' => $recordingCoverage,
+         'conferenceCoverage' => $conferenceCoverage,
          'email' => $legalRelease->email,
          'phone' => $legalRelease->phone,
          'address' => $legalRelease->address,

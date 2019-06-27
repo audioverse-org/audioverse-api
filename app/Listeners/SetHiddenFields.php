@@ -10,8 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 /**
  * TODO: This event should queue
  */
-class SetHiddenFields
-//class SetHiddenField implements ShouldQueue
+class SetHiddenFields // TODO implements ShouldQueue
 {
    /**
     * Create the event listener.
@@ -20,7 +19,7 @@ class SetHiddenFields
       */
    public function __construct()
    {
-      //
+      // Do nothing
    }
 
    /**
@@ -31,8 +30,10 @@ class SetHiddenFields
       */
    public function handle(UpdateHiddenFields $event)
    {
-      app('log')->info(get_class($event->model));
       switch (get_class($event->model)) {
+         case 'App\Agreement':
+            $this->updateRecordingsByAgreement($event->model);
+            break;
          case 'App\Conference':
             $this->updateRecordingsByConference($event->model);
             $this->updateSeriessByConference($event->model);
@@ -49,6 +50,25 @@ class SetHiddenFields
             $this->updateConferenceBySponsor($event->model);
             $this->updateSeriesBySponsor($event->model);
             break;
+      }
+   }
+
+   private function updateRecordingsByAgreement(\App\Agreement $agreement) {
+      $recordings = $agreement->recordings()->getResults();
+      if ($recordings->isNotEmpty()) {
+         foreach ($recordings as $recording) {
+            app('log')->info("SET hiddenByAgreement = {$agreement->hiddenBySelf} for recording {$recording->recordingId}");
+            $recording->hiddenByAgreement = $agreement->hiddenBySelf;
+            $recording->hidden = 
+               $recording->hiddenBySelf + 
+               $recording->hiddenByTopics + 
+               $recording->hiddenByPersons +
+               $recording->hiddenBySeries + 
+               $recording->hiddenByConference + 
+               $recording->hiddenBySponsor +
+               $recording->hiddenByAgreement;
+            $recording->save();
+         }
       }
    }
 

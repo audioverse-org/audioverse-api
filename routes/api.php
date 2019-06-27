@@ -84,30 +84,49 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
 
     $api->group(['prefix' => 'admin'], function(Router $api) {
 
-      $api->get('agreements', 'App\Api\V1\Controllers\Admin\AgreementController@all');
-      $api->get('agreements/{id}', 'App\Api\V1\Controllers\Admin\AgreementController@one');
-      $api->get('agreements/{id}/recordings', 'App\Api\V1\Controllers\Admin\AgreementController@recordings');
-      $api->post('agreements', 'App\Api\V1\Controllers\Admin\AgreementController@create');
-      $api->put('agreements', 'App\Api\V1\Controllers\Admin\AgreementController@update');
-      $api->delete('agreements', 'App\Api\V1\Controllers\Admin\AgreementController@delete');
-
       $api->get('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
       $api->get('conferences/{id}', 'App\Api\V1\Controllers\Admin\ConferenceController@one');
       $api->post('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@create');
       $api->put('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@update');
       $api->delete('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@delete');
 
-      $api->get('licenses', 'App\Api\V1\Controllers\Admin\LicenseController@all');
-      $api->get('licenses/{id}', 'App\Api\V1\Controllers\Admin\LicenseController@one');
-      $api->post('licenses', 'App\Api\V1\Controllers\Admin\LicenseController@create');
-      $api->put('licenses', 'App\Api\V1\Controllers\Admin\LicenseController@update');
-      $api->delete('licenses', 'App\Api\V1\Controllers\Admin\LicenseController@delete');
+      $api->group(['prefix' => 'legal'], function(Router $api) {
+         
+         $api->get('agreements', 'App\Api\V1\Controllers\Admin\AgreementController@all');
+         $api->get('agreements/{id}', 'App\Api\V1\Controllers\Admin\AgreementController@one');
+         $api->get('agreements/{id}/presentations', 'App\Api\V1\Controllers\Admin\AgreementController@recordings');
+         $api->post('agreements', 'App\Api\V1\Controllers\Admin\AgreementController@create');
+         $api->put('agreements', 'App\Api\V1\Controllers\Admin\AgreementController@update');
+         $api->delete('agreements', 'App\Api\V1\Controllers\Admin\AgreementController@delete');
 
-      $api->get('owners', 'App\Api\V1\Controllers\Admin\OwnerController@all');
-      $api->get('owners/{id}', 'App\Api\V1\Controllers\Admin\OwnerController@one');
-      $api->post('owners', 'App\Api\V1\Controllers\Admin\OwnerController@create');
-      $api->put('owners', 'App\Api\V1\Controllers\Admin\OwnerController@update');
-      $api->delete('owners', 'App\Api\V1\Controllers\Admin\OwnerController@delete');
+         $api->get('licenses', 'App\Api\V1\Controllers\Admin\LicenseController@all');
+         $api->get('licenses/{id}', 'App\Api\V1\Controllers\Admin\LicenseController@one');
+         $api->post('licenses', 'App\Api\V1\Controllers\Admin\LicenseController@create');
+         $api->put('licenses', 'App\Api\V1\Controllers\Admin\LicenseController@update');
+         $api->delete('licenses', 'App\Api\V1\Controllers\Admin\LicenseController@delete');
+
+         $api->get('releases', 'App\Api\V1\Controllers\Admin\LegalReleaseController@all');
+         $api->get('releases/{id}', 'App\Api\V1\Controllers\Admin\LegalReleaseController@one');
+         $api->post('releases', 'App\Api\V1\Controllers\Admin\LegalReleaseController@create');
+         $api->put('releases', 'App\Api\V1\Controllers\Admin\LegalReleaseController@update');
+         $api->delete('releases', 'App\Api\V1\Controllers\Admin\LegalReleaseController@delete');
+
+         $api->get('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@legalAll');
+         $api->get('presentations/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@legalOne');
+         $api->put('presentations/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@legalUpdate');
+
+         $api->get('owners', 'App\Api\V1\Controllers\Admin\OwnerController@all');
+         $api->get('owners/{id}', 'App\Api\V1\Controllers\Admin\OwnerController@one');
+         $api->post('owners', 'App\Api\V1\Controllers\Admin\OwnerController@create');
+         $api->put('owners', 'App\Api\V1\Controllers\Admin\OwnerController@update');
+         $api->delete('owners', 'App\Api\V1\Controllers\Admin\OwnerController@delete');
+
+         $api->get('terms', 'App\Api\V1\Controllers\Admin\LegalTermController@all');
+         $api->get('terms/{id}', 'App\Api\V1\Controllers\Admin\LegalTermController@one');
+         $api->post('terms', 'App\Api\V1\Controllers\Admin\LegalTermController@create');
+         $api->put('terms', 'App\Api\V1\Controllers\Admin\LegalTermController@update');
+         $api->delete('terms', 'App\Api\V1\Controllers\Admin\LegalTermController@delete');
+      });
 
       $api->get('presenters', 'App\Api\V1\Controllers\Admin\PresenterController@all');
       $api->get('presenters/mass', 'App\Api\V1\Controllers\Admin\PresenterController@mass');
@@ -127,11 +146,5 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
       $api->post('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@create');
       $api->put('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@update');
       $api->delete('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@delete');
-
-      $api->get('terms', 'App\Api\V1\Controllers\Admin\LegalTermController@all');
-      $api->get('terms/{id}', 'App\Api\V1\Controllers\Admin\LegalTermController@one');
-      $api->post('terms', 'App\Api\V1\Controllers\Admin\LegalTermController@create');
-      $api->put('terms', 'App\Api\V1\Controllers\Admin\LegalTermController@update');
-      $api->delete('terms', 'App\Api\V1\Controllers\Admin\LegalTermController@delete');
     });
 });
