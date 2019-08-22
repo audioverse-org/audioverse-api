@@ -10,10 +10,6 @@ class OwnerController extends BaseController
 {
    public function all() {
 
-      $this->where = array_merge($this->where, [
-         'lang' => config('avorg.default_lang')
-      ]);
-
       $owner = Owner::where([
          'lang' => config('avorg.default_lang'),
          'active' => 1

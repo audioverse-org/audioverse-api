@@ -2,92 +2,77 @@
 namespace App\Api\V1\Controllers\Admin;
 
 use App\Recording;
+use App\Api\V1\Requests\RecordingRequest;
 use App\Api\V1\Requests\LegalUpdateRequest;
 use App\Transformers\Admin\RecordingTransformer;
 use App\Transformers\Admin\LegalRecordingTransformer;
-use App\Transformers\Admin\LegalReviewTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 
-class PresentationController extends BaseController
-{
-   /**
-     * List of presentations
-     *
-     * Returns a list of presentation. If defined, the list is filtered by contentType, and related table id defined
-     * through protected property in the extending class.
-     *
-     * @Get("/")
-     * @Versions({"v1"})
-     * @Request("id=123")
-     */
-   public function presentations($id=0) {
-
-      if ( property_exists($this, 'content_type') ) {
+class PresentationController extends BaseController {
+   
+   public function all(Request $request, $id=0) {
+      
+      $contentTypes = config('avorg.content_type');
+      $contentType = $this->getContentType($request->path());
+      
+      if ($contentType != $contentTypes['presentations']) {
+         if ($id > 0) {
             $this->where = array_merge($this->where, [
-               'contentType' => (int) $this->content_type,
+               'seriesId' => $id,
             ]);
-      } else {
-            $this->where = array_merge($this->where, [
-               'contentType' => 1,
-            ]);
-      }
-
-      if ( property_exists($this, 'model_id') ) {
-            $this->where = array_merge($this->where, [
-               $this->model_id => (int) $id,
-            ]);
+         }
       }
 
       $this->where = array_merge($this->where, [
-            'lang' => config('avorg.default_lang'),
-            'hasAudio' => 1,
-            'legalStatus' => 0,
-            'techStatus' => 0,
+         'contentType' => $contentType,
       ]);
 
       $presentation = Recording::where($this->where)
-            ->where(function($query) {
-               $query->orWhere('contentStatus', '=', 0)
-                  ->orWhere('contentStatus', '=', 1)
-                  ->orWhere('contentStatus', '=', 2);
-            })
-            ->orderBy('recordingDate', 'desc')
-            ->paginate(config('avorg.page_size'));
+         ->orderBy('recordingId', 'desc')
+         ->paginate(config('avorg.page_size'));
 
-      if ( $presentation->count() == 0 ) {
-            return $this->response->errorNotFound("Presentation not found");
+      if ($presentation->count() == 0) {
+         return $this->response->errorNotFound("Presentation not found.");
       }
 
       return $this->response->paginator($presentation, new RecordingTransformer);
    }
 
-   /**
-    * Presentation
-    *
-    * Get one presentation
-    *
-    * @Get("/")
-    * @Versions({"v1"})
-    */
    public function one($presentation_id) {
 
-      $this->where = array_merge($this->where, [
-         'legalStatus' => 0,
-         'techStatus' => 0,
-      ]);
       try {
-         $item = Recording::where($this->where)
-               ->where(function ($query) {
-                  $query->orWhere('contentStatus', '=', 0)
-                     ->orWhere('contentStatus', '=', 1)
-                     ->orWhere('contentStatus', '=', 2);
-               })->findOrFail($presentation_id);
+         $item = Recording::where($this->where)->findOrFail($presentation_id);
 
          return $this->response->item($item, new RecordingTransformer);
 
       } catch( ModelNotFoundException $e ) {
-         return $this->response->errorNotFound("Presentation {$presentation_id} not found");
+         return $this->response->errorNotFound("Presentation {$presentation_id} not found.");
       }
+   }
+
+   public function create(RecordingRequest $request) {
+
+      $recording = new Recording();
+      $this->setFields($request, $recording);
+      $recording->save();
+
+      // Get the newly saved recording id and insert data into pivot tables.
+      if (!is_null($request->speakerIds)) {
+         foreach ($request->speakerIds as $speakerId)
+         {
+            // TODO validate if speaker id exists
+            $recording->presenters()->attach(
+               $speakerId, 
+               ['role' => 'speaker', 'active' => 1]
+            );
+         }
+      }
+
+      return response()->json([
+         'message' => 'Recording added.',
+         'status_code' => 201
+      ], 201);
    }
 
    public function legalAll() {
@@ -132,9 +117,10 @@ class PresentationController extends BaseController
          $recording->legalStatus = $request->legalStatus;
          $recording->update();
 
-         // TODO Find out if there are changes to content approval rules
+         // TODO Find out if there are changes to content approval rules, old logic
+         // from admin for reference below:
 
-         /* LOGIC from admin
+         /* 
            // what's the next queue this recording goes into?
             $item = $table->find($item->recordingId)->current();
             if ($prevItem->legalStatus >= 10 && $item->legalStatus < 10) { // cleared the Legal queue
@@ -162,5 +148,72 @@ class PresentationController extends BaseController
       } catch (ModelNotFoundException $e) {
          return $this->response->errorNotFound("Legal review {$request->id} not found.");
       }
+   }
+
+   private function setFields(RecordingRequest $request, Recording $recording) {
+
+      // Automatically determine content type based on request path.
+      $recording->contentType = $this->getContentType($request->path());
+      $recording->sponsorId = $request->sponsorId;
+
+      if (!is_null($request->conferenceId)) {
+         $recording->conferenceId = $request->conferenceId;
+      }
+
+      if (!is_null($request->seriesId)) {
+         $recording->seriesId = $request->seriesId;
+      }
+
+      $recording->title = $request->title;
+      $recording->publishDate = $request->publishDate;
+
+      if (!is_null($request->recordingDate)) {
+         $recording->recordingDate = $request->recordingDate;
+      }
+
+      $recording->agreementId = $request->agreementId;
+
+      if (!is_null($request->copyrightYear)) {
+         $recording->copyrightYear = $request->copyrightYear;
+      }
+      
+
+
+      if (!is_null($request->topicIds)) {
+         // TODO handle inserting of topics
+      }
+
+      $recording->isComplete = $request->isComplete;
+
+      if (!is_null($request->description)) {
+         $recording->description = $request->description;
+      }
+
+      if (!is_null($request->siteImageURL)) {
+         // TODO uploading of images
+         $recording->siteImageURL = $request->siteImageURL;
+      }
+
+      $recording->lang = $request->lang;
+
+      // TODO Evoke hidden calculation
+      $recording->hiddenBySelf = $request->hidden;
+
+      $recording->downloadDisabled = $request->downloadDisabled;
+
+      // TODO Figure out rules for status 
+      /*
+      $recording->contentStatus = $request->contentStatus;
+      $recording->legalStatus = $request->legalStatus;
+      $recording->techStatus = $request->techStatus;
+      $recording->fileStatus = $request->fileStatus;
+      $recording->vendorStatus = $request->vendorStatus;
+      */
+
+      if (!is_null($request->notes)) {
+         $recording->notes = $request->notes;
+      }
+
+      $recording->active = 1;
    }
 }

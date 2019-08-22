@@ -10,16 +10,16 @@ use App\Conference;
 use App\Sponsor;
 use App\Transformers\Admin\ConferenceTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 
 class ConferenceController extends BaseController
 {
    protected $model_id = 'conferenceId';
 
-   public function all() {
+   public function all(Request $request) {
 
       $this->where = array_merge($this->where, [
-         'lang' => config('avorg.default_lang'),
-         'contentType' => config('avorg.content_type.presentation')
+         'contentType' => $this->getContentType($request->path())
       ]);
 
       $presenter = Conference::where($this->where)

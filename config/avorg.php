@@ -54,9 +54,10 @@ return [
    |
    */
    'content_type' => [
-      'presentation' => 1,
-      'music' => 2,
-      'book' => 3,
+      'presentations' => 1,
+      'stories' => 2,
+      'audiobooks' => 3,
+      'music' => 4,
    ],
 
    /*

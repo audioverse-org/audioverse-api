@@ -84,11 +84,30 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
 
     $api->group(['prefix' => 'admin'], function(Router $api) {
 
+      // TODO custom transformer
+      $api->get('audiobooks', 'App\Api\V1\Controllers\Admin\SeriesController@all');
+      $api->get('audiobooks/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
+      $api->get('audiobooks/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
+      $api->get('audiobooks/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+
+      $api->get('stories', 'App\Api\V1\Controllers\Admin\SeriesController@all');
+      $api->get('stories/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
+      $api->get('stories/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
+      $api->get('stories/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+
+      $api->get('music', 'App\Api\V1\Controllers\Admin\SeriesController@all');
+      $api->get('music/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
+      $api->get('music/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
+      $api->get('music/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+
       $api->get('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
       $api->get('conferences/{id}', 'App\Api\V1\Controllers\Admin\ConferenceController@one');
       $api->post('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@create');
       $api->put('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@update');
       $api->delete('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@delete');
+
+      $api->get('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@all');
+      $api->post('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@create');
 
       $api->group(['prefix' => 'legal'], function(Router $api) {
          
