@@ -2,6 +2,8 @@
 namespace App\Api\V1\Controllers\Admin;
 
 use App\Recording;
+use App\Presenter;
+use App\Topic;
 use App\Api\V1\Requests\RecordingRequest;
 use App\Api\V1\Requests\LegalUpdateRequest;
 use App\Transformers\Admin\RecordingTransformer;
@@ -57,15 +59,36 @@ class PresentationController extends BaseController {
       $this->setFields($request, $recording);
       $recording->save();
 
-      // Get the newly saved recording id and insert data into pivot tables.
+      // Insert person id into pivot tables.
       if (!is_null($request->speakerIds)) {
          foreach ($request->speakerIds as $speakerId)
          {
-            // TODO validate if speaker id exists
-            $recording->presenters()->attach(
-               $speakerId, 
-               ['role' => 'speaker', 'active' => 1]
-            );
+            if (Presenter::where(['personId' => $speakerId])->exists())
+            {
+               $recording->presenters()->attach(
+                  $speakerId, 
+                  ['role' => 'speaker', 'active' => 1]
+               );
+            }
+            else
+            {
+               app('log')->warning("Recording id {$recording->recordingId} created, but personId $speakerId does not exists. Failed to insert into catalogPersonsMap table.");
+            }
+         }
+      }
+      
+      // Insert topic id into pivot tables.
+      if (!is_null($request->topicIds)) {
+         foreach ($request->topicIds as $topicId)
+         {
+            if (Topic::where(['topicId' => $topicId])->exists())
+            {
+               $recording->topics()->attach($topicId, ['active' => 1]);
+            }
+            else
+            {
+               app('log')->warning("Recording id {$recording->recordingId} created, but topicId $topicId does not exists. Failed to insert into catalogTopicsMap table.");
+            }
          }
       }
 
@@ -73,6 +96,85 @@ class PresentationController extends BaseController {
          'message' => 'Recording added.',
          'status_code' => 201
       ], 201);
+   }
+
+   public function update(RecordingRequest $request) {
+
+      // TODO test
+      try {
+         $recording = Recording::where(['active' => 1])->findOrFail($request->id);
+         $this->setFields($request, $recording);
+         $recording->update();
+
+         // Update persons pivot table
+         if (!is_null($request->speakerIds)) {
+            $validSpeakers = array();
+            foreach ($request->speakerIds as $speakerId)
+            {
+               if (Presenter::where(['personId' => $speakerId])->exists())
+               {
+                  $validSpeakers[$speakerId] = ['role' => 'speaker', 'active' => 1];
+               }
+               else
+               {
+                  app('log')->warning("Recording id {$recording->recordingId} updated, but personId $speakerId does not exists. Failed to update catalogPersonsMap table.");
+               }
+            }
+
+            if (count($validSpeakers) > 0) {
+               $recording->presenters()->sync($validSpeakers);
+            }
+         }
+
+         // Update topics pivot table
+         if (!is_null($request->topicIds)) {
+
+            $validTopics = array();
+            foreach ($request->topicIds as $topicId)
+            {
+               if (Topic::where(['topicId' => $topicId])->exists())
+               {
+                  $validTopics[$topicId] = ['active' => 1];
+               }
+               else
+               {
+                  app('log')->warning("Recording id {$recording->recordingId} updated, but topicId $topicId does not exists. Failed to update catalogTopicsMap table.");
+               }
+            }
+
+            if (count($validTopics) > 0) {
+               $recording->topics()->sync($validTopics);
+            }
+         }
+
+         return response()->json([
+            'message' => "Recording {$recording->recordingId} updated.",
+            'status_code' => 201
+         ], 201);
+
+      } catch (ModelNotFoundException $e) {
+         return $this->response->errorNotFound("Recording {$request->id} not found.");
+      }
+   }
+
+   public function delete(RecordingRequest $request) {
+
+      try {
+         $recording = Recording::where(['active' => 1])->findOrFail($request->id);
+         $recording->active = 0;
+         $recording->save();
+         // Clean up pivot tables
+         $recording->presenters()->detach();
+         $recording->topics()->detach();
+
+         return response()->json([
+            'message' => "Recording {$request->id} deleted.",
+            'status_code' => 201
+         ], 201);
+
+      } catch (ModelNotFoundException $e) {
+         return $this->response->errorNotFound("Recording {$request->id} not found.");
+      }
    }
 
    public function legalAll() {
@@ -175,12 +277,6 @@ class PresentationController extends BaseController {
 
       if (!is_null($request->copyrightYear)) {
          $recording->copyrightYear = $request->copyrightYear;
-      }
-      
-
-
-      if (!is_null($request->topicIds)) {
-         // TODO handle inserting of topics
       }
 
       $recording->isComplete = $request->isComplete;

@@ -108,6 +108,8 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
 
       $api->get('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@all');
       $api->post('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@create');
+      $api->put('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@update');
+      $api->delete('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@delete');
 
       $api->group(['prefix' => 'legal'], function(Router $api) {
          
