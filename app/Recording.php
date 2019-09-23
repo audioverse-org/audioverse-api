@@ -106,13 +106,16 @@ class Recording extends Model
       });
    }
    public function agreement() {
-   return $this->hasOne('App\Agreement', 'agreementId', 'agreementId');
+      return $this->hasOne('App\Agreement', 'agreementId', 'agreementId');
    }
 
    public function topics() {
       return $this->belongsToMany('App\Topic', 'catalogTopicsMap', 'recordingId', 'topicId' );
    }
 
+   public function tags() {
+      return $this->belongsToMany('App\Tag', 'tagsRecordings', 'recordingId', 'tagId');
+   }
    public function presenters()
    {
       return $this->belongsToMany('App\Presenter', 'catalogPersonsMap', 'recordingId', 'personId' );

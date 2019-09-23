@@ -89,16 +89,25 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
       $api->get('audiobooks/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
       $api->get('audiobooks/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
       $api->get('audiobooks/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+      $api->post('audiobooks', 'App\Api\V1\Controllers\Admin\PresentationController@create');
+      $api->put('audiobooks', 'App\Api\V1\Controllers\Admin\PresentationController@update');
+      $api->delete('audiobooks', 'App\Api\V1\Controllers\Admin\PresentationController@delete');
 
       $api->get('stories', 'App\Api\V1\Controllers\Admin\SeriesController@all');
       $api->get('stories/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
       $api->get('stories/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
       $api->get('stories/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+      $api->post('stories', 'App\Api\V1\Controllers\Admin\PresentationController@create');
+      $api->put('stories', 'App\Api\V1\Controllers\Admin\PresentationController@update');
+      $api->delete('stories', 'App\Api\V1\Controllers\Admin\PresentationController@delete');
 
       $api->get('music', 'App\Api\V1\Controllers\Admin\SeriesController@all');
       $api->get('music/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
       $api->get('music/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
       $api->get('music/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
+      $api->post('music', 'App\Api\V1\Controllers\Admin\PresentationController@create');
+      $api->put('music', 'App\Api\V1\Controllers\Admin\PresentationController@update');
+      $api->delete('music', 'App\Api\V1\Controllers\Admin\PresentationController@delete');
 
       $api->get('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
       $api->get('conferences/{id}', 'App\Api\V1\Controllers\Admin\ConferenceController@one');
@@ -167,5 +176,20 @@ $api->version('v1', ['middleware' => 'api.auth'], function($api) {
       $api->post('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@create');
       $api->put('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@update');
       $api->delete('sponsors', 'App\Api\V1\Controllers\Admin\SponsorController@delete');
+
+      $api->get('tags', 'App\Api\V1\Controllers\Admin\TagController@all');
+      $api->post('tags', 'App\Api\V1\Controllers\Admin\TagController@create');
+      $api->put('tags', 'App\Api\V1\Controllers\Admin\TagController@update');
+      $api->delete('tags', 'App\Api\V1\Controllers\Admin\TagController@delete');
+
+      $api->get('tags/categories', 'App\Api\V1\Controllers\Admin\TagCategoryController@all');
+      $api->post('tags/categories', 'App\Api\V1\Controllers\Admin\TagCategoryController@create');
+      $api->put('tags/categories', 'App\Api\V1\Controllers\Admin\TagCategoryController@update');
+      $api->delete('tags/categories', 'App\Api\V1\Controllers\Admin\TagCategoryController@delete');
+
+      // TODO Topics
+      $api->get('topics', 'App\Api\V1\Controllers\Admin\TopicController@all');
+      $api->get('topics/{id}', 'App\Api\V1\Controllers\Admin\TopicController@all');
+      $api->get('topics/{id}/presentations', 'App\Api\V1\Controllers\Admin\TopicController@presentations');
     });
 });

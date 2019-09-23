@@ -4,6 +4,8 @@ namespace App\Api\V1\Controllers\Admin;
 use App\Recording;
 use App\Presenter;
 use App\Topic;
+use App\Tag;
+use App\TagCategory;
 use App\Api\V1\Requests\RecordingRequest;
 use App\Api\V1\Requests\LegalUpdateRequest;
 use App\Transformers\Admin\RecordingTransformer;
@@ -92,6 +94,11 @@ class PresentationController extends BaseController {
          }
       }
 
+      // Insert tags into pivot tables.
+      if (!is_null($request->tags)) {
+         $this->saveTags($request, $recording, false);
+      }
+
       return response()->json([
          'message' => 'Recording added.',
          'status_code' => 201
@@ -100,7 +107,6 @@ class PresentationController extends BaseController {
 
    public function update(RecordingRequest $request) {
 
-      // TODO test
       try {
          $recording = Recording::where(['active' => 1])->findOrFail($request->id);
          $this->setFields($request, $recording);
@@ -147,6 +153,11 @@ class PresentationController extends BaseController {
             }
          }
 
+         // Insert tags into pivot tables.
+         if (!is_null($request->tags)) {
+            $this->saveTags($request, $recording, true);
+         }
+
          return response()->json([
             'message' => "Recording {$recording->recordingId} updated.",
             'status_code' => 201
@@ -166,6 +177,8 @@ class PresentationController extends BaseController {
          // Clean up pivot tables
          $recording->presenters()->detach();
          $recording->topics()->detach();
+         // TODO test
+         $recording->tags()->detach();
 
          return response()->json([
             'message' => "Recording {$request->id} deleted.",
@@ -249,6 +262,61 @@ class PresentationController extends BaseController {
 
       } catch (ModelNotFoundException $e) {
          return $this->response->errorNotFound("Legal review {$request->id} not found.");
+      }
+   }
+
+   private function saveTags(RecordingRequest $request, Recording $recording, Bool $update) {
+
+      foreach ($request->tags as $tagCategoryId => $tagNames)
+      {
+         // Check if tag category exists
+         if (TagCategory::where(['id' => $tagCategoryId])->exists()) 
+         {
+            if (is_array($tagNames)) 
+            {
+               $idsToSync = [];
+               foreach ($tagNames as $name)
+               {
+                  // Check if tags exists
+                  $tag = Tag::where(['name' => $name])->first();
+                  $tagId = 0;
+                  if (!is_null($tag)) 
+                  {
+                     $tagId = $tag->id;
+                  } 
+                  else 
+                  {
+                     $tag = new Tag();
+                     $tag->name = $name;
+                     $tag->lang = config('avorg.default_lang');
+                     $tag->save();
+                     $tagId = $tag->id;
+                  }
+                  // Save into pivot table.
+                  $idsToSync[$tagId] = ['tagCategoryId' => $tagCategoryId];
+               }
+
+               if (count($idsToSync) > 0)
+               {
+                  if ($update) 
+                  {
+                     $recording->tags()->sync($idsToSync);
+                  }
+                  else
+                  {
+                     $recording->tags()->attach($idsToSync);
+                  }
+               }
+            }
+            else
+            {
+               app('log')->warning("Tag category $tagCategoryId exists, but tags is not an array.");
+            }
+         }
+         else
+         {
+            app('log')->warning("Tag category $tagCategoryId does not exists. Failed to insert tags into tagsRecordings table.");
+         }
       }
    }
 

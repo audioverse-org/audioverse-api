@@ -4,12 +4,14 @@ namespace App\Api\V1\Requests;
 
 use Dingo\Api\Http\FormRequest;
 
-class TagRequest extends FormRequest
+class TagCategoryRequest extends FormRequest
 {
-   public function rules()
-   {
+    public function rules()
+    {
       $rules = [
-         'name.*' => 'required|string|distinct|min:3'
+         'name' => 'required',
+         'lang' => 'required',
+         'contentType' => 'required',
       ];
 
       if ($this->method() == 'POST') {
@@ -20,12 +22,10 @@ class TagRequest extends FormRequest
       } else if ($this->method() == 'DELETE') {
          return ['id' => 'required|numeric'];
       } 
-      
-      return $rules;
-   }
+    }
 
-   public function authorize()
-   {
-      return true;
-   }
+    public function authorize()
+    {
+        return true;
+    }
 }
