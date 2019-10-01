@@ -136,7 +136,6 @@ return [
     */
 
     'providers' => [
-
         /*
          * Laravel Framework Service Providers...
          */
@@ -164,11 +163,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
-        /*
-         * Package Service Providers...
-         */
-
-        //
 
         /*
          * Application Service Providers...
@@ -181,9 +175,6 @@ return [
 
         // Dingo Laravel Service Provider
         Dingo\Api\Provider\LaravelServiceProvider::class,
-        // Elastic Search Provider
-        //Cviebrock\LaravelElasticsearch\ServiceProvider::class,
-        Elasticquent\ElasticquentServiceProvider::class,
     ],
 
     /*
@@ -198,7 +189,6 @@ return [
     */
 
     'aliases' => [
-
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
@@ -209,7 +199,8 @@ return [
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
-       // 'Elasticsearch' => Cviebrock\LaravelElasticsearch\Facade::class,
+        'DingoApi' => Dingo\Api\Facade\API::class, 
+        'DingoRoute' => Dingo\Api\Facade\Route::class,
         'Es' => Elasticquent\ElasticquentElasticsearchFacade::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
@@ -233,7 +224,5 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
     ],
-
 ];

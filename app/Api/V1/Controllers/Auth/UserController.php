@@ -10,7 +10,7 @@ namespace App\Api\v1\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use App\Transformers\UserTransformer;
+use App\Transformers\World\UserTransformer;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-
     use Helpers;
 
     /**
