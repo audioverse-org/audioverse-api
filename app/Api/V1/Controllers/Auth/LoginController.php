@@ -17,7 +17,7 @@ class LoginController extends Controller
     {
         $credentials = $request->only(['email', 'password']);
 
-        if (!Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+        if (!Auth::guard('web')->attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
             return $this->response->errorForbidden();
         }
 
