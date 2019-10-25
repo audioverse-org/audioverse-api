@@ -177,7 +177,6 @@ class PresentationController extends BaseController {
          // Clean up pivot tables
          $recording->presenters()->detach();
          $recording->topics()->detach();
-         // TODO test
          $recording->tags()->detach();
 
          return response()->json([

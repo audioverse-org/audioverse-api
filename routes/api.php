@@ -1,7 +1,4 @@
 <?php
-
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -77,7 +74,7 @@ $api->version('v1', function($api) {
       });
 
       $api->group(['prefix' => 'admin'], function($api) {
-         // TODO custom transformer
+
          $api->get('audiobooks', 'App\Api\V1\Controllers\Admin\SeriesController@all');
          $api->get('audiobooks/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
          $api->get('audiobooks/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
@@ -180,10 +177,11 @@ $api->version('v1', function($api) {
          $api->put('tags/categories', 'App\Api\V1\Controllers\Admin\TagCategoryController@update');
          $api->delete('tags/categories', 'App\Api\V1\Controllers\Admin\TagCategoryController@delete');
 
-         // TODO Topics
          $api->get('topics', 'App\Api\V1\Controllers\Admin\TopicController@all');
-         $api->get('topics/{id}', 'App\Api\V1\Controllers\Admin\TopicController@all');
          $api->get('topics/{id}/presentations', 'App\Api\V1\Controllers\Admin\TopicController@presentations');
+         $api->post('topics', 'App\Api\V1\Controllers\Admin\TopicController@create');
+         $api->put('topics', 'App\Api\V1\Controllers\Admin\TopicController@update');
+         $api->delete('topics', 'App\Api\V1\Controllers\Admin\TopicController@delete');
       }); // End protected route.
    }); // End admin group.
 });
