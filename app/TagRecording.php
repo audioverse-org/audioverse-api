@@ -11,10 +11,7 @@ class TagRecording extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = null;
 
-    /*
     public function recording() {
-        //return $this->hasMany('App\Recording', 'recordingId', 'recordingId');
         return $this->hasOne('App\Recording', 'recordingId', 'recordingId');
     }
-    */
 }
