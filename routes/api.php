@@ -106,6 +106,7 @@ $api->version('v1', function($api) {
          $api->delete('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@delete');
 
          $api->get('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@all');
+         $api->get('presentations/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@one');
          $api->post('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@create');
          $api->put('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@update');
          $api->delete('presentations', 'App\Api\V1\Controllers\Admin\PresentationController@delete');
