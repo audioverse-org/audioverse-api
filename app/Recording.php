@@ -2,12 +2,10 @@
 
 namespace App;
 
-use Elasticquent\ElasticquentTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Recording extends Model
 {
-    use ElasticquentTrait;
     protected $table = 'catalogRecordings';
     protected $primaryKey = 'recordingId';
 
