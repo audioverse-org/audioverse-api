@@ -201,7 +201,6 @@ return [
         'DB' => Illuminate\Support\Facades\DB::class,
         'DingoApi' => Dingo\Api\Facade\API::class, 
         'DingoRoute' => Dingo\Api\Facade\Route::class,
-        'Es' => Elasticquent\ElasticquentElasticsearchFacade::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
