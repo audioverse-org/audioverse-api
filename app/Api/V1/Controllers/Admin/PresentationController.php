@@ -2,91 +2,190 @@
 namespace App\Api\V1\Controllers\Admin;
 
 use App\Recording;
+use App\Presenter;
+use App\Topic;
+use App\Tag;
+use App\TagCategory;
+use App\Api\V1\Requests\RecordingRequest;
 use App\Api\V1\Requests\LegalUpdateRequest;
 use App\Transformers\Admin\RecordingTransformer;
 use App\Transformers\Admin\LegalRecordingTransformer;
-use App\Transformers\Admin\LegalReviewTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 
-class PresentationController extends BaseController
-{
-   /**
-     * List of presentations
-     *
-     * Returns a list of presentation. If defined, the list is filtered by contentType, and related table id defined
-     * through protected property in the extending class.
-     *
-     * @Get("/")
-     * @Versions({"v1"})
-     * @Request("id=123")
-     */
-   public function presentations($id=0) {
-
-      if ( property_exists($this, 'content_type') ) {
+class PresentationController extends BaseController {
+   
+   public function all(Request $request, $id=0) {
+      
+      $contentTypes = config('avorg.content_type');
+      $contentType = $this->getContentType($request->path());
+      
+      if ($contentType != $contentTypes['presentations']) {
+         if ($id > 0) {
             $this->where = array_merge($this->where, [
-               'contentType' => (int) $this->content_type,
+               'seriesId' => $id,
             ]);
-      } else {
-            $this->where = array_merge($this->where, [
-               'contentType' => 1,
-            ]);
-      }
-
-      if ( property_exists($this, 'model_id') ) {
-            $this->where = array_merge($this->where, [
-               $this->model_id => (int) $id,
-            ]);
+         }
       }
 
       $this->where = array_merge($this->where, [
-            'lang' => config('avorg.default_lang'),
-            'hasAudio' => 1,
-            'legalStatus' => 0,
-            'techStatus' => 0,
+         'contentType' => $contentType,
       ]);
 
       $presentation = Recording::where($this->where)
-            ->where(function($query) {
-               $query->orWhere('contentStatus', '=', 0)
-                  ->orWhere('contentStatus', '=', 1)
-                  ->orWhere('contentStatus', '=', 2);
-            })
-            ->orderBy('recordingDate', 'desc')
-            ->paginate(config('avorg.page_size'));
+         ->orderBy('recordingId', 'desc')
+         ->paginate(config('avorg.page_size'));
 
-      if ( $presentation->count() == 0 ) {
-            return $this->response->errorNotFound("Presentation not found");
+      if ($presentation->count() == 0) {
+         return $this->response->errorNotFound("Presentation not found.");
       }
 
       return $this->response->paginator($presentation, new RecordingTransformer);
    }
 
-   /**
-    * Presentation
-    *
-    * Get one presentation
-    *
-    * @Get("/")
-    * @Versions({"v1"})
-    */
    public function one($presentation_id) {
 
-      $this->where = array_merge($this->where, [
-         'legalStatus' => 0,
-         'techStatus' => 0,
-      ]);
       try {
-         $item = Recording::where($this->where)
-               ->where(function ($query) {
-                  $query->orWhere('contentStatus', '=', 0)
-                     ->orWhere('contentStatus', '=', 1)
-                     ->orWhere('contentStatus', '=', 2);
-               })->findOrFail($presentation_id);
+         $item = Recording::where($this->where)->findOrFail($presentation_id);
 
          return $this->response->item($item, new RecordingTransformer);
 
       } catch( ModelNotFoundException $e ) {
-         return $this->response->errorNotFound("Presentation {$presentation_id} not found");
+         return $this->response->errorNotFound("Presentation {$presentation_id} not found.");
+      }
+   }
+
+   public function create(RecordingRequest $request) {
+
+      $recording = new Recording();
+      $this->setFields($request, $recording);
+      $recording->save();
+
+      // Insert person id into pivot tables.
+      if (!is_null($request->speakerIds)) {
+         foreach ($request->speakerIds as $speakerId)
+         {
+            if (Presenter::where(['personId' => $speakerId])->exists())
+            {
+               $recording->presenters()->attach(
+                  $speakerId, 
+                  ['role' => 'speaker', 'active' => 1]
+               );
+            }
+            else
+            {
+               app('log')->warning("Recording id {$recording->recordingId} created, but personId $speakerId does not exists. Failed to insert into catalogPersonsMap table.");
+            }
+         }
+      }
+      
+      // Insert topic id into pivot tables.
+      if (!is_null($request->topicIds)) {
+         foreach ($request->topicIds as $topicId)
+         {
+            if (Topic::where(['topicId' => $topicId])->exists())
+            {
+               $recording->topics()->attach($topicId, ['active' => 1]);
+            }
+            else
+            {
+               app('log')->warning("Recording id {$recording->recordingId} created, but topicId $topicId does not exists. Failed to insert into catalogTopicsMap table.");
+            }
+         }
+      }
+
+      // Insert tags into pivot tables.
+      if (!is_null($request->tags)) {
+         $this->saveTags($request, $recording, false);
+      }
+
+      return response()->json([
+         'message' => 'Recording added.',
+         'status_code' => 201
+      ], 201);
+   }
+
+   public function update(RecordingRequest $request) {
+
+      try {
+         $recording = Recording::where(['active' => 1])->findOrFail($request->id);
+         $this->setFields($request, $recording);
+         $recording->update();
+
+         // Update persons pivot table
+         if (!is_null($request->speakerIds)) {
+            $validSpeakers = array();
+            foreach ($request->speakerIds as $speakerId)
+            {
+               if (Presenter::where(['personId' => $speakerId])->exists())
+               {
+                  $validSpeakers[$speakerId] = ['role' => 'speaker', 'active' => 1];
+               }
+               else
+               {
+                  app('log')->warning("Recording id {$recording->recordingId} updated, but personId $speakerId does not exists. Failed to update catalogPersonsMap table.");
+               }
+            }
+
+            if (count($validSpeakers) > 0) {
+               $recording->presenters()->sync($validSpeakers);
+            }
+         }
+
+         // Update topics pivot table
+         if (!is_null($request->topicIds)) {
+
+            $validTopics = array();
+            foreach ($request->topicIds as $topicId)
+            {
+               if (Topic::where(['topicId' => $topicId])->exists())
+               {
+                  $validTopics[$topicId] = ['active' => 1];
+               }
+               else
+               {
+                  app('log')->warning("Recording id {$recording->recordingId} updated, but topicId $topicId does not exists. Failed to update catalogTopicsMap table.");
+               }
+            }
+
+            if (count($validTopics) > 0) {
+               $recording->topics()->sync($validTopics);
+            }
+         }
+
+         // Insert tags into pivot tables.
+         if (!is_null($request->tags)) {
+            $this->saveTags($request, $recording, true);
+         }
+
+         return response()->json([
+            'message' => "Recording {$recording->recordingId} updated.",
+            'status_code' => 201
+         ], 201);
+
+      } catch (ModelNotFoundException $e) {
+         return $this->response->errorNotFound("Recording {$request->id} not found.");
+      }
+   }
+
+   public function delete(RecordingRequest $request) {
+
+      try {
+         $recording = Recording::where(['active' => 1])->findOrFail($request->id);
+         $recording->active = 0;
+         $recording->save();
+         // Clean up pivot tables
+         $recording->presenters()->detach();
+         $recording->topics()->detach();
+         $recording->tags()->detach();
+
+         return response()->json([
+            'message' => "Recording {$request->id} deleted.",
+            'status_code' => 201
+         ], 201);
+
+      } catch (ModelNotFoundException $e) {
+         return $this->response->errorNotFound("Recording {$request->id} not found.");
       }
    }
 
@@ -132,9 +231,10 @@ class PresentationController extends BaseController
          $recording->legalStatus = $request->legalStatus;
          $recording->update();
 
-         // TODO Find out if there are changes to content approval rules
+         // TODO Find out if there are changes to content approval rules, old logic
+         // from admin for reference below:
 
-         /* LOGIC from admin
+         /* 
            // what's the next queue this recording goes into?
             $item = $table->find($item->recordingId)->current();
             if ($prevItem->legalStatus >= 10 && $item->legalStatus < 10) { // cleared the Legal queue
@@ -162,5 +262,121 @@ class PresentationController extends BaseController
       } catch (ModelNotFoundException $e) {
          return $this->response->errorNotFound("Legal review {$request->id} not found.");
       }
+   }
+
+   private function saveTags(RecordingRequest $request, Recording $recording, Bool $update) {
+
+      foreach ($request->tags as $tagCategoryId => $tagNames)
+      {
+         // Check if tag category exists
+         if (TagCategory::where(['id' => $tagCategoryId])->exists()) 
+         {
+            if (is_array($tagNames)) 
+            {
+               $idsToSync = [];
+               foreach ($tagNames as $name)
+               {
+                  // Check if tags exists
+                  $tag = Tag::where(['name' => $name])->first();
+                  $tagId = 0;
+                  if (!is_null($tag)) 
+                  {
+                     $tagId = $tag->id;
+                  } 
+                  else 
+                  {
+                     $tag = new Tag();
+                     $tag->name = $name;
+                     $tag->lang = config('avorg.default_lang');
+                     $tag->save();
+                     $tagId = $tag->id;
+                  }
+                  // Save into pivot table.
+                  $idsToSync[$tagId] = ['tagCategoryId' => $tagCategoryId];
+               }
+
+               if (count($idsToSync) > 0)
+               {
+                  if ($update) 
+                  {
+                     $recording->tags()->sync($idsToSync);
+                  }
+                  else
+                  {
+                     $recording->tags()->attach($idsToSync);
+                  }
+               }
+            }
+            else
+            {
+               app('log')->warning("Tag category $tagCategoryId exists, but tags is not an array.");
+            }
+         }
+         else
+         {
+            app('log')->warning("Tag category $tagCategoryId does not exists. Failed to insert tags into tagsRecordings table.");
+         }
+      }
+   }
+
+   private function setFields(RecordingRequest $request, Recording $recording) {
+
+      // Automatically determine content type based on request path.
+      $recording->contentType = $this->getContentType($request->path());
+      $recording->sponsorId = $request->sponsorId;
+
+      if (!is_null($request->conferenceId)) {
+         $recording->conferenceId = $request->conferenceId;
+      }
+
+      if (!is_null($request->seriesId)) {
+         $recording->seriesId = $request->seriesId;
+      }
+
+      $recording->title = $request->title;
+      $recording->publishDate = $request->publishDate;
+
+      if (!is_null($request->recordingDate)) {
+         $recording->recordingDate = $request->recordingDate;
+      }
+
+      $recording->agreementId = $request->agreementId;
+
+      if (!is_null($request->copyrightYear)) {
+         $recording->copyrightYear = $request->copyrightYear;
+      }
+
+      $recording->isComplete = $request->isComplete;
+
+      if (!is_null($request->description)) {
+         $recording->description = $request->description;
+      }
+
+      if (!is_null($request->siteImageURL)) {
+         // TODO uploading of images
+         $recording->siteImageURL = $request->siteImageURL;
+      }
+
+      $recording->lang = $request->lang;
+
+      // TODO Evoke hidden calculation
+      $recording->hiddenBySelf = $request->hidden;
+
+      $recording->downloadDisabled = $request->downloadDisabled;
+
+      // TODO Figure out rules for status 
+      /*
+      $recording->contentStatus = $request->contentStatus;
+      $recording->legalStatus = $request->legalStatus;
+      $recording->techStatus = $request->techStatus;
+      $recording->fileStatus = $request->fileStatus;
+      $recording->vendorStatus = $request->vendorStatus;
+      */
+
+      if (!is_null($request->notes)) {
+         $recording->notes = $request->notes;
+      }
+
+      $recording->active = 1;
    }
 }

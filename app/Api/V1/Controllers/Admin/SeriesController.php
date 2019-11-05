@@ -7,16 +7,16 @@ use App\Sponsor;
 use App\Api\V1\Requests\SeriesRequest;
 use App\Transformers\Admin\SeriesTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 
 class SeriesController extends BaseController 
 {
    protected $model_id = 'seriesId';
 
-   public function all() {
+   public function all(Request $request) {
 
       $this->where = array_merge($this->where, [
-         'lang' => config('avorg.default_lang'),
-         'contentType' => config('avorg.content_type.presentation')
+         'contentType' => $this->getContentType($request->path())
       ]);
 
       $series = Series::where($this->where)

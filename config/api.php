@@ -169,7 +169,7 @@ return [
     */
 
     'auth' => [
-        'custom' => \App\Providers\PassportDingoProvider::class
+      'custom' => \App\Providers\DingoPassportServiceProvider::class,
     ],
 
     /*
@@ -218,6 +218,14 @@ return [
 
         'json' => Dingo\Api\Http\Response\Format\Json::class,
 
+    ],
+
+    'formatsOptions' => [
+      'json' => [
+          'pretty_print' => env('API_JSON_FORMAT_PRETTY_PRINT_ENABLED', false),
+          'indent_style' => env('API_JSON_FORMAT_INDENT_STYLE', 'space'),
+          'indent_size' => env('API_JSON_FORMAT_INDENT_SIZE', 2),
+      ],
     ],
 
 ];

@@ -1,15 +1,17 @@
 <?php
-
 namespace App\Api\V1\Requests;
 
 use Dingo\Api\Http\FormRequest;
 
-class TagRequest extends FormRequest
+class TopicRequest extends FormRequest
 {
    public function rules()
    {
       $rules = [
-         'name.*' => 'required|string|distinct|min:3'
+         'title' => 'required',
+         'parentTopicId' => 'required',
+         'lang' => 'required',
+         'hidden' => 'required',
       ];
 
       if ($this->method() == 'POST') {

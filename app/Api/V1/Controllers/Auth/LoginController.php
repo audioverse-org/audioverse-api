@@ -3,7 +3,7 @@
 namespace App\Api\V1\Controllers\Auth;
 
 use App\User;
-use App\Transformers\UserTransformer;
+use App\Transformers\World\UserTransformer;
 use App\Http\Controllers\Controller;
 use App\Api\V1\Requests\LoginRequest;
 use Dingo\Api\Routing\Helpers;
@@ -17,7 +17,7 @@ class LoginController extends Controller
     {
         $credentials = $request->only(['email', 'password']);
 
-        if ( !Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']]) ) {
+        if (!Auth::guard('web')->attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
             return $this->response->errorForbidden();
         }
 

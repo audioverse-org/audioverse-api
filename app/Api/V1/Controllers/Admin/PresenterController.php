@@ -11,9 +11,6 @@ class PresenterController extends BaseController {
 
    public function all() {
 
-      $this->where = array_merge($this->where, [
-         'lang' => config('avorg.default_lang'),
-      ]);
       $presenter = Presenter::where($this->where)->paginate(config('avorg.page_size'));
 
       if ( $presenter->count() == 0 ) {

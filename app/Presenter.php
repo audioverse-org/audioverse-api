@@ -18,7 +18,7 @@ class Presenter extends Model {
       *
       * @var array
       */
-   protected $events = [
+   protected $dispatchesEvents = [
       'updated' => \App\Events\UpdateHiddenFields::class
    ];
 

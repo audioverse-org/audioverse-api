@@ -13,10 +13,6 @@ class AgreementController extends BaseController
 {
    public function all() {
 
-      $this->where = array_merge($this->where, [
-         'lang' => config('avorg.default_lang')
-      ]);
-
       $agreement = Agreement::where($this->where)
             ->orderBy('created', 'desc')
             ->paginate(config('avorg.page_size'));

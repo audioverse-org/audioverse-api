@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 /**
  * TODO: This event should queue
  */
-class SetHiddenFields // TODO implements ShouldQueue
+class SetHiddenFields implements ShouldQueue
 {
    /**
     * Create the event listener.

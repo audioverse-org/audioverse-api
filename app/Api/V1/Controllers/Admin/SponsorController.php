@@ -12,9 +12,6 @@ class SponsorController extends BaseController
    protected $model_id = 'sponsorId';
 
    public function all() {
-      $this->where = array_merge($this->where, [
-         'lang' => config('avorg.default_lang')
-      ]);
 
       $sponsor = Sponsor::where($this->where)
          ->orderBy('title', 'asc')
