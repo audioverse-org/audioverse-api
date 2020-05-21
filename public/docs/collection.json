@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "AudioVerse API",
-        "_postman_id": "9b416f0f-a341-4396-9f84-024797b316b7",
+        "_postman_id": "df027500-feba-44c6-a95e-cac6cb85a203",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -62,67 +62,67 @@
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "maiores",
+                                    "value": "blanditiis",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "voluptate",
+                                    "value": "et",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "id",
+                                    "value": "incidunt",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "ipsa",
+                                    "value": "at",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "voluptas",
+                                    "value": "reiciendis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "qui",
+                                    "value": "dolorum",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "maxime",
+                                    "value": "quis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorTitle",
-                                    "value": "qui",
+                                    "value": "soluta",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorLogo",
-                                    "value": "debitis",
+                                    "value": "itaque",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "accusamus",
+                                    "value": "veritatis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "labore",
+                                    "value": "qui",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -157,7 +157,7 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "dolore",
+                                    "value": "et",
                                     "description": "int",
                                     "disabled": false
                                 },
@@ -169,61 +169,61 @@
                                 },
                                 {
                                     "key": "contentType",
-                                    "value": "aspernatur",
+                                    "value": "blanditiis",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "ea",
+                                    "value": "maiores",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "aut",
+                                    "value": "placeat",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "iste",
+                                    "value": "reiciendis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "et",
+                                    "value": "eum",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "unde",
+                                    "value": "qui",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "dolore",
+                                    "value": "nostrum",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "nesciunt",
+                                    "value": "officiis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "temporibus",
+                                    "value": "optio",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "iusto",
+                                    "value": "quasi",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -334,7 +334,7 @@
                                 },
                                 {
                                     "key": "id",
-                                    "value": "deserunt",
+                                    "value": "omnis",
                                     "description": "int",
                                     "disabled": false
                                 }
@@ -429,7 +429,7 @@
                                 },
                                 {
                                     "key": "speakerIds[]",
-                                    "value": "laudantium",
+                                    "value": "in",
                                     "description": "array peakerIds[0]=333,speakerIds[1]=2...etc",
                                     "disabled": false
                                 }
@@ -530,7 +530,7 @@
                                 },
                                 {
                                     "key": "speakerIds[]",
-                                    "value": "et",
+                                    "value": "aut",
                                     "description": "array peakerIds[0]=333,speakerIds[1]=2...etc",
                                     "disabled": false
                                 }
@@ -718,67 +718,67 @@
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "quae",
+                                    "value": "deserunt",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "et",
+                                    "value": "perspiciatis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "est",
-                                    "description": "string",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "summary",
-                                    "value": "cupiditate",
-                                    "description": "string",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "description",
                                     "value": "qui",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
+                                    "key": "summary",
+                                    "value": "ratione",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "et",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
                                     "key": "logo",
-                                    "value": "necessitatibus",
+                                    "value": "voluptates",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "nulla",
+                                    "value": "perspiciatis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorTitle",
-                                    "value": "quo",
+                                    "value": "eum",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorLogo",
-                                    "value": "ut",
+                                    "value": "quisquam",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "nisi",
+                                    "value": "praesentium",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "consequatur",
+                                    "value": "voluptas",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -813,7 +813,7 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "asperiores",
+                                    "value": "sint",
                                     "description": "int",
                                     "disabled": false
                                 },
@@ -825,55 +825,55 @@
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "voluptatum",
+                                    "value": "vel",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "consequatur",
+                                    "value": "quia",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "aspernatur",
+                                    "value": "laboriosam",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "ut",
+                                    "value": "voluptate",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "exercitationem",
+                                    "value": "quia",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "assumenda",
+                                    "value": "molestiae",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "totam",
+                                    "value": "ea",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "esse",
+                                    "value": "aspernatur",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "quia",
+                                    "value": "qui",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -1183,49 +1183,49 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "autem",
+                                    "value": "est",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "aliquid",
+                                    "value": "eaque",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "ownerId",
-                                    "value": "quibusdam",
+                                    "value": "necessitatibus",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "licenseId",
-                                    "value": "odio",
+                                    "value": "est",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "lang",
-                                    "value": "accusantium",
+                                    "value": "quam",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "consequatur",
+                                    "value": "distinctio",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "rerum",
+                                    "value": "culpa",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "retired",
-                                    "value": "voluptatem",
+                                    "value": "facere",
                                     "description": "int",
                                     "disabled": false
                                 }
@@ -1260,55 +1260,55 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "recusandae",
+                                    "value": "et",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "delectus",
+                                    "value": "maiores",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "voluptas",
+                                    "value": "in",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "ownerId",
-                                    "value": "quo",
+                                    "value": "voluptatem",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "licenseId",
-                                    "value": "tempore",
+                                    "value": "quia",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "lang",
-                                    "value": "ratione",
+                                    "value": "quam",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "reprehenderit",
+                                    "value": "sint",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "et",
+                                    "value": "quod",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "retired",
-                                    "value": "autem",
+                                    "value": "nulla",
                                     "description": "int",
                                     "disabled": false
                                 }
@@ -1343,7 +1343,7 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "mollitia",
+                                    "value": "esse",
                                     "description": "int",
                                     "disabled": false
                                 }
@@ -1375,13 +1375,20 @@
             "description": "\nEndpoints for manipulating licenses.\nLicenses are the terms and conditions that our website visitors must abide by when \ndownloading and\/or sharing recordings.",
             "item": [
                 {
-                    "name": "\/admin\/legal\/licenses",
+                    "name": "Get all lincenses",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/licenses",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1403,13 +1410,20 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/licenses\/{id}",
+                    "name": "Get one lincense",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/licenses\/:id",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "accusamus",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1431,13 +1445,56 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/licenses",
+                    "name": "Create owner",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/licenses",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "title",
+                                    "value": "vitae",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "summary",
+                                    "value": "eaque",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "rerum",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "logo",
+                                    "value": "quidem",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "permitsSales",
+                                    "value": "necessitatibus",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "ratione",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "notes",
+                                    "value": "officia",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "POST",
                         "header": [
@@ -1459,13 +1516,62 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/licenses",
+                    "name": "Update owner",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/licenses",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "nemo",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "title",
+                                    "value": "sunt",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "summary",
+                                    "value": "omnis",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "autem",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "logo",
+                                    "value": "fugit",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "permitsSales",
+                                    "value": "rerum",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "sit",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "notes",
+                                    "value": "minima",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "PUT",
                         "header": [
@@ -1487,13 +1593,20 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/licenses",
+                    "name": "Delete owner",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/licenses",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "qui",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "DELETE",
                         "header": [
@@ -1521,13 +1634,20 @@
             "description": "\nEndpoints for manipulating copyright owners.",
             "item": [
                 {
-                    "name": "\/admin\/legal\/owners",
+                    "name": "Get all owners",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/owners",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1549,13 +1669,20 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/owners\/{id}",
+                    "name": "Get one owner",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/owners\/:id",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "molestiae",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1577,13 +1704,104 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/owners",
+                    "name": "Create owner",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/owners",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "title",
+                                    "value": "qui",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "summary",
+                                    "value": "inventore",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "voluptatem",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "logo",
+                                    "value": "pariatur",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "odio",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "website",
+                                    "value": "magni",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "publicAddress",
+                                    "value": "magnam",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "publicPhone",
+                                    "value": "sint",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "publicEmail",
+                                    "value": "quisquam",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactName",
+                                    "value": "magni",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactAddress",
+                                    "value": "omnis",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactPhone",
+                                    "value": "saepe",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactEmail",
+                                    "value": "minus",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "notes",
+                                    "value": "exercitationem",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "POST",
                         "header": [
@@ -1605,13 +1823,110 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/owners",
+                    "name": "Update owner",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/owners",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "iure",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "title",
+                                    "value": "et",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "summary",
+                                    "value": "eum",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "et",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "logo",
+                                    "value": "nostrum",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "molestias",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "website",
+                                    "value": "consectetur",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "publicAddress",
+                                    "value": "illo",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "publicPhone",
+                                    "value": "ut",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "publicEmail",
+                                    "value": "animi",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactName",
+                                    "value": "dicta",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactAddress",
+                                    "value": "eum",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactPhone",
+                                    "value": "dolore",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactEmail",
+                                    "value": "quasi",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "notes",
+                                    "value": "et",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "PUT",
                         "header": [
@@ -1633,13 +1948,20 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/owners",
+                    "name": "Delete owner",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/owners",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "quis",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "DELETE",
                         "header": [
@@ -1667,13 +1989,20 @@
             "description": "\nEndpoints for manipulating legal release.",
             "item": [
                 {
-                    "name": "\/admin\/legal\/releases",
+                    "name": "Get all releases",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/releases",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1695,13 +2024,28 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/releases\/{id}",
+                    "name": "Get one release",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/releases\/:id",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "cum",
+                                    "description": "int"
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1723,13 +2067,116 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/releases",
+                    "name": "Create release",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/releases",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "conferenceId",
+                                    "value": "explicabo",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "termsId",
+                                    "value": "harum",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "personId",
+                                    "value": "facere",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "recordingId",
+                                    "value": "minima",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "agree",
+                                    "value": "expedita",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "firstName",
+                                    "value": "qui",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lastName",
+                                    "value": "tempora",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "officia",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "beatae",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "address",
+                                    "value": "omnis",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "address2",
+                                    "value": "eum",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "municipality",
+                                    "value": "ut",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "province",
+                                    "value": "voluptatibus",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "postalCode",
+                                    "value": "et",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "country",
+                                    "value": "cumque",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "comments",
+                                    "value": "excepturi",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "copyContacts",
+                                    "value": "quis",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "POST",
                         "header": [
@@ -1751,13 +2198,122 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/releases",
+                    "name": "Update release",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/releases",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "repudiandae",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "conferenceId",
+                                    "value": "quia",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "termsId",
+                                    "value": "quos",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "personId",
+                                    "value": "accusamus",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "recordingId",
+                                    "value": "ab",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "agree",
+                                    "value": "enim",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "firstName",
+                                    "value": "molestias",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lastName",
+                                    "value": "nulla",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "esse",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "ea",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "address",
+                                    "value": "quas",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "address2",
+                                    "value": "nisi",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "municipality",
+                                    "value": "et",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "province",
+                                    "value": "incidunt",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "postalCode",
+                                    "value": "repudiandae",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "country",
+                                    "value": "et",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "comments",
+                                    "value": "tempora",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "copyContacts",
+                                    "value": "suscipit",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "PUT",
                         "header": [
@@ -1779,13 +2335,20 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/releases",
+                    "name": "Delete release",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/releases",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "itaque",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "DELETE",
                         "header": [
@@ -1813,13 +2376,20 @@
             "description": "\nEndpoints for manipulating legal terms.",
             "item": [
                 {
-                    "name": "\/admin\/legal\/terms",
+                    "name": "Get all terms",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/terms",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1841,13 +2411,20 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/terms\/{id}",
+                    "name": "Get one term",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/terms\/:id",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "voluptatem",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1869,13 +2446,32 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/terms",
+                    "name": "Create term",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/terms",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "label",
+                                    "value": "corrupti",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "terms",
+                                    "value": "magnam",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "formType",
+                                    "value": "laudantium",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "POST",
                         "header": [
@@ -1897,13 +2493,38 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/terms",
+                    "name": "Update term",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/terms",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "dolorum",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "label",
+                                    "value": "asperiores",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "terms",
+                                    "value": "esse",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "formType",
+                                    "value": "est",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "PUT",
                         "header": [
@@ -1925,13 +2546,20 @@
                     }
                 },
                 {
-                    "name": "\/admin\/legal\/terms",
+                    "name": "Delete term",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/admin\/legal\/terms",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "sit",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "DELETE",
                         "header": [
@@ -2009,67 +2637,67 @@
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "a",
+                                    "value": "non",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "nemo",
+                                    "value": "minima",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "error",
+                                    "value": "quia",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "sint",
+                                    "value": "quis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "eos",
+                                    "value": "dignissimos",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "accusantium",
+                                    "value": "error",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "illum",
+                                    "value": "necessitatibus",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorTitle",
-                                    "value": "eos",
+                                    "value": "nobis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorLogo",
-                                    "value": "rerum",
+                                    "value": "explicabo",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "eum",
+                                    "value": "quod",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "quae",
+                                    "value": "dolor",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -2116,55 +2744,55 @@
                                 },
                                 {
                                     "key": "contentType",
-                                    "value": "molestiae",
+                                    "value": "neque",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "molestiae",
+                                    "value": "et",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "sit",
+                                    "value": "autem",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "earum",
+                                    "value": "incidunt",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "earum",
+                                    "value": "dolorem",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "necessitatibus",
+                                    "value": "eveniet",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "quia",
+                                    "value": "et",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "officiis",
+                                    "value": "molestias",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "quia",
+                                    "value": "velit",
                                     "description": "string",
                                     "disabled": false
                                 },
@@ -2281,7 +2909,7 @@
                                 },
                                 {
                                     "key": "id",
-                                    "value": "aliquid",
+                                    "value": "vel",
                                     "description": "int",
                                     "disabled": false
                                 }
@@ -2376,7 +3004,7 @@
                                 },
                                 {
                                     "key": "speakerIds[]",
-                                    "value": "saepe",
+                                    "value": "et",
                                     "description": "array peakerIds[0]=333,speakerIds[1]=2...etc",
                                     "disabled": false
                                 }
@@ -2477,7 +3105,7 @@
                                 },
                                 {
                                     "key": "speakerIds[]",
-                                    "value": "aliquam",
+                                    "value": "nihil",
                                     "description": "array peakerIds[0]=333,speakerIds[1]=2...etc",
                                     "disabled": false
                                 }
@@ -2726,7 +3354,7 @@
                                 },
                                 {
                                     "key": "speakerIds[]",
-                                    "value": "perferendis",
+                                    "value": "aliquam",
                                     "description": "array peakerIds[0]=333,speakerIds[1]=2...etc",
                                     "disabled": false
                                 }
@@ -2827,7 +3455,7 @@
                                 },
                                 {
                                     "key": "speakerIds[]",
-                                    "value": "sint",
+                                    "value": "culpa",
                                     "description": "array peakerIds[0]=333,speakerIds[1]=2...etc",
                                     "disabled": false
                                 }
@@ -3022,121 +3650,121 @@
                                 },
                                 {
                                     "key": "evalsRequired",
-                                    "value": "velit",
+                                    "value": "animi",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "salutation",
-                                    "value": "velit",
+                                    "value": "cupiditate",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "givenName",
-                                    "value": "omnis",
+                                    "value": "error",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "surname",
-                                    "value": "expedita",
+                                    "value": "quasi",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "suffix",
-                                    "value": "voluptatem",
+                                    "value": "recusandae",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "letters",
-                                    "value": "sed",
+                                    "value": "voluptates",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "quia",
+                                    "value": "facilis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "photo",
-                                    "value": "amet",
+                                    "value": "eos",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "totam",
+                                    "value": "consectetur",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "voluptas",
+                                    "value": "perferendis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "website",
-                                    "value": "nihil",
+                                    "value": "corrupti",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "publicAddress",
-                                    "value": "a",
+                                    "value": "consequatur",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "publicPhone",
-                                    "value": "at",
-                                    "description": "string",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "publicEmail",
-                                    "value": "autem",
-                                    "description": "string",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "contactName",
-                                    "value": "tempore",
-                                    "description": "string",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "contactAddress",
-                                    "value": "sunt",
-                                    "description": "string",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "contactPhone",
                                     "value": "quod",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
+                                    "key": "publicEmail",
+                                    "value": "hic",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactName",
+                                    "value": "quidem",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactAddress",
+                                    "value": "dolor",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contactPhone",
+                                    "value": "veniam",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
                                     "key": "contactEmail",
-                                    "value": "commodi",
+                                    "value": "rerum",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "optio",
+                                    "value": "omnis",
                                     "description": "integer",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "blanditiis",
+                                    "value": "incidunt",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -3171,7 +3799,7 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "ut",
+                                    "value": "et",
                                     "description": "integer",
                                     "disabled": false
                                 },
@@ -3183,121 +3811,121 @@
                                 },
                                 {
                                     "key": "evalsRequired",
-                                    "value": "eum",
+                                    "value": "alias",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "salutation",
-                                    "value": "unde",
+                                    "value": "qui",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "givenName",
-                                    "value": "praesentium",
+                                    "value": "maxime",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "surname",
-                                    "value": "enim",
+                                    "value": "in",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "suffix",
-                                    "value": "incidunt",
+                                    "value": "earum",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "letters",
-                                    "value": "necessitatibus",
+                                    "value": "non",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "odit",
+                                    "value": "unde",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "photo",
-                                    "value": "quibusdam",
+                                    "value": "iste",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "modi",
+                                    "value": "labore",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "ut",
+                                    "value": "ab",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "website",
-                                    "value": "ad",
+                                    "value": "voluptatem",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "publicAddress",
-                                    "value": "molestiae",
+                                    "value": "in",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "publicPhone",
-                                    "value": "accusantium",
+                                    "value": "laboriosam",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "publicEmail",
-                                    "value": "eius",
+                                    "value": "labore",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contactName",
-                                    "value": "beatae",
+                                    "value": "ratione",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contactAddress",
-                                    "value": "quos",
+                                    "value": "dolorum",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contactPhone",
-                                    "value": "at",
+                                    "value": "doloribus",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contactEmail",
-                                    "value": "vel",
+                                    "value": "et",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "nostrum",
+                                    "value": "amet",
                                     "description": "integer",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "pariatur",
+                                    "value": "et",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -3450,67 +4078,67 @@
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "ducimus",
+                                    "value": "et",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "necessitatibus",
+                                    "value": "quas",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "quasi",
+                                    "value": "omnis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "porro",
+                                    "value": "ut",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "molestias",
+                                    "value": "vel",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "totam",
+                                    "value": "quaerat",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "corporis",
+                                    "value": "sed",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorTitle",
-                                    "value": "modi",
+                                    "value": "ut",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorLogo",
-                                    "value": "commodi",
+                                    "value": "voluptas",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "excepturi",
+                                    "value": "ratione",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "quis",
+                                    "value": "quo",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -3545,7 +4173,7 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "blanditiis",
+                                    "value": "ipsam",
                                     "description": "int",
                                     "disabled": false
                                 },
@@ -3557,55 +4185,55 @@
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "voluptatem",
+                                    "value": "quidem",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "inventore",
+                                    "value": "sunt",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "quaerat",
+                                    "value": "temporibus",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "unde",
+                                    "value": "suscipit",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "quo",
+                                    "value": "eos",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "esse",
+                                    "value": "atque",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "voluptatem",
+                                    "value": "ducimus",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "accusamus",
+                                    "value": "illum",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "quia",
+                                    "value": "dolor",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -4109,67 +4737,67 @@
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "qui",
+                                    "value": "mollitia",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "illum",
+                                    "value": "et",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "ipsum",
+                                    "value": "sed",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "fugiat",
+                                    "value": "qui",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "iusto",
+                                    "value": "sapiente",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "ea",
+                                    "value": "dignissimos",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "voluptas",
+                                    "value": "aspernatur",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorTitle",
-                                    "value": "inventore",
+                                    "value": "voluptate",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorLogo",
-                                    "value": "voluptatibus",
+                                    "value": "sequi",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "nemo",
+                                    "value": "vitae",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "aut",
+                                    "value": "inventore",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -4204,7 +4832,7 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "ab",
+                                    "value": "occaecati",
                                     "description": "int",
                                     "disabled": false
                                 },
@@ -4216,61 +4844,61 @@
                                 },
                                 {
                                     "key": "contentType",
-                                    "value": "veniam",
+                                    "value": "dolorum",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sponsorId",
-                                    "value": "maiores",
+                                    "value": "omnis",
                                     "description": "int",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hiragana",
-                                    "value": "sed",
+                                    "value": "aspernatur",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title",
-                                    "value": "placeat",
+                                    "value": "voluptatem",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "summary",
-                                    "value": "exercitationem",
+                                    "value": "ea",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "at",
+                                    "value": "odio",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "logo",
-                                    "value": "dolorem",
+                                    "value": "adipisci",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "consequatur",
+                                    "value": "sequi",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "hidden",
-                                    "value": "est",
+                                    "value": "blanditiis",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "notes",
-                                    "value": "odit",
+                                    "value": "corporis",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -4381,7 +5009,7 @@
                                 },
                                 {
                                     "key": "id",
-                                    "value": "quia",
+                                    "value": "sapiente",
                                     "description": "int",
                                     "disabled": false
                                 }
@@ -4476,7 +5104,7 @@
                                 },
                                 {
                                     "key": "speakerIds[]",
-                                    "value": "qui",
+                                    "value": "ut",
                                     "description": "array peakerIds[0]=333,speakerIds[1]=2...etc",
                                     "disabled": false
                                 }
@@ -4577,7 +5205,7 @@
                                 },
                                 {
                                     "key": "speakerIds[]",
-                                    "value": "ipsum",
+                                    "value": "aliquid",
                                     "description": "array peakerIds[0]=333,speakerIds[1]=2...etc",
                                     "disabled": false
                                 }
@@ -4675,6 +5303,549 @@
             ]
         },
         {
+            "name": "Tag",
+            "description": "\nEndpoints for manipulating tags.",
+            "item": [
+                {
+                    "name": "Get all tags",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/tags",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create tags",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/tags",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name[]",
+                                    "value": "voluptatem",
+                                    "description": "name[0]=tag1, name[1]=tag2,...",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update tag",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/tags",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "beatae",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "exercitationem",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete tag",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/tags",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "magni",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Tag Category",
+            "description": "\nEndpoints for manipulating tags.",
+            "item": [
+                {
+                    "name": "Get all tag categories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/tags\/categories",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create tag categories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/tags\/categories",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "dolorem",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contentType",
+                                    "value": "explicabo",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update tag category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/tags\/categories",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "inventore",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contentType",
+                                    "value": "libero",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "id",
+                                    "value": "quidem",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete tag category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/tags\/categories",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "nobis",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Topic",
+            "description": "\nEndpoints for manipulating topic.",
+            "item": [
+                {
+                    "name": "Get all topics",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/topics",
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get presentations for a topic",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/topics\/:id\/presentations",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "nobis",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create topic",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/topics",
+                            "query": [
+                                {
+                                    "key": "title",
+                                    "value": "sit",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "parentTopicId",
+                                    "value": "reprehenderit",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "hidden",
+                                    "value": "nulla",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update topic",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/topics",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "autem",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "title",
+                                    "value": "dolorum",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "parentTopicId",
+                                    "value": "laudantium",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "hidden",
+                                    "value": "incidunt",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "string",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete topic",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "api.audioverse.org.lan",
+                            "path": "\/admin\/topics",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "ut",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
             "name": "User Management",
             "description": "\nEndpoints for manipulating users.",
             "item": [
@@ -4688,13 +5859,13 @@
                             "query": [
                                 {
                                     "key": "email",
-                                    "value": "voluptatem",
+                                    "value": "totam",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password",
-                                    "value": "voluptatem",
+                                    "value": "eligendi",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -4729,7 +5900,7 @@
                             "query": [
                                 {
                                     "key": "token",
-                                    "value": "quos",
+                                    "value": "sunt",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -4764,13 +5935,13 @@
                             "query": [
                                 {
                                     "key": "email",
-                                    "value": "rerum",
+                                    "value": "veniam",
                                     "description": "string",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password",
-                                    "value": "quaerat",
+                                    "value": "neque",
                                     "description": "string",
                                     "disabled": false
                                 }
@@ -4819,7 +5990,7 @@
                             "mode": "raw",
                             "raw": "[]"
                         },
-                        "description": "Returns authenticated user data",
+                        "description": "Returns OAuth authenticated client user data.",
                         "response": []
                     }
                 },
@@ -4830,7 +6001,74 @@
                             "protocol": "http",
                             "host": "api.audioverse.org.lan",
                             "path": "\/auth\/user\/update",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "saepe",
+                                    "description": "int",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "new_password",
+                                    "value": "praesentium",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "firstName",
+                                    "value": "a",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "lastName",
+                                    "value": "quia",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "addressLine1",
+                                    "value": "suscipit",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "addressLine2",
+                                    "value": "explicabo",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "municipality",
+                                    "value": "laudantium",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "province",
+                                    "value": "laboriosam",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "postalCode",
+                                    "value": "placeat",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "country",
+                                    "value": "nemo",
+                                    "description": "string",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "subscribed",
+                                    "value": "tempore",
+                                    "description": "int",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "POST",
                         "header": [
@@ -5763,370 +7001,6 @@
                             "query": []
                         },
                         "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/tags",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/tags",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/tags",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/tags",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/tags",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/tags",
-                            "query": []
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/tags",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/tags",
-                            "query": []
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/tags\/categories",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/tags\/categories",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/tags\/categories",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/tags\/categories",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/tags\/categories",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/tags\/categories",
-                            "query": []
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/tags\/categories",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/tags\/categories",
-                            "query": []
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/topics",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/topics",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/topics\/{id}\/presentations",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/topics\/:id\/presentations",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/topics",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/topics",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/topics",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/topics",
-                            "query": []
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\/admin\/topics",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "api.audioverse.org.lan",
-                            "path": "\/admin\/topics",
-                            "query": []
-                        },
-                        "method": "DELETE",
                         "header": [
                             {
                                 "key": "Content-Type",

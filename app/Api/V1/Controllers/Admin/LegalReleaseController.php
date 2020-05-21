@@ -13,6 +13,12 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
  */
 class LegalReleaseController extends BaseController 
 {
+   /**
+	 * Get all releases
+	 *
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all() {
 
       $legalRelease = LegalRelease::where(['active' => 1])
@@ -26,6 +32,13 @@ class LegalReleaseController extends BaseController
       return $this->response->paginator($legalRelease, new LegalReleaseTransformer);
    }
 
+   /**
+	 * Get one release
+	 *
+    * @authenticated
+    * @urlParam id required int
+    * @queryParam lang required string Example: en
+    */
    public function one($legalReleaseId) {
 
       try {
@@ -36,6 +49,28 @@ class LegalReleaseController extends BaseController
       }
    }
 
+   /**
+	 * Create release
+	 *
+    * @authenticated
+    * @queryParam conferenceId required int
+    * @queryParam termsId required int
+    * @queryParam personId required int
+    * @queryParam recordingId required int
+    * @queryParam agree required int
+    * @queryParam firstName required string
+    * @queryParam lastName required string
+    * @queryParam email required string
+    * @queryParam phone required string
+    * @queryParam address required string
+    * @queryParam address2 required string
+    * @queryParam municipality required string
+    * @queryParam province required string
+    * @queryParam postalCode required int
+    * @queryParam country required string
+    * @queryParam comments required string
+    * @queryParam copyContacts required int
+    */
    public function create(LegalReleaseRequest $request) 
    {
       try {
@@ -52,6 +87,29 @@ class LegalReleaseController extends BaseController
       }
    }
 
+   /**
+	 * Update release
+	 *
+    * @authenticated
+    * @queryParam id required int
+    * @queryParam conferenceId required int
+    * @queryParam termsId required int
+    * @queryParam personId required int
+    * @queryParam recordingId required int
+    * @queryParam agree required int
+    * @queryParam firstName required string
+    * @queryParam lastName required string
+    * @queryParam email required string
+    * @queryParam phone required string
+    * @queryParam address required string
+    * @queryParam address2 required string
+    * @queryParam municipality required string
+    * @queryParam province required string
+    * @queryParam postalCode required int
+    * @queryParam country required string
+    * @queryParam comments required string
+    * @queryParam copyContacts required int
+    */
    public function update(LegalReleaseRequest $request) {
 
       try {
@@ -91,7 +149,12 @@ class LegalReleaseController extends BaseController
          return $this->response->errorNotFound("Legal release {$request->id} not found.");
       }
    }
-
+   /**
+	 * Delete release
+	 *
+    * @authenticated
+    * @queryParam id required int
+    */
    public function delete(LegalReleaseRequest $request) {
 
       try {

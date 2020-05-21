@@ -28,7 +28,7 @@ class UserController extends Controller
     /**
      * Get user data
      *
-     * Returns authenticated user data
+     * Returns OAuth authenticated client user data.
      */
     public function user() {
 
@@ -40,14 +40,25 @@ class UserController extends Controller
      * Update user
      *
      * Returns authenticated user data
+     * @queryParam userId required int
+     * @queryParam new_password required string
+     * @queryParam firstName required string
+     * @queryParam lastName required string
+     * @queryParam addressLine1 required string
+     * @queryParam addressLine2 required string
+     * @queryParam municipality required string
+     * @queryParam province required string
+     * @queryParam postalCode required string
+     * @queryParam country required string
+     * @queryParam subscribed required int
      */
     public function update(Request $request) {
 
         $user = app('Dingo\Api\Auth\Auth')->user();
-
+      
+        // Hard coded Oauth client.
         if ( $user->email == 'audioverseministry@gmail.com' ) {
             // validate password
-
             try {
 
                 $user = User::findOrFail($request->get('userId'));
@@ -91,10 +102,9 @@ class UserController extends Controller
         }
 
     }
+    
     /**
      * Temporary Administrative update password function
-     * @param Request $request
-     * @return \Dingo\Api\Http\Response|void
      */
     public function update_password(Request $request) {
 

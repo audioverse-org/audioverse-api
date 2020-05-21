@@ -5,9 +5,18 @@ use App\TagCategory;
 use App\Api\V1\Requests\TagCategoryRequest;
 use App\Transformers\Admin\TagCategoryTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Tag Category
+ *
+ * Endpoints for manipulating tags.
+ */
 class TagCategoryController extends BaseController 
 {
+   /**
+    * Get all tag categories
+    * 
+    * @authenticated
+    */
    public function all() {
 
       $tagCategory = TagCategory::where([
@@ -21,7 +30,14 @@ class TagCategoryController extends BaseController
 
       return $this->response->paginator($tagCategory, new TagCategoryTransformer);
    }
-
+   /**
+    * Create tag categories
+    * 
+    * @authenticated
+    * @queryParam name required string
+    * @queryParam contentType required string
+    * @queryParam lang required string Example: en
+    */
    public function create(TagCategoryRequest $request) 
    {
       try {
@@ -40,12 +56,21 @@ class TagCategoryController extends BaseController
          return $this->response->errorNotFound($e->getMessage());
       }
    }
-
+   /**
+    * Update tag category
+    * 
+    * @authenticated
+    * @queryParam name required string
+    * @queryParam contentType required string
+    * @queryParam id required int
+    * @queryParam lang required string Example: en
+    */
    public function update(TagCategoryRequest $request) {
 
       try {
          $tagCategory = TagCategory::findOrFail($request->id);
          $tagCategory->name = $request->name;
+         $tagCategory->contentType = $request->contentType;
          $tagCategory->update();
 
          return response()->json([
@@ -57,7 +82,12 @@ class TagCategoryController extends BaseController
          return $this->response->errorNotFound("Tag category {$request->id} not found.");
       }
    }
-
+   /**
+    * Delete tag category
+    * 
+    * @authenticated
+    * @queryParam id required int
+    */
    public function delete(TagCategoryRequest $request) {
       
       try {

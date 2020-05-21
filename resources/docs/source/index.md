@@ -82,7 +82,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/audiobooks?lang=en&sponsorId=maiores&hiragana=voluptate&title=id&summary=ipsa&description=voluptas&logo=qui&location=maxime&sponsorTitle=qui&sponsorLogo=debitis&hidden=accusamus&notes=labore" \
+    "api.audioverse.org.lan/admin/audiobooks?lang=en&sponsorId=blanditiis&hiragana=et&title=incidunt&summary=at&description=reiciendis&logo=dolorum&location=quis&sponsorTitle=soluta&sponsorLogo=itaque&hidden=veritatis&notes=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -94,17 +94,17 @@ const url = new URL(
 
 let params = {
     "lang": "en",
-    "sponsorId": "maiores",
-    "hiragana": "voluptate",
-    "title": "id",
-    "summary": "ipsa",
-    "description": "voluptas",
-    "logo": "qui",
-    "location": "maxime",
-    "sponsorTitle": "qui",
-    "sponsorLogo": "debitis",
-    "hidden": "accusamus",
-    "notes": "labore",
+    "sponsorId": "blanditiis",
+    "hiragana": "et",
+    "title": "incidunt",
+    "summary": "at",
+    "description": "reiciendis",
+    "logo": "dolorum",
+    "location": "quis",
+    "sponsorTitle": "soluta",
+    "sponsorLogo": "itaque",
+    "hidden": "veritatis",
+    "notes": "qui",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -154,7 +154,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/audiobooks?id=dolore&lang=en&contentType=aspernatur&sponsorId=ea&hiragana=aut&title=iste&summary=et&description=unde&logo=dolore&location=nesciunt&hidden=temporibus&notes=iusto" \
+    "api.audioverse.org.lan/admin/audiobooks?id=et&lang=en&contentType=blanditiis&sponsorId=maiores&hiragana=placeat&title=reiciendis&summary=eum&description=qui&logo=nostrum&location=officiis&hidden=optio&notes=quasi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -165,18 +165,18 @@ const url = new URL(
 );
 
 let params = {
-    "id": "dolore",
+    "id": "et",
     "lang": "en",
-    "contentType": "aspernatur",
-    "sponsorId": "ea",
-    "hiragana": "aut",
-    "title": "iste",
-    "summary": "et",
-    "description": "unde",
-    "logo": "dolore",
-    "location": "nesciunt",
-    "hidden": "temporibus",
-    "notes": "iusto",
+    "contentType": "blanditiis",
+    "sponsorId": "maiores",
+    "hiragana": "placeat",
+    "title": "reiciendis",
+    "summary": "eum",
+    "description": "qui",
+    "logo": "nostrum",
+    "location": "officiis",
+    "hidden": "optio",
+    "notes": "quasi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -330,7 +330,7 @@ Get all chapters for an audiobook.
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/audiobooks/chapters/1?lang=en&id=deserunt" \
+    -G "api.audioverse.org.lan/admin/audiobooks/chapters/1?lang=en&id=omnis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -342,7 +342,7 @@ const url = new URL(
 
 let params = {
     "lang": "en",
-    "id": "deserunt",
+    "id": "omnis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -384,7 +384,7 @@ Add a chapter for an audiobook.
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/audiobooks/chapters?sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=laudantium" \
+    "api.audioverse.org.lan/admin/audiobooks/chapters?sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=in" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -405,7 +405,7 @@ let params = {
     "hidden": "0",
     "downloadDisabled": "0",
     "conferenceId": "0",
-    "speakerIds[]": "laudantium",
+    "speakerIds[]": "in",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -456,7 +456,7 @@ Update a chapter for an audiobook.
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/audiobooks/chapters?id=9&sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=et" \
+    "api.audioverse.org.lan/admin/audiobooks/chapters?id=9&sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -478,7 +478,7 @@ let params = {
     "hidden": "0",
     "downloadDisabled": "0",
     "conferenceId": "0",
-    "speakerIds[]": "et",
+    "speakerIds[]": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1235,7 +1235,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/legal/agreements?title=autem&summary=aliquid&ownerId=quibusdam&licenseId=odio&lang=accusantium&hidden=consequatur&notes=rerum&retired=voluptatem" \
+    "api.audioverse.org.lan/admin/legal/agreements?title=est&summary=eaque&ownerId=necessitatibus&licenseId=est&lang=quam&hidden=distinctio&notes=culpa&retired=facere" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1246,14 +1246,14 @@ const url = new URL(
 );
 
 let params = {
-    "title": "autem",
-    "summary": "aliquid",
-    "ownerId": "quibusdam",
-    "licenseId": "odio",
-    "lang": "accusantium",
-    "hidden": "consequatur",
-    "notes": "rerum",
-    "retired": "voluptatem",
+    "title": "est",
+    "summary": "eaque",
+    "ownerId": "necessitatibus",
+    "licenseId": "est",
+    "lang": "quam",
+    "hidden": "distinctio",
+    "notes": "culpa",
+    "retired": "facere",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1299,7 +1299,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/legal/agreements?id=recusandae&title=delectus&summary=voluptas&ownerId=quo&licenseId=tempore&lang=ratione&hidden=reprehenderit&notes=et&retired=autem" \
+    "api.audioverse.org.lan/admin/legal/agreements?id=et&title=maiores&summary=in&ownerId=voluptatem&licenseId=quia&lang=quam&hidden=sint&notes=quod&retired=nulla" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1310,15 +1310,15 @@ const url = new URL(
 );
 
 let params = {
-    "id": "recusandae",
-    "title": "delectus",
-    "summary": "voluptas",
-    "ownerId": "quo",
-    "licenseId": "tempore",
-    "lang": "ratione",
-    "hidden": "reprehenderit",
-    "notes": "et",
-    "retired": "autem",
+    "id": "et",
+    "title": "maiores",
+    "summary": "in",
+    "ownerId": "voluptatem",
+    "licenseId": "quia",
+    "lang": "quam",
+    "hidden": "sint",
+    "notes": "quod",
+    "retired": "nulla",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1365,7 +1365,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "api.audioverse.org.lan/admin/legal/agreements?id=mollitia" \
+    "api.audioverse.org.lan/admin/legal/agreements?id=esse" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1376,7 +1376,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "mollitia",
+    "id": "esse",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1414,12 +1414,14 @@ Endpoints for manipulating licenses.
 Licenses are the terms and conditions that our website visitors must abide by when 
 downloading and/or sharing recordings.
 <!-- START_8acf63caecaffb871794b9f880fb0e21 -->
-## /admin/legal/licenses
+## Get all lincenses
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/legal/licenses" \
+    -G "api.audioverse.org.lan/admin/legal/licenses?lang=en" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1428,6 +1430,12 @@ curl -X GET \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/licenses"
 );
+
+let params = {
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1447,16 +1455,23 @@ fetch(url, {
 ### HTTP Request
 `GET /admin/legal/licenses`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `lang` |  required  | string
 
 <!-- END_8acf63caecaffb871794b9f880fb0e21 -->
 
 <!-- START_875f935dd1ebd5cb5ce7b8ab2361d1dc -->
-## /admin/legal/licenses/{id}
+## Get one lincense
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/legal/licenses/1" \
+    -G "api.audioverse.org.lan/admin/legal/licenses/1?id=accusamus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1465,6 +1480,12 @@ curl -X GET \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/licenses/1"
 );
+
+let params = {
+    "id": "accusamus",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1484,16 +1505,23 @@ fetch(url, {
 ### HTTP Request
 `GET /admin/legal/licenses/{id}`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
 
 <!-- END_875f935dd1ebd5cb5ce7b8ab2361d1dc -->
 
 <!-- START_b3cfef3dd83bfb92b53c6bf330a68149 -->
-## /admin/legal/licenses
+## Create owner
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/legal/licenses" \
+    "api.audioverse.org.lan/admin/legal/licenses?title=vitae&summary=eaque&description=rerum&logo=quidem&permitsSales=necessitatibus&lang=ratione&notes=officia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1502,6 +1530,18 @@ curl -X POST \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/licenses"
 );
+
+let params = {
+    "title": "vitae",
+    "summary": "eaque",
+    "description": "rerum",
+    "logo": "quidem",
+    "permitsSales": "necessitatibus",
+    "lang": "ratione",
+    "notes": "officia",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1521,16 +1561,29 @@ fetch(url, {
 ### HTTP Request
 `POST /admin/legal/licenses`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `title` |  required  | string
+    `summary` |  required  | string
+    `description` |  required  | string
+    `logo` |  required  | string
+    `permitsSales` |  required  | int
+    `lang` |  required  | string
+    `notes` |  required  | string
 
 <!-- END_b3cfef3dd83bfb92b53c6bf330a68149 -->
 
 <!-- START_f0de9ce0a5df5dbb728b1d4b31497917 -->
-## /admin/legal/licenses
+## Update owner
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/legal/licenses" \
+    "api.audioverse.org.lan/admin/legal/licenses?id=nemo&title=sunt&summary=omnis&description=autem&logo=fugit&permitsSales=rerum&lang=sit&notes=minima" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1539,6 +1592,19 @@ curl -X PUT \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/licenses"
 );
+
+let params = {
+    "id": "nemo",
+    "title": "sunt",
+    "summary": "omnis",
+    "description": "autem",
+    "logo": "fugit",
+    "permitsSales": "rerum",
+    "lang": "sit",
+    "notes": "minima",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1558,16 +1624,30 @@ fetch(url, {
 ### HTTP Request
 `PUT /admin/legal/licenses`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+    `title` |  required  | string
+    `summary` |  required  | string
+    `description` |  required  | string
+    `logo` |  required  | string
+    `permitsSales` |  required  | int
+    `lang` |  required  | string
+    `notes` |  required  | string
 
 <!-- END_f0de9ce0a5df5dbb728b1d4b31497917 -->
 
 <!-- START_5f40cc7fcb5d98d02e87ab333a0c326a -->
-## /admin/legal/licenses
+## Delete owner
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "api.audioverse.org.lan/admin/legal/licenses" \
+    "api.audioverse.org.lan/admin/legal/licenses?id=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1576,6 +1656,12 @@ curl -X DELETE \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/licenses"
 );
+
+let params = {
+    "id": "qui",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1595,6 +1681,11 @@ fetch(url, {
 ### HTTP Request
 `DELETE /admin/legal/licenses`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
 
 <!-- END_5f40cc7fcb5d98d02e87ab333a0c326a -->
 
@@ -1603,12 +1694,14 @@ fetch(url, {
 
 Endpoints for manipulating copyright owners.
 <!-- START_7baaf9b8c7ab48b6c368c4fe7ff92dc6 -->
-## /admin/legal/owners
+## Get all owners
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/legal/owners" \
+    -G "api.audioverse.org.lan/admin/legal/owners?lang=en" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1617,6 +1710,12 @@ curl -X GET \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/owners"
 );
+
+let params = {
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1636,16 +1735,23 @@ fetch(url, {
 ### HTTP Request
 `GET /admin/legal/owners`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `lang` |  required  | string
 
 <!-- END_7baaf9b8c7ab48b6c368c4fe7ff92dc6 -->
 
 <!-- START_344427471688bcf73c9b326a5f87fb62 -->
-## /admin/legal/owners/{id}
+## Get one owner
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/legal/owners/1" \
+    -G "api.audioverse.org.lan/admin/legal/owners/1?id=molestiae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1654,6 +1760,12 @@ curl -X GET \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/owners/1"
 );
+
+let params = {
+    "id": "molestiae",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1673,16 +1785,23 @@ fetch(url, {
 ### HTTP Request
 `GET /admin/legal/owners/{id}`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
 
 <!-- END_344427471688bcf73c9b326a5f87fb62 -->
 
 <!-- START_39fbc854dc97b04f519ce49e94617158 -->
-## /admin/legal/owners
+## Create owner
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/legal/owners" \
+    "api.audioverse.org.lan/admin/legal/owners?title=qui&summary=inventore&description=voluptatem&logo=pariatur&location=odio&website=magni&publicAddress=magnam&publicPhone=sint&publicEmail=quisquam&contactName=magni&contactAddress=omnis&contactPhone=saepe&contactEmail=minus&notes=exercitationem&lang=en" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1691,6 +1810,26 @@ curl -X POST \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/owners"
 );
+
+let params = {
+    "title": "qui",
+    "summary": "inventore",
+    "description": "voluptatem",
+    "logo": "pariatur",
+    "location": "odio",
+    "website": "magni",
+    "publicAddress": "magnam",
+    "publicPhone": "sint",
+    "publicEmail": "quisquam",
+    "contactName": "magni",
+    "contactAddress": "omnis",
+    "contactPhone": "saepe",
+    "contactEmail": "minus",
+    "notes": "exercitationem",
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1710,16 +1849,37 @@ fetch(url, {
 ### HTTP Request
 `POST /admin/legal/owners`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `title` |  required  | string
+    `summary` |  required  | string
+    `description` |  required  | string
+    `logo` |  required  | string
+    `location` |  required  | string
+    `website` |  required  | string
+    `publicAddress` |  required  | string
+    `publicPhone` |  required  | string
+    `publicEmail` |  required  | string
+    `contactName` |  required  | string
+    `contactAddress` |  required  | string
+    `contactPhone` |  required  | string
+    `contactEmail` |  required  | string
+    `notes` |  required  | string
+    `lang` |  required  | string
 
 <!-- END_39fbc854dc97b04f519ce49e94617158 -->
 
 <!-- START_8bbe1c2d0e631e3847f30dbc914a56bd -->
-## /admin/legal/owners
+## Update owner
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/legal/owners" \
+    "api.audioverse.org.lan/admin/legal/owners?id=iure&title=et&summary=eum&description=et&logo=nostrum&location=molestias&website=consectetur&publicAddress=illo&publicPhone=ut&publicEmail=animi&contactName=dicta&contactAddress=eum&contactPhone=dolore&contactEmail=quasi&notes=et&lang=en" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1728,6 +1888,27 @@ curl -X PUT \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/owners"
 );
+
+let params = {
+    "id": "iure",
+    "title": "et",
+    "summary": "eum",
+    "description": "et",
+    "logo": "nostrum",
+    "location": "molestias",
+    "website": "consectetur",
+    "publicAddress": "illo",
+    "publicPhone": "ut",
+    "publicEmail": "animi",
+    "contactName": "dicta",
+    "contactAddress": "eum",
+    "contactPhone": "dolore",
+    "contactEmail": "quasi",
+    "notes": "et",
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1747,16 +1928,38 @@ fetch(url, {
 ### HTTP Request
 `PUT /admin/legal/owners`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+    `title` |  required  | string
+    `summary` |  required  | string
+    `description` |  required  | string
+    `logo` |  required  | string
+    `location` |  required  | string
+    `website` |  required  | string
+    `publicAddress` |  required  | string
+    `publicPhone` |  required  | string
+    `publicEmail` |  required  | string
+    `contactName` |  required  | string
+    `contactAddress` |  required  | string
+    `contactPhone` |  required  | string
+    `contactEmail` |  required  | string
+    `notes` |  required  | string
+    `lang` |  required  | string
 
 <!-- END_8bbe1c2d0e631e3847f30dbc914a56bd -->
 
 <!-- START_59db3643074064455266ab478f03b9c8 -->
-## /admin/legal/owners
+## Delete owner
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "api.audioverse.org.lan/admin/legal/owners" \
+    "api.audioverse.org.lan/admin/legal/owners?id=quis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1765,6 +1968,12 @@ curl -X DELETE \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/owners"
 );
+
+let params = {
+    "id": "quis",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1784,6 +1993,11 @@ fetch(url, {
 ### HTTP Request
 `DELETE /admin/legal/owners`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
 
 <!-- END_59db3643074064455266ab478f03b9c8 -->
 
@@ -1792,12 +2006,14 @@ fetch(url, {
 
 Endpoints for manipulating legal release.
 <!-- START_90e66a3da48546e5334ab38504e11d4b -->
-## /admin/legal/releases
+## Get all releases
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/legal/releases" \
+    -G "api.audioverse.org.lan/admin/legal/releases?lang=en" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1806,6 +2022,12 @@ curl -X GET \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/releases"
 );
+
+let params = {
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1825,24 +2047,37 @@ fetch(url, {
 ### HTTP Request
 `GET /admin/legal/releases`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `lang` |  required  | string
 
 <!-- END_90e66a3da48546e5334ab38504e11d4b -->
 
 <!-- START_dca2efcfc117381afcc63e44214c3ef5 -->
-## /admin/legal/releases/{id}
+## Get one release
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/legal/releases/1" \
+    -G "api.audioverse.org.lan/admin/legal/releases/cum?lang=en" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "api.audioverse.org.lan/admin/legal/releases/1"
+    "api.audioverse.org.lan/admin/legal/releases/cum"
 );
+
+let params = {
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1862,16 +2097,28 @@ fetch(url, {
 ### HTTP Request
 `GET /admin/legal/releases/{id}`
 
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | int
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `lang` |  required  | string
 
 <!-- END_dca2efcfc117381afcc63e44214c3ef5 -->
 
 <!-- START_572b690bdb5a98ef10d67161298fc37f -->
-## /admin/legal/releases
+## Create release
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/legal/releases" \
+    "api.audioverse.org.lan/admin/legal/releases?conferenceId=explicabo&termsId=harum&personId=facere&recordingId=minima&agree=expedita&firstName=qui&lastName=tempora&email=officia&phone=beatae&address=omnis&address2=eum&municipality=ut&province=voluptatibus&postalCode=et&country=cumque&comments=excepturi&copyContacts=quis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1880,6 +2127,28 @@ curl -X POST \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/releases"
 );
+
+let params = {
+    "conferenceId": "explicabo",
+    "termsId": "harum",
+    "personId": "facere",
+    "recordingId": "minima",
+    "agree": "expedita",
+    "firstName": "qui",
+    "lastName": "tempora",
+    "email": "officia",
+    "phone": "beatae",
+    "address": "omnis",
+    "address2": "eum",
+    "municipality": "ut",
+    "province": "voluptatibus",
+    "postalCode": "et",
+    "country": "cumque",
+    "comments": "excepturi",
+    "copyContacts": "quis",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1899,16 +2168,39 @@ fetch(url, {
 ### HTTP Request
 `POST /admin/legal/releases`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `conferenceId` |  required  | int
+    `termsId` |  required  | int
+    `personId` |  required  | int
+    `recordingId` |  required  | int
+    `agree` |  required  | int
+    `firstName` |  required  | string
+    `lastName` |  required  | string
+    `email` |  required  | string
+    `phone` |  required  | string
+    `address` |  required  | string
+    `address2` |  required  | string
+    `municipality` |  required  | string
+    `province` |  required  | string
+    `postalCode` |  required  | int
+    `country` |  required  | string
+    `comments` |  required  | string
+    `copyContacts` |  required  | int
 
 <!-- END_572b690bdb5a98ef10d67161298fc37f -->
 
 <!-- START_f01793a94404e3b6e8b60a9144dc9a36 -->
-## /admin/legal/releases
+## Update release
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/legal/releases" \
+    "api.audioverse.org.lan/admin/legal/releases?id=repudiandae&conferenceId=quia&termsId=quos&personId=accusamus&recordingId=ab&agree=enim&firstName=molestias&lastName=nulla&email=esse&phone=ea&address=quas&address2=nisi&municipality=et&province=incidunt&postalCode=repudiandae&country=et&comments=tempora&copyContacts=suscipit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1917,6 +2209,29 @@ curl -X PUT \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/releases"
 );
+
+let params = {
+    "id": "repudiandae",
+    "conferenceId": "quia",
+    "termsId": "quos",
+    "personId": "accusamus",
+    "recordingId": "ab",
+    "agree": "enim",
+    "firstName": "molestias",
+    "lastName": "nulla",
+    "email": "esse",
+    "phone": "ea",
+    "address": "quas",
+    "address2": "nisi",
+    "municipality": "et",
+    "province": "incidunt",
+    "postalCode": "repudiandae",
+    "country": "et",
+    "comments": "tempora",
+    "copyContacts": "suscipit",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1936,16 +2251,40 @@ fetch(url, {
 ### HTTP Request
 `PUT /admin/legal/releases`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+    `conferenceId` |  required  | int
+    `termsId` |  required  | int
+    `personId` |  required  | int
+    `recordingId` |  required  | int
+    `agree` |  required  | int
+    `firstName` |  required  | string
+    `lastName` |  required  | string
+    `email` |  required  | string
+    `phone` |  required  | string
+    `address` |  required  | string
+    `address2` |  required  | string
+    `municipality` |  required  | string
+    `province` |  required  | string
+    `postalCode` |  required  | int
+    `country` |  required  | string
+    `comments` |  required  | string
+    `copyContacts` |  required  | int
 
 <!-- END_f01793a94404e3b6e8b60a9144dc9a36 -->
 
 <!-- START_ea48d4bf1b24902796d13e2f8c2b5106 -->
-## /admin/legal/releases
+## Delete release
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "api.audioverse.org.lan/admin/legal/releases" \
+    "api.audioverse.org.lan/admin/legal/releases?id=itaque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1954,6 +2293,12 @@ curl -X DELETE \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/releases"
 );
+
+let params = {
+    "id": "itaque",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -1973,6 +2318,11 @@ fetch(url, {
 ### HTTP Request
 `DELETE /admin/legal/releases`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
 
 <!-- END_ea48d4bf1b24902796d13e2f8c2b5106 -->
 
@@ -1981,12 +2331,14 @@ fetch(url, {
 
 Endpoints for manipulating legal terms.
 <!-- START_443e6f123e81d73c65b2a725ecbc2cad -->
-## /admin/legal/terms
+## Get all terms
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/legal/terms" \
+    -G "api.audioverse.org.lan/admin/legal/terms?lang=en" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1995,6 +2347,12 @@ curl -X GET \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/terms"
 );
+
+let params = {
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -2014,16 +2372,23 @@ fetch(url, {
 ### HTTP Request
 `GET /admin/legal/terms`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `lang` |  required  | string
 
 <!-- END_443e6f123e81d73c65b2a725ecbc2cad -->
 
 <!-- START_82919338a8fd0dc7cdf1a7046c5f2355 -->
-## /admin/legal/terms/{id}
+## Get one term
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/legal/terms/1" \
+    -G "api.audioverse.org.lan/admin/legal/terms/1?id=voluptatem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2032,6 +2397,12 @@ curl -X GET \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/terms/1"
 );
+
+let params = {
+    "id": "voluptatem",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -2051,16 +2422,23 @@ fetch(url, {
 ### HTTP Request
 `GET /admin/legal/terms/{id}`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
 
 <!-- END_82919338a8fd0dc7cdf1a7046c5f2355 -->
 
 <!-- START_539932472233a9c4fed25f95ab400fde -->
-## /admin/legal/terms
+## Create term
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/legal/terms" \
+    "api.audioverse.org.lan/admin/legal/terms?label=corrupti&terms=magnam&formType=laudantium" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2069,6 +2447,14 @@ curl -X POST \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/terms"
 );
+
+let params = {
+    "label": "corrupti",
+    "terms": "magnam",
+    "formType": "laudantium",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -2088,16 +2474,25 @@ fetch(url, {
 ### HTTP Request
 `POST /admin/legal/terms`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `label` |  required  | string
+    `terms` |  required  | string
+    `formType` |  required  | string
 
 <!-- END_539932472233a9c4fed25f95ab400fde -->
 
 <!-- START_491526b6cd190688e23d29989d82558c -->
-## /admin/legal/terms
+## Update term
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/legal/terms" \
+    "api.audioverse.org.lan/admin/legal/terms?id=dolorum&label=asperiores&terms=esse&formType=est" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2106,6 +2501,15 @@ curl -X PUT \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/terms"
 );
+
+let params = {
+    "id": "dolorum",
+    "label": "asperiores",
+    "terms": "esse",
+    "formType": "est",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -2125,16 +2529,26 @@ fetch(url, {
 ### HTTP Request
 `PUT /admin/legal/terms`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | string
+    `label` |  required  | string
+    `terms` |  required  | string
+    `formType` |  required  | string
 
 <!-- END_491526b6cd190688e23d29989d82558c -->
 
 <!-- START_75e2b748bc4479830853cf3fc70a864c -->
-## /admin/legal/terms
+## Delete term
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "api.audioverse.org.lan/admin/legal/terms" \
+    "api.audioverse.org.lan/admin/legal/terms?id=sit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2143,6 +2557,12 @@ curl -X DELETE \
 const url = new URL(
     "api.audioverse.org.lan/admin/legal/terms"
 );
+
+let params = {
+    "id": "sit",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -2162,6 +2582,11 @@ fetch(url, {
 ### HTTP Request
 `DELETE /admin/legal/terms`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | string
 
 <!-- END_75e2b748bc4479830853cf3fc70a864c -->
 
@@ -2471,7 +2896,7 @@ Get all chapters for an album.
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/music/chapters/1?lang=en&id=aliquid" \
+    -G "api.audioverse.org.lan/admin/music/chapters/1?lang=en&id=vel" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2483,7 +2908,7 @@ const url = new URL(
 
 let params = {
     "lang": "en",
-    "id": "aliquid",
+    "id": "vel",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2525,7 +2950,7 @@ Add a chapter for an album.
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/music/chapters?sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=saepe" \
+    "api.audioverse.org.lan/admin/music/chapters?sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2546,7 +2971,7 @@ let params = {
     "hidden": "0",
     "downloadDisabled": "0",
     "conferenceId": "0",
-    "speakerIds[]": "saepe",
+    "speakerIds[]": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2597,7 +3022,7 @@ Update a chapter for an album.
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/music/chapters?id=9&sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=aliquam" \
+    "api.audioverse.org.lan/admin/music/chapters?id=9&sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=nihil" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2619,7 +3044,7 @@ let params = {
     "hidden": "0",
     "downloadDisabled": "0",
     "conferenceId": "0",
-    "speakerIds[]": "aliquam",
+    "speakerIds[]": "nihil",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4387,7 +4812,7 @@ Get all chapters for a story book.
 
 ```bash
 curl -X GET \
-    -G "api.audioverse.org.lan/admin/stories/chapters/1?lang=en&id=quia" \
+    -G "api.audioverse.org.lan/admin/stories/chapters/1?lang=en&id=sapiente" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4399,7 +4824,7 @@ const url = new URL(
 
 let params = {
     "lang": "en",
-    "id": "quia",
+    "id": "sapiente",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4441,7 +4866,7 @@ Add a chapter for an story.
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/admin/stories/chapters?sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=qui" \
+    "api.audioverse.org.lan/admin/stories/chapters?sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4462,7 +4887,7 @@ let params = {
     "hidden": "0",
     "downloadDisabled": "0",
     "conferenceId": "0",
-    "speakerIds[]": "qui",
+    "speakerIds[]": "ut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4513,7 +4938,7 @@ Update a chapter for an story.
 
 ```bash
 curl -X PUT \
-    "api.audioverse.org.lan/admin/stories/chapters?id=9&sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=ipsum" \
+    "api.audioverse.org.lan/admin/stories/chapters?id=9&sponsorId=9&agreementId=1&copyrightYear=2019&isComplete=0&title=Hello+World&publishDate=2019-01-01&lang=en&hidden=0&downloadDisabled=0&conferenceId=0&speakerIds[]=aliquid" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4535,7 +4960,7 @@ let params = {
     "hidden": "0",
     "downloadDisabled": "0",
     "conferenceId": "0",
-    "speakerIds[]": "ipsum",
+    "speakerIds[]": "aliquid",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4681,6 +5106,673 @@ Parameter | Status | Description
 
 <!-- END_4da37ca7feaa2cc195762ea5b06500fe -->
 
+#Tag
+
+
+Endpoints for manipulating tags.
+<!-- START_0fed498fae136b624dcf5b00d30a59c5 -->
+## Get all tags
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "api.audioverse.org.lan/admin/tags" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/tags"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET /admin/tags`
+
+
+<!-- END_0fed498fae136b624dcf5b00d30a59c5 -->
+
+<!-- START_4cc6dbbc95ea69f532e1cfe370db7eef -->
+## Create tags
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "api.audioverse.org.lan/admin/tags?name[]=voluptatem" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/tags"
+);
+
+let params = {
+    "name[]": "voluptatem",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST /admin/tags`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `name` |  required  | string
+    `name[]` |  optional  | name[0]=tag1, name[1]=tag2,...
+
+<!-- END_4cc6dbbc95ea69f532e1cfe370db7eef -->
+
+<!-- START_fd3297758ae74ab3b19d1d34ced5b3d1 -->
+## Update tag
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "api.audioverse.org.lan/admin/tags?id=beatae&name=exercitationem" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/tags"
+);
+
+let params = {
+    "id": "beatae",
+    "name": "exercitationem",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT /admin/tags`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+    `name` |  required  | string
+
+<!-- END_fd3297758ae74ab3b19d1d34ced5b3d1 -->
+
+<!-- START_7e5809427715fb50fab3bb4e4940f2e3 -->
+## Delete tag
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "api.audioverse.org.lan/admin/tags?id=magni" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/tags"
+);
+
+let params = {
+    "id": "magni",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE /admin/tags`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+
+<!-- END_7e5809427715fb50fab3bb4e4940f2e3 -->
+
+#Tag Category
+
+
+Endpoints for manipulating tags.
+<!-- START_5d7a12cf527021060a48f289e3c1f985 -->
+## Get all tag categories
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "api.audioverse.org.lan/admin/tags/categories" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/tags/categories"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET /admin/tags/categories`
+
+
+<!-- END_5d7a12cf527021060a48f289e3c1f985 -->
+
+<!-- START_90acf6debe5a8ee073e69466ce1b6332 -->
+## Create tag categories
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "api.audioverse.org.lan/admin/tags/categories?name=dolorem&contentType=explicabo&lang=en" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/tags/categories"
+);
+
+let params = {
+    "name": "dolorem",
+    "contentType": "explicabo",
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST /admin/tags/categories`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `name` |  required  | string
+    `contentType` |  required  | string
+    `lang` |  required  | string
+
+<!-- END_90acf6debe5a8ee073e69466ce1b6332 -->
+
+<!-- START_51607acf9ecc533820a5f499e8fcccf3 -->
+## Update tag category
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "api.audioverse.org.lan/admin/tags/categories?name=inventore&contentType=libero&id=quidem&lang=en" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/tags/categories"
+);
+
+let params = {
+    "name": "inventore",
+    "contentType": "libero",
+    "id": "quidem",
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT /admin/tags/categories`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `name` |  required  | string
+    `contentType` |  required  | string
+    `id` |  required  | int
+    `lang` |  required  | string
+
+<!-- END_51607acf9ecc533820a5f499e8fcccf3 -->
+
+<!-- START_6abbd219298d774a21cad72fd7f45bb0 -->
+## Delete tag category
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "api.audioverse.org.lan/admin/tags/categories?id=nobis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/tags/categories"
+);
+
+let params = {
+    "id": "nobis",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE /admin/tags/categories`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+
+<!-- END_6abbd219298d774a21cad72fd7f45bb0 -->
+
+#Topic
+
+
+Endpoints for manipulating topic.
+<!-- START_dfcee82325bfed1a0ac68a081ed63641 -->
+## Get all topics
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "api.audioverse.org.lan/admin/topics?lang=en" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/topics"
+);
+
+let params = {
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET /admin/topics`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `lang` |  required  | string
+
+<!-- END_dfcee82325bfed1a0ac68a081ed63641 -->
+
+<!-- START_fc8be4071505692fd593f75dd1bedf0a -->
+## Get presentations for a topic
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "api.audioverse.org.lan/admin/topics/1/presentations?id=nobis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/topics/1/presentations"
+);
+
+let params = {
+    "id": "nobis",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET /admin/topics/{id}/presentations`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+
+<!-- END_fc8be4071505692fd593f75dd1bedf0a -->
+
+<!-- START_9284511054b679ce2bd8993fe97d167f -->
+## Create topic
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "api.audioverse.org.lan/admin/topics?title=sit&parentTopicId=reprehenderit&hidden=nulla&lang=en" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/topics"
+);
+
+let params = {
+    "title": "sit",
+    "parentTopicId": "reprehenderit",
+    "hidden": "nulla",
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST /admin/topics`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `title` |  required  | string
+    `parentTopicId` |  required  | int
+    `hidden` |  required  | int
+    `lang` |  required  | string
+
+<!-- END_9284511054b679ce2bd8993fe97d167f -->
+
+<!-- START_583960c5f2b42bdf372ba704b793b47e -->
+## Update topic
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "api.audioverse.org.lan/admin/topics?id=autem&title=dolorum&parentTopicId=laudantium&hidden=incidunt&lang=en" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/topics"
+);
+
+let params = {
+    "id": "autem",
+    "title": "dolorum",
+    "parentTopicId": "laudantium",
+    "hidden": "incidunt",
+    "lang": "en",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT /admin/topics`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+    `title` |  required  | string
+    `parentTopicId` |  required  | int
+    `hidden` |  required  | int
+    `lang` |  required  | string
+
+<!-- END_583960c5f2b42bdf372ba704b793b47e -->
+
+<!-- START_91e0eee47102eedc3b1f949429e4db71 -->
+## Delete topic
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "api.audioverse.org.lan/admin/topics?id=ut" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "api.audioverse.org.lan/admin/topics"
+);
+
+let params = {
+    "id": "ut",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE /admin/topics`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `id` |  required  | int
+
+<!-- END_91e0eee47102eedc3b1f949429e4db71 -->
+
 #User Management
 
 
@@ -4695,7 +5787,7 @@ It also send email verification message as long as the background job is running
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/auth/signup?email=voluptatem&password=voluptatem" \
+    "api.audioverse.org.lan/auth/signup?email=totam&password=eligendi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4706,8 +5798,8 @@ const url = new URL(
 );
 
 let params = {
-    "email": "voluptatem",
-    "password": "voluptatem",
+    "email": "totam",
+    "password": "eligendi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4749,7 +5841,7 @@ If successful user is set as validated.
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/auth/signup/verify/1?token=quos" \
+    "api.audioverse.org.lan/auth/signup/verify/1?token=sunt" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4760,7 +5852,7 @@ const url = new URL(
 );
 
 let params = {
-    "token": "quos",
+    "token": "sunt",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4799,7 +5891,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/auth/login?email=rerum&password=quaerat" \
+    "api.audioverse.org.lan/auth/login?email=veniam&password=neque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4810,8 +5902,8 @@ const url = new URL(
 );
 
 let params = {
-    "email": "rerum",
-    "password": "quaerat",
+    "email": "veniam",
+    "password": "neque",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4846,7 +5938,7 @@ Parameter | Status | Description
 <!-- START_e95cda783e76bb7f4ec8742fda939d69 -->
 ## Get user data
 
-Returns authenticated user data
+Returns OAuth authenticated client user data.
 
 > Example request:
 
@@ -4892,7 +5984,7 @@ Returns authenticated user data
 
 ```bash
 curl -X POST \
-    "api.audioverse.org.lan/auth/user/update" \
+    "api.audioverse.org.lan/auth/user/update?userId=saepe&new_password=praesentium&firstName=a&lastName=quia&addressLine1=suscipit&addressLine2=explicabo&municipality=laudantium&province=laboriosam&postalCode=placeat&country=nemo&subscribed=tempore" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4901,6 +5993,22 @@ curl -X POST \
 const url = new URL(
     "api.audioverse.org.lan/auth/user/update"
 );
+
+let params = {
+    "userId": "saepe",
+    "new_password": "praesentium",
+    "firstName": "a",
+    "lastName": "quia",
+    "addressLine1": "suscipit",
+    "addressLine2": "explicabo",
+    "municipality": "laudantium",
+    "province": "laboriosam",
+    "postalCode": "placeat",
+    "country": "nemo",
+    "subscribed": "tempore",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -4920,6 +6028,21 @@ fetch(url, {
 ### HTTP Request
 `POST /auth/user/update`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `userId` |  required  | int
+    `new_password` |  required  | string
+    `firstName` |  required  | string
+    `lastName` |  required  | string
+    `addressLine1` |  required  | string
+    `addressLine2` |  required  | string
+    `municipality` |  required  | string
+    `province` |  required  | string
+    `postalCode` |  required  | string
+    `country` |  required  | string
+    `subscribed` |  required  | int
 
 <!-- END_7f210ade2b82e86b05aee972cc544119 -->
 
@@ -6181,486 +7304,5 @@ fetch(url, {
 
 
 <!-- END_5f755b8a838f55ab767bc7ddb5ca3328 -->
-
-<!-- START_0fed498fae136b624dcf5b00d30a59c5 -->
-## /admin/tags
-> Example request:
-
-```bash
-curl -X GET \
-    -G "api.audioverse.org.lan/admin/tags" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/tags"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`GET /admin/tags`
-
-
-<!-- END_0fed498fae136b624dcf5b00d30a59c5 -->
-
-<!-- START_4cc6dbbc95ea69f532e1cfe370db7eef -->
-## /admin/tags
-> Example request:
-
-```bash
-curl -X POST \
-    "api.audioverse.org.lan/admin/tags" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/tags"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST /admin/tags`
-
-
-<!-- END_4cc6dbbc95ea69f532e1cfe370db7eef -->
-
-<!-- START_fd3297758ae74ab3b19d1d34ced5b3d1 -->
-## /admin/tags
-> Example request:
-
-```bash
-curl -X PUT \
-    "api.audioverse.org.lan/admin/tags" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/tags"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT /admin/tags`
-
-
-<!-- END_fd3297758ae74ab3b19d1d34ced5b3d1 -->
-
-<!-- START_7e5809427715fb50fab3bb4e4940f2e3 -->
-## /admin/tags
-> Example request:
-
-```bash
-curl -X DELETE \
-    "api.audioverse.org.lan/admin/tags" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/tags"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE /admin/tags`
-
-
-<!-- END_7e5809427715fb50fab3bb4e4940f2e3 -->
-
-<!-- START_5d7a12cf527021060a48f289e3c1f985 -->
-## /admin/tags/categories
-> Example request:
-
-```bash
-curl -X GET \
-    -G "api.audioverse.org.lan/admin/tags/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/tags/categories"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`GET /admin/tags/categories`
-
-
-<!-- END_5d7a12cf527021060a48f289e3c1f985 -->
-
-<!-- START_90acf6debe5a8ee073e69466ce1b6332 -->
-## /admin/tags/categories
-> Example request:
-
-```bash
-curl -X POST \
-    "api.audioverse.org.lan/admin/tags/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/tags/categories"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST /admin/tags/categories`
-
-
-<!-- END_90acf6debe5a8ee073e69466ce1b6332 -->
-
-<!-- START_51607acf9ecc533820a5f499e8fcccf3 -->
-## /admin/tags/categories
-> Example request:
-
-```bash
-curl -X PUT \
-    "api.audioverse.org.lan/admin/tags/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/tags/categories"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT /admin/tags/categories`
-
-
-<!-- END_51607acf9ecc533820a5f499e8fcccf3 -->
-
-<!-- START_6abbd219298d774a21cad72fd7f45bb0 -->
-## /admin/tags/categories
-> Example request:
-
-```bash
-curl -X DELETE \
-    "api.audioverse.org.lan/admin/tags/categories" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/tags/categories"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE /admin/tags/categories`
-
-
-<!-- END_6abbd219298d774a21cad72fd7f45bb0 -->
-
-<!-- START_dfcee82325bfed1a0ac68a081ed63641 -->
-## /admin/topics
-> Example request:
-
-```bash
-curl -X GET \
-    -G "api.audioverse.org.lan/admin/topics" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/topics"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`GET /admin/topics`
-
-
-<!-- END_dfcee82325bfed1a0ac68a081ed63641 -->
-
-<!-- START_fc8be4071505692fd593f75dd1bedf0a -->
-## /admin/topics/{id}/presentations
-> Example request:
-
-```bash
-curl -X GET \
-    -G "api.audioverse.org.lan/admin/topics/1/presentations" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/topics/1/presentations"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`GET /admin/topics/{id}/presentations`
-
-
-<!-- END_fc8be4071505692fd593f75dd1bedf0a -->
-
-<!-- START_9284511054b679ce2bd8993fe97d167f -->
-## /admin/topics
-> Example request:
-
-```bash
-curl -X POST \
-    "api.audioverse.org.lan/admin/topics" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/topics"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST /admin/topics`
-
-
-<!-- END_9284511054b679ce2bd8993fe97d167f -->
-
-<!-- START_583960c5f2b42bdf372ba704b793b47e -->
-## /admin/topics
-> Example request:
-
-```bash
-curl -X PUT \
-    "api.audioverse.org.lan/admin/topics" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/topics"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT /admin/topics`
-
-
-<!-- END_583960c5f2b42bdf372ba704b793b47e -->
-
-<!-- START_91e0eee47102eedc3b1f949429e4db71 -->
-## /admin/topics
-> Example request:
-
-```bash
-curl -X DELETE \
-    "api.audioverse.org.lan/admin/topics" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "api.audioverse.org.lan/admin/topics"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE /admin/topics`
-
-
-<!-- END_91e0eee47102eedc3b1f949429e4db71 -->
 
 
