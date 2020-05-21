@@ -13,9 +13,11 @@ class BaseController extends Controller
    public $per_page;
    public $page;
    public $where = ['active' => 1];
+   public $contentType = 0;
 
    private $conferenceHidden = 0;
    private $sponsorHidden = 0;
+
 
    public function __construct(Request $request) {
       
@@ -25,21 +27,25 @@ class BaseController extends Controller
       $this->where = array_merge($this->where, [
          'lang' => config('avorg.default_lang'),
       ]);
+      
+      // Figure out content type
+      $this->contentType = $this->getContentType($request->path());
 
       // For LengthAwarePaginator
       $this->set_page($request->input('page', 1));
       $this->set_per_page($request->input('per_page', 25));
    }
 
-   public function getContentType(String $path) {
+   private function getContentType(String $path) {
 
-   $contentTypes = config('avorg.content_type');
+      $contentTypes = config('avorg.content_type');
 
-   foreach($contentTypes as $key=>$value) {
-      if (preg_match("/$key/", $path)) {
-         return $value;
+      foreach ($contentTypes as $key => $value) {
+
+         if (preg_match("/$key/", $path)) {
+            return $value;
+         }
       }
-   }
    }
 
    private function set_page($value) {

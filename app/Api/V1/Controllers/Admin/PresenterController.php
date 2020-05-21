@@ -7,8 +7,20 @@ use App\Presenter;
 use App\Transformers\Admin\PresenterTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+/**
+ * @group Presenter
+ *
+ * Endpoints for manipulating presenter catalog.
+ */
 class PresenterController extends BaseController {
 
+   /**
+    * Get presenters
+    * 
+    * Get all presenters.
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all() {
 
       $presenter = Presenter::where($this->where)->paginate(config('avorg.page_size'));
@@ -20,6 +32,15 @@ class PresenterController extends BaseController {
       return $this->response->paginator($presenter, new PresenterTransformer);
    }
 
+   /**
+    * Get all presenters
+    * 
+    * This fetches all available presenters in the database table. Please utilize a caching
+    * mechanism on the client side.
+    * 
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function mass() {
 
       $this->where = array_merge($this->where, [
@@ -35,6 +56,13 @@ class PresenterController extends BaseController {
       return $this->response->collection($presenter, new PresenterTransformer);
    }
 
+   /**
+    * Get one presenter
+    *
+    * @authenticated
+    * @queryParam lang required string Example: en
+    * @urlParam id required id of the presenter. Example: 1
+    */
    public function one($id) {
 
       try {
@@ -45,6 +73,32 @@ class PresenterController extends BaseController {
       }
    }
 
+   /**
+	 * Create presenter
+	 *
+    * @authenticated
+    * @queryParam lang required string Example: en
+	 * @queryParam evalsRequired int
+    * @queryParam salutation string
+    * @queryParam givenName string
+    * @queryParam surname string
+    * @queryParam suffix string
+    * @queryParam letters string
+    * @queryParam hiragana string
+    * @queryParam photo string
+    * @queryParam summary string
+    * @queryParam description string
+    * @queryParam website string
+    * @queryParam publicAddress string
+    * @queryParam publicPhone string
+    * @queryParam publicEmail string
+    * @queryParam contactName string
+    * @queryParam contactAddress string
+    * @queryParam contactPhone string
+    * @queryParam contactEmail string
+    * @queryParam hidden integer
+    * @queryParam notes string
+	 */
    public function create(PresenterRequest $request) {
 
       $presenter = new Presenter();
@@ -57,6 +111,33 @@ class PresenterController extends BaseController {
       ], 201);
    }
 
+   /**
+	 * Update presenter
+	 *
+    * @authenticated
+    * @queryParam id required integer
+    * @queryParam lang required string Example: en
+	 * @queryParam evalsRequired int
+    * @queryParam salutation string
+    * @queryParam givenName string
+    * @queryParam surname string
+    * @queryParam suffix string
+    * @queryParam letters string
+    * @queryParam hiragana string
+    * @queryParam photo string
+    * @queryParam summary string
+    * @queryParam description string
+    * @queryParam website string
+    * @queryParam publicAddress string
+    * @queryParam publicPhone string
+    * @queryParam publicEmail string
+    * @queryParam contactName string
+    * @queryParam contactAddress string
+    * @queryParam contactPhone string
+    * @queryParam contactEmail string
+    * @queryParam hidden integer
+    * @queryParam notes string
+	 */
    public function update(PresenterRequest $request) {
 
       try {
@@ -74,6 +155,12 @@ class PresenterController extends BaseController {
       }
    }
 
+   /**
+    * Delete presenter
+    *
+    * @authenticated
+    * @queryParam id required id of the presenter. Example: 1
+    */
    public function delete(PresenterRequest $request) {
       
       try {

@@ -5,9 +5,18 @@ use App\Tag;
 use App\Api\V1\Requests\TagRequest;
 use App\Transformers\Admin\TagTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Tag
+ *
+ * Endpoints for manipulating tags.
+ */
 class TagController extends BaseController 
 {
+   /**
+    * Get all tags
+    * 
+    * @authenticated
+    */
    public function all() {
 
       $tag = Tag::where([
@@ -22,6 +31,13 @@ class TagController extends BaseController
       return $this->response->paginator($tag, new TagTransformer);
    }
 
+   /**
+    * Create tags
+    * 
+    * @authenticated
+    * @queryParam name required string Example: en
+    * @queryParam name[] name[0]=tag1, name[1]=tag2,...
+    */
    public function create(TagRequest $request) 
    {
       try {
@@ -66,7 +82,13 @@ class TagController extends BaseController
          return $this->response->errorNotFound($e->getMessage());
       }
    }
-
+   /**
+    * Update tag
+    * 
+    * @authenticated
+    * @queryParam id required int
+    * @queryParam name required string
+    */
    public function update(TagRequest $request) {
 
       try {
@@ -84,7 +106,12 @@ class TagController extends BaseController
          return $this->response->errorNotFound("Tag {$request->id} not found.");
       }
    }
-
+   /**
+    * Delete tag
+    * 
+    * @authenticated
+    * @queryParam id required int
+    */
    public function delete(TagRequest $request) {
       
       try {

@@ -6,11 +6,22 @@ use App\Api\V1\Requests\UpdateSponsorRequest;
 use App\Sponsor;
 use App\Transformers\Admin\SponsorTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Sponsor
+ *
+ * Endpoints for manipulating sponsor catalog.
+ */
 class SponsorController extends BaseController 
 {
    protected $model_id = 'sponsorId';
 
+   /**
+    * Get sponsors
+    * 
+    * Get all sponsors.
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all() {
 
       $sponsor = Sponsor::where($this->where)
@@ -24,6 +35,13 @@ class SponsorController extends BaseController
       return $this->response->paginator($sponsor, new SponsorTransformer);
    }
 
+   /**
+    * Get one sponsor
+    *
+    * @authenticated
+    * @queryParam lang required string Example: en
+    * @urlParam id required id of the presenter. Example: 1
+    */
    public function one($sponsor_id) {
       try {
          $item = Sponsor::where($this->where)->findOrFail($sponsor_id);
@@ -32,7 +50,28 @@ class SponsorController extends BaseController
          return $this->response->errorNotFound("Sponsor {$sponsor_id} not found.");
       }
    }
-
+   /**
+	 * Create sponsor
+	 *
+    * @authenticated
+    * @queryParam lang required string Example: en
+    * @queryParam hiragana required string Example:横浜三育小学校
+    * @queryParam title required string Example:This is a title
+    * @queryParam summary required string Example:This is a summary
+    * @queryParam description required string Example:This is a description
+    * @queryParam logo required string Example:logo.jpg
+    * @queryParam location required string Example:San Anonio
+    * @queryParam website required string Example:http://www.audioverse.org
+    * @queryParam publicAddress required string Example:9517 PINE ST
+    * @queryParam publicPhone required string Example:423-420-6918
+    * @queryParam publicEmail required string Example:john@audioverse.org
+    * @queryParam contactName required string Example:John Doe
+    * @queryParam contactAddress required string Example:9517 PINE ST
+    * @queryParam contactPhone required string Example:423-400-3938
+    * @queryParam contactEmail required string Example:jane@audioverse.org
+    * @queryParam notes required string Example:This is a note!
+    * @queryParam hidden required string Example: 0
+    */
    public function create(SponsorRequest $request) {
 
       $sponsor = new Sponsor();
@@ -45,6 +84,29 @@ class SponsorController extends BaseController
       ], 201);
    }
 
+   /**
+	 * Update sponsor
+	 *
+    * @authenticated
+    * @queryParam id required string Example: 1
+    * @queryParam lang required string Example: en
+    * @queryParam hiragana required string Example:横浜三育小学校
+    * @queryParam title required string Example:This is a title
+    * @queryParam summary required string Example:This is a summary
+    * @queryParam description required string Example:This is a description
+    * @queryParam logo required string Example:logo.jpg
+    * @queryParam location required string Example:San Anonio
+    * @queryParam website required string Example:http://www.audioverse.org
+    * @queryParam publicAddress required string Example:9517 PINE ST
+    * @queryParam publicPhone required string Example:423-420-6918
+    * @queryParam publicEmail required string Example:john@audioverse.org
+    * @queryParam contactName required string Example:John Doe
+    * @queryParam contactAddress required string Example:9517 PINE ST
+    * @queryParam contactPhone required string Example:423-400-3938
+    * @queryParam contactEmail required string Example:jane@audioverse.org
+    * @queryParam notes required string Example:This is a note!
+    * @queryParam hidden required string Example: 0
+    */
    public function update(SponsorRequest $request) {
 
       try {
@@ -62,6 +124,12 @@ class SponsorController extends BaseController
       }
    }
 
+   /**
+    * Delete sponsor
+    *
+    * @authenticated
+    * @queryParam id required id of the sponsor. Example: 1
+    */
    public function delete(SponsorRequest $request) {
       
       try {
@@ -86,6 +154,7 @@ class SponsorController extends BaseController
          return $this->response->errorNotFound("Sponsor {$request->id} not found.");
       }
    }
+
    private function setFields(SponsorRequest $request, Sponsor $sponsor) {
 
       $sponsor->title = $request->title;

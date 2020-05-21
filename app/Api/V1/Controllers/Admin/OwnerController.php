@@ -5,9 +5,19 @@ use App\Owner;
 use App\Api\V1\Requests\OwnerRequest;
 use App\Transformers\Admin\OwnerTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Legal Owners
+ *
+ * Endpoints for manipulating copyright owners.
+ */
 class OwnerController extends BaseController 
 {
+   /**
+	 * Get all owners
+	 *
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all() {
 
       $owner = Owner::where([
@@ -22,7 +32,12 @@ class OwnerController extends BaseController
 
       return $this->response->paginator($owner, new OwnerTransformer);
    }
-
+   /**
+	 * Get one owner
+	 *
+    * @authenticated
+    * @queryParam id required int
+    */
    public function one($ownerId) {
 
       try {
@@ -33,6 +48,26 @@ class OwnerController extends BaseController
       }
    }
 
+   /**
+	 * Create owner
+	 *
+    * @authenticated
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam description required string
+    * @queryParam logo required string
+    * @queryParam location required string
+    * @queryParam website required string
+    * @queryParam publicAddress required string
+    * @queryParam publicPhone required string
+    * @queryParam publicEmail required string
+    * @queryParam contactName required string
+    * @queryParam contactAddress required string
+    * @queryParam contactPhone required string
+    * @queryParam contactEmail required string
+    * @queryParam notes required string
+    * @queryParam lang required string Example: en
+    */
    public function create(OwnerRequest $request) 
    {
       try {
@@ -48,7 +83,27 @@ class OwnerController extends BaseController
          return $this->response->errorNotFound($e->getMessage());
       }
    }
-
+   /**
+	 * Update owner
+	 *
+    * @authenticated
+    * @queryParam id required int
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam description required string
+    * @queryParam logo required string
+    * @queryParam location required string
+    * @queryParam website required string
+    * @queryParam publicAddress required string
+    * @queryParam publicPhone required string
+    * @queryParam publicEmail required string
+    * @queryParam contactName required string
+    * @queryParam contactAddress required string
+    * @queryParam contactPhone required string
+    * @queryParam contactEmail required string
+    * @queryParam notes required string
+    * @queryParam lang required string Example: en
+    */
    public function update(OwnerRequest $request) {
 
       try {
@@ -65,7 +120,12 @@ class OwnerController extends BaseController
          return $this->response->errorNotFound("Owner {$request->id} not found.");
       }
    }
-
+   /**
+	 * Delete owner
+	 *
+    * @authenticated
+    * @queryParam id required int
+    */
    public function delete(OwnerRequest $request) {
 
       try {

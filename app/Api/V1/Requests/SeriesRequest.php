@@ -6,7 +6,6 @@ use Dingo\Api\Http\FormRequest;
 class SeriesRequest extends FormRequest {
    public function rules() {
       $rules = [
-         'contentType' => 'required|numeric',
          'sponsorId' => 'required|numeric|min:0',
          'conferenceId' => 'required|numeric|min:0',
          'hiragana' => 'present',

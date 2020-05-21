@@ -54,10 +54,12 @@ return [
    |
    */
    'content_type' => [
-      'presentations' => 1,
-      'stories' => 2,
-      'audiobooks' => 3,
       'music' => 4,
+      'audiobooks' => 3,
+      'stories' => 2,
+      'seriess' => 1,
+      'conferences' => 1,
+      'presentations' => 1
    ],
 
    /*

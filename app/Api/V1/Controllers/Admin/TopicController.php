@@ -6,9 +6,19 @@ use App\Topic;
 use App\Transformers\Admin\RecordingTransformer;
 use App\Transformers\Admin\TopicTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Topic
+ *
+ * Endpoints for manipulating topic.
+ */
 class TopicController extends BaseController
 {
+   /**
+    * Get all topics
+    * 
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all() {
 
       $this->where = array_merge($this->where, [
@@ -22,7 +32,15 @@ class TopicController extends BaseController
       
       return $this->response->collection($topics, new TopicTransformer);
    }
-
+   /**
+    * Create topic
+    * 
+    * @authenticated
+    * @queryParam title required string
+    * @queryParam parentTopicId required int
+    * @queryParam hidden required int
+    * @queryParam lang required string Example: en
+    */
    public function create(TopicRequest $request) 
    {
       $topic = new Topic();
@@ -34,7 +52,16 @@ class TopicController extends BaseController
          'status_code' => 201
       ], 201);
    }
-
+   /**
+    * Update topic
+    * 
+    * @authenticated
+    * @queryParam id required int
+    * @queryParam title required string
+    * @queryParam parentTopicId required int
+    * @queryParam hidden required int
+    * @queryParam lang required string Example: en
+    */
    public function update(TopicRequest $request) {
 
       try {
@@ -52,7 +79,12 @@ class TopicController extends BaseController
          return $this->response->errorNotFound("Topic {$request->id} not found.");
       }
    }
-
+   /**
+    * Delete topic
+    * 
+    * @authenticated
+    * @queryParam id required int
+    */
    public function delete(TopicRequest $request) {
       
       try {
@@ -70,7 +102,12 @@ class TopicController extends BaseController
          return $this->response->errorNotFound("Topic {$request->id} not found.");
       }
    }
-
+   /**
+    * Get presentations for a topic
+    * 
+    * @authenticated
+    * @queryParam id required int
+    */
    public function presentations($topicId) {
 
       try {

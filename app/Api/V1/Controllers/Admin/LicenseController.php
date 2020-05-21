@@ -5,9 +5,21 @@ use App\License;
 use App\Api\V1\Requests\LicenseRequest;
 use App\Transformers\Admin\LicenseTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Legal Lincense
+ *
+ * Endpoints for manipulating licenses.
+ * Licenses are the terms and conditions that our website visitors must abide by when 
+ * downloading and/or sharing recordings.
+ */
 class LicenseController extends BaseController 
 {
+   /**
+	 * Get all lincenses
+	 *
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all() {
       
       $license = License::where($this->where)
@@ -20,7 +32,12 @@ class LicenseController extends BaseController
 
       return $this->response->paginator($license, new LicenseTransformer);
    }
-
+   /**
+	 * Get one lincense
+	 *
+    * @authenticated
+    * @queryParam id required int
+    */
    public function one($licenseId) {
 
       try {
@@ -30,7 +47,18 @@ class LicenseController extends BaseController
          return $this->response->errorNotFound("License {$licenseId} not found.");
       }
    }
-
+   /**
+	 * Create owner
+	 *
+    * @authenticated
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam description required string
+    * @queryParam logo required string
+    * @queryParam permitsSales required int
+    * @queryParam lang required string
+    * @queryParam notes required string
+    */
    public function create(LicenseRequest $request) 
    {
       try {
@@ -46,7 +74,20 @@ class LicenseController extends BaseController
          return $this->response->errorNotFound($e->getMessage());
       }
    }
-
+   
+   /**
+	 * Update owner
+	 *
+    * @authenticated
+    * @queryParam id required int
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam description required string
+    * @queryParam logo required string
+    * @queryParam permitsSales required int
+    * @queryParam lang required string
+    * @queryParam notes required string
+    */
    public function update(LicenseRequest $request) {
 
       try {
@@ -63,7 +104,12 @@ class LicenseController extends BaseController
          return $this->response->errorNotFound("License {$request->id} not found.");
       }
    }
-
+   /**
+	 * Delete owner
+	 *
+    * @authenticated
+    * @queryParam id required int
+    */
    public function delete(LicenseRequest $request) {
 
       try {

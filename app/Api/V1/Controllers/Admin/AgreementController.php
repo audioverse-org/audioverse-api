@@ -8,9 +8,19 @@ use App\Api\V1\Requests\AgreementRequest;
 use App\Transformers\Admin\AgreementTransformer;
 use App\Transformers\Admin\RecordingTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Legal Agreements
+ *
+ * Endpoints for manipulating distribution agreements.
+ */
 class AgreementController extends BaseController 
 {
+   /**
+    * Get all agreements
+    * 
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all() {
 
       $agreement = Agreement::where($this->where)
@@ -24,6 +34,13 @@ class AgreementController extends BaseController
       return $this->response->paginator($agreement, new AgreementTransformer);
    }
 
+   /**
+    * Get one agreement
+    *
+    * @authenticated
+    * @urlParam id required id of the agreement. Example: 1
+    * @queryParam lang required string Example: en
+    */
    public function one($agreementId) {
 
       try {
@@ -34,6 +51,13 @@ class AgreementController extends BaseController
       }
    }
 
+   /**
+    * Get all recordings an agreements
+    * 
+    * @authenticated
+    * @urlParam id required id of the agreement. Example: 1
+    * @queryParam lang required string Example: en
+    */
    public function recordings($agreementId) {
 
       try {
@@ -53,6 +77,19 @@ class AgreementController extends BaseController
 
    }
 
+   /**
+	 * Create agreement
+	 *
+    * @authenticated
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam ownerId required int
+    * @queryParam licenseId required int
+    * @queryParam lang required string
+    * @queryParam hidden required int
+    * @queryParam notes required string
+    * @queryParam retired required int
+    */
    public function create(AgreementRequest $request) 
    {
       try {
@@ -69,6 +106,20 @@ class AgreementController extends BaseController
       }
    }
 
+   /**
+	 * Update agreement
+	 *
+    * @authenticated
+    * @queryParam id required int
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam ownerId required int
+    * @queryParam licenseId required int
+    * @queryParam lang required string
+    * @queryParam hidden required int
+    * @queryParam notes required string
+    * @queryParam retired required int
+    */
    public function update(AgreementRequest $request) {
 
       try {
@@ -85,7 +136,12 @@ class AgreementController extends BaseController
          return $this->response->errorNotFound("Agreement term {$request->id} not found.");
       }
    }
-
+   /**
+	 * Delete agreement
+	 *
+    * @authenticated
+    * @queryParam id required int
+    */
    public function delete(AgreementRequest $request) {
 
       try {

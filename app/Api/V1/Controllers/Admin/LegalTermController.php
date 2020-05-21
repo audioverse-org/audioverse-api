@@ -5,9 +5,19 @@ use App\LegalTerm;
 use App\Api\V1\Requests\LegalTermRequest;
 use App\Transformers\Admin\LegalTermTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Legal Term
+ *
+ * Endpoints for manipulating legal terms.
+ */
 class LegalTermController extends BaseController 
 {
+   /**
+    * Get all terms
+    * 
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all() {
 
       $legalTerm = LegalTerm::where(['active' => 1])
@@ -21,6 +31,12 @@ class LegalTermController extends BaseController
       return $this->response->paginator($legalTerm, new LegalTermTransformer);
    }
 
+   /**
+    * Get one term
+    * 
+    * @authenticated
+    * @queryParam id required int
+    */
    public function one($legalTermId) {
 
       try {
@@ -31,6 +47,14 @@ class LegalTermController extends BaseController
       }
    }
 
+   /**
+    * Create term
+    * 
+    * @authenticated
+    * @queryParam label required string
+    * @queryParam terms required string
+    * @queryParam formType required string
+    */
    public function create(LegalTermRequest $request) 
    {
       try {
@@ -46,7 +70,15 @@ class LegalTermController extends BaseController
          return $this->response->errorNotFound($e->getMessage());
       }
    }
-
+   /**
+    * Update term
+    * 
+    * @authenticated
+    * @queryParam id required string
+    * @queryParam label required string
+    * @queryParam terms required string
+    * @queryParam formType required string
+    */
    public function update(LegalTermRequest $request) {
 
       try {
@@ -63,7 +95,12 @@ class LegalTermController extends BaseController
          return $this->response->errorNotFound("Legal term {$request->id} not found.");
       }
    }
-
+   /**
+    * Delete term
+    * 
+    * @authenticated
+    * @queryParam id required string
+    */
    public function delete(LegalTermRequest $request) {
 
       try {
