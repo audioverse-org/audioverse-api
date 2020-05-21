@@ -6,7 +6,11 @@ use App\Presenter;
 use App\Api\V1\Requests\LegalReleaseRequest;
 use App\Transformers\Admin\LegalReleaseTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Legal Releases
+ *
+ * Endpoints for manipulating legal release.
+ */
 class LegalReleaseController extends BaseController 
 {
    public function all() {

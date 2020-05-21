@@ -1,39 +1,49 @@
 <?php
-/**
- * Conference Controller
- * @Resource("Conference", uri="/admin/conference")
- */
 namespace App\Api\V1\Controllers\Admin;
 
 use App\Api\V1\Requests\ConferenceRequest;
 use App\Conference;
 use App\Sponsor;
+use App\Traits\ConferenceOps;
+use App\Traits\RecordingOps;
 use App\Transformers\Admin\ConferenceTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-
+/**
+ * @group Conference
+ *
+ * Endpoints for manipulating conference.
+ */
 class ConferenceController extends BaseController
 {
    protected $model_id = 'conferenceId';
 
+   use RecordingOps, ConferenceOps;
+   /**
+    * Get conferences
+    * 
+    * Get all conferences.
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all(Request $request) {
 
-      $this->where = array_merge($this->where, [
-         'contentType' => $this->getContentType($request->path())
-      ]);
+      $conference = $this->getConferences($this->where, $this->contentType);
 
-      $presenter = Conference::where($this->where)
-            ->orderBy('title', 'asc')
-            ->paginate(config('avorg.page_size'));
-
-      if ( $presenter->count() == 0 ) 
+      if ( $conference->count() == 0 ) 
       {
          return $this->response->errorNotFound("Conferences not found.");
       }
 
-      return $this->response->paginator($presenter, new ConferenceTransformer);
+      return $this->response->paginator($conference, new ConferenceTransformer);
    }
 
+   /**
+    * Get one conference
+    *
+    * @authenticated
+    * @urlParam id required id of the presenter. Example: 1
+    */
    public function one($conference_id) {
 
       try {
@@ -44,6 +54,23 @@ class ConferenceController extends BaseController
       }
    }
 
+   /**
+	 * Create conference
+	 *
+    * @authenticated
+    * @queryParam lang required string Example: en
+    * @queryParam sponsorId required int
+    * @queryParam hiragana required string
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam description required string
+    * @queryParam logo required string
+    * @queryParam location required string
+    * @queryParam sponsorTitle required string
+    * @queryParam sponsorLogo required string
+    * @queryParam hidden required string 
+    * @queryParam notes required string
+    */
    public function create(ConferenceRequest $request) {
 
       $conference = new Conference();
@@ -56,6 +83,22 @@ class ConferenceController extends BaseController
       ], 201);
    }
 
+   /**
+	 * Update conference
+	 *
+    * @authenticated
+    * @queryParam id required int
+    * @queryParam lang required string Example: en
+    * @queryParam sponsorId required int
+    * @queryParam hiragana required string
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam description required string
+    * @queryParam logo required string
+    * @queryParam location required string
+    * @queryParam hidden required string 
+    * @queryParam notes required string
+    */
    public function update(ConferenceRequest $request) {
 
       try {
@@ -73,6 +116,12 @@ class ConferenceController extends BaseController
       }
    }
 
+   /**
+    * Delete conference
+    *
+    * @authenticated
+    * @queryParam id required id of the presenter. Example: 1
+    */
    public function delete(ConferenceRequest $request) {
 
       try {

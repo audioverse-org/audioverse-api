@@ -75,29 +75,38 @@ $api->version('v1', function($api) {
 
       $api->group(['prefix' => 'admin'], function($api) {
 
-         $api->get('audiobooks', 'App\Api\V1\Controllers\Admin\SeriesController@all');
-         $api->get('audiobooks/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
-         $api->get('audiobooks/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
-         $api->get('audiobooks/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
-         $api->post('audiobooks', 'App\Api\V1\Controllers\Admin\PresentationController@create');
-         $api->put('audiobooks', 'App\Api\V1\Controllers\Admin\PresentationController@update');
-         $api->delete('audiobooks', 'App\Api\V1\Controllers\Admin\PresentationController@delete');
+         $api->get('audiobooks', 'App\Api\V1\Controllers\Admin\AudiobookController@allAudiobook');
+         $api->post('audiobooks', 'App\Api\V1\Controllers\Admin\AudiobookController@createAudiobook');
+         $api->put('audiobooks', 'App\Api\V1\Controllers\Admin\AudiobookController@updateAudiobook');
+         $api->delete('audiobooks', 'App\Api\V1\Controllers\Admin\AudiobookController@deleteAudiobook');
+         $api->get('audiobooks/chapters', 'App\Api\V1\Controllers\Admin\AudiobookController@allChapters');
+         $api->get('audiobooks/chapters/{id}', 'App\Api\V1\Controllers\Admin\AudiobookController@chapters')->where(['id' => '[0-9]+']);
+         $api->post('audiobooks/chapters', 'App\Api\V1\Controllers\Admin\AudiobookController@createChapter');
+         $api->put('audiobooks/chapters', 'App\Api\V1\Controllers\Admin\AudiobookController@updateChapter');
+         $api->delete('audiobooks/chapters', 'App\Api\V1\Controllers\Admin\AudiobookController@deleteChapter');
+         $api->get('audiobooks/seriess', 'App\Api\V1\Controllers\Admin\AudiobookController@seriess');
 
-         $api->get('stories', 'App\Api\V1\Controllers\Admin\SeriesController@all');
-         $api->get('stories/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
-         $api->get('stories/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
-         $api->get('stories/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
-         $api->post('stories', 'App\Api\V1\Controllers\Admin\PresentationController@create');
-         $api->put('stories', 'App\Api\V1\Controllers\Admin\PresentationController@update');
-         $api->delete('stories', 'App\Api\V1\Controllers\Admin\PresentationController@delete');
+         $api->get('stories', 'App\Api\V1\Controllers\Admin\StoryController@allStorybooks');
+         $api->post('stories', 'App\Api\V1\Controllers\Admin\StoryController@createStorybook');
+         $api->put('stories', 'App\Api\V1\Controllers\Admin\StoryController@updateStorybook');
+         $api->delete('stories', 'App\Api\V1\Controllers\Admin\StoryController@deleteStorybook');
+         $api->get('stories/chapters', 'App\Api\V1\Controllers\Admin\StoryController@allChapters');
+         $api->get('stories/chapters/{id}', 'App\Api\V1\Controllers\Admin\StoryController@chapters')->where(['id' => '[0-9]+']);
+         $api->post('stories/chapters', 'App\Api\V1\Controllers\Admin\StoryController@createChapter');
+         $api->put('stories/chapters', 'App\Api\V1\Controllers\Admin\StoryController@updateChapter');
+         $api->delete('stories/chapters', 'App\Api\V1\Controllers\Admin\StoryController@deleteChapter');
+         $api->get('stories/seriess', 'App\Api\V1\Controllers\Admin\StoryController@seriess');
 
-         $api->get('music', 'App\Api\V1\Controllers\Admin\SeriesController@all');
-         $api->get('music/recordings', 'App\Api\V1\Controllers\Admin\PresentationController@all');
-         $api->get('music/{id}', 'App\Api\V1\Controllers\Admin\PresentationController@all')->where(['id' => '[0-9]+']);
-         $api->get('music/seriess', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
-         $api->post('music', 'App\Api\V1\Controllers\Admin\PresentationController@create');
-         $api->put('music', 'App\Api\V1\Controllers\Admin\PresentationController@update');
-         $api->delete('music', 'App\Api\V1\Controllers\Admin\PresentationController@delete');
+         $api->get('music', 'App\Api\V1\Controllers\Admin\MusicController@allAlbums');
+         $api->post('music', 'App\Api\V1\Controllers\Admin\MusicController@createAlbum');
+         $api->put('music', 'App\Api\V1\Controllers\Admin\MusicController@updateAlbum');
+         $api->delete('music', 'App\Api\V1\Controllers\Admin\MusicController@deleteAlbum');
+         $api->get('music/chapters', 'App\Api\V1\Controllers\Admin\MusicController@allChapters');
+         $api->get('music/chapters/{id}', 'App\Api\V1\Controllers\Admin\MusicController@chapters')->where(['id' => '[0-9]+']);
+         $api->post('music/chapters', 'App\Api\V1\Controllers\Admin\MusicController@createChapter');
+         $api->put('music/chapters', 'App\Api\V1\Controllers\Admin\MusicController@updateChapter');
+         $api->delete('music/chapters', 'App\Api\V1\Controllers\Admin\MusicController@deleteChapter');
+         $api->get('music/seriess', 'App\Api\V1\Controllers\Admin\MusicController@seriess');
 
          $api->get('conferences', 'App\Api\V1\Controllers\Admin\ConferenceController@all');
          $api->get('conferences/{id}', 'App\Api\V1\Controllers\Admin\ConferenceController@one');

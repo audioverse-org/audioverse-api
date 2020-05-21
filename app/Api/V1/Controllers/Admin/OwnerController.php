@@ -5,7 +5,11 @@ use App\Owner;
 use App\Api\V1\Requests\OwnerRequest;
 use App\Transformers\Admin\OwnerTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Legal Owners
+ *
+ * Endpoints for manipulating copyright owners.
+ */
 class OwnerController extends BaseController 
 {
    public function all() {

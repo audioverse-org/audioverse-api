@@ -5,23 +5,31 @@ use App\Conference;
 use App\Series;
 use App\Sponsor;
 use App\Api\V1\Requests\SeriesRequest;
+use App\Traits\SeriesOps;
 use App\Transformers\Admin\SeriesTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-
+/**
+ * @group Series
+ *
+ * Endpoints for manipulating series catalog.
+ */
 class SeriesController extends BaseController 
 {
    protected $model_id = 'seriesId';
+   
+   use SeriesOps;
 
+   /**
+    * Get series
+    * 
+    * Get all series.
+    * @authenticated
+    * @queryParam lang required string Example: en
+    */
    public function all(Request $request) {
 
-      $this->where = array_merge($this->where, [
-         'contentType' => $this->getContentType($request->path())
-      ]);
-
-      $series = Series::where($this->where)
-         ->orderBy('title', 'asc')
-         ->paginate(config('avorg.page_size'));
+      $series = $this->getSeriess($this->where, $this->contentType);
 
       if ( $series->count() == 0 ) {
          return $this->response->errorNotFound("Seriess not found");
@@ -30,6 +38,12 @@ class SeriesController extends BaseController
       return $this->response->paginator($series, new SeriesTransformer);
    }
 
+   /**
+    * Get one series
+    *
+    * @authenticated
+    * @urlParam id required id of the series. Example: 1
+    */
    public function one($series_id) {
 
       try {
@@ -40,13 +54,27 @@ class SeriesController extends BaseController
       }
    }
 
+   /**
+	 * Create series
+	 *
+    * @authenticated
+    * @queryParam lang required string Example: en
+    * @queryParam sponsorId required int
+    * @queryParam hiragana required string
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam description required string
+    * @queryParam logo required string
+    * @queryParam location required string
+    * @queryParam sponsorTitle required string
+    * @queryParam sponsorLogo required string
+    * @queryParam hidden required string 
+    * @queryParam notes required string
+    */
    public function create(SeriesRequest $request) 
    {
       try {
-         $series = new Series();
-         $this->setFields($request, $series);
-         $series->save();
-
+         $this->createSeries($request, $this->contentType);
          return response()->json([
             'message' => 'Series added.',
             'status_code' => 201
@@ -58,13 +86,26 @@ class SeriesController extends BaseController
       }
    }
 
+   /**
+	 * Update series
+	 *
+    * @authenticated
+    * @queryParam id required int
+    * @queryParam lang required string Example: en
+    * @queryParam sponsorId required int
+    * @queryParam hiragana required string
+    * @queryParam title required string
+    * @queryParam summary required string
+    * @queryParam description required string
+    * @queryParam logo required string
+    * @queryParam location required string
+    * @queryParam hidden required string 
+    * @queryParam notes required string
+    */
    public function update(SeriesRequest $request) {
 
       try {
-         $series = Series::where(['active' => 1])->findOrFail($request->id);
-         $this->setFields($request, $series);
-         $series->update();
-
+         $this->updateSeries($request, $this->contentType);
          return response()->json([
             'message' => "Series {$request->id} updated.",
             'status_code' => 201
@@ -75,76 +116,22 @@ class SeriesController extends BaseController
       }
    }
 
+   /**
+    * Delete series
+    *
+    * @authenticated
+    * @queryParam id required id of the presenter. Example: 1
+    */
    public function delete(SeriesRequest $request) {
 
       try {
-         $series = Series::where(['active' => 1])->findOrFail($request->id);
-
-         if ($series->recordings()->exists()) {
-
-            $series->active = 0;
-            $series->save();
-
-            return response()->json([
-               'message' => "Series {$request->id} deleted.",
-               'status_code' => 201
-            ], 201);
-         }
-      
-         else {
-            return $this->response->errorNotFound("Series {$request->id} is referenced in another table thus can not be deleted.");
-         }
+         $this->deleteSeries($request);
+         return response()->json([
+            'message' => "Series {$request->id} deleted.",
+            'status_code' => 201
+         ], 201);
       } catch (ModelNotFoundException $e) {
-         return $this->response->errorNotFound("Series {$request->id} not found.");
+         return $this->response->errorNotFound($e->getMessage());
       }
-   }
-   private function setFields(SeriesRequest $request, Series $series) {
-      
-      try {
-         $item = Sponsor::where([
-            'active' => 1
-         ])->findOrFail($request->sponsorId);
-      } 
-      catch (ModelNotFoundException $e) {
-         throw new ModelNotFoundException("Sponsor $request->sponsorId does not exist.");
-      }
-
-      if ($request->conferenceId > 0) {
-         try {
-            $item = Conference::where([
-               'active' => 1
-            ])->findOrFail($request->conferenceId);
-         } 
-         catch (ModelNotFoundException $e) {
-            throw new ModelNotFoundException("Conference $request->conferenceId does not exist.");
-         }
-      }
-      $series->contentType = $request->contentType;
-      $series->sponsorId = $request->sponsorId;
-      $series->conferenceId = $request->conferenceId;
-      $series->hiragana = $request->hiragana;
-      $series->title = $request->title;
-      $series->summary = $request->summary;
-      $series->description = $request->description;
-      $series->logo = $request->logo;
-      $series->isbn = $request->isbn;
-      $series->lang = $request->lang;
-
-      // We are not using these fiels anymore, but we still need to set it to blank
-      $series->sponsorTitle = '';
-      $series->sponsorLogo = '';
-      $series->conferenceTitle = '';
-      $series->conferenceLogo = '';
-
-      // When update, hidden calculation will be handled by UpdateHiddenFields event.
-      $series->hiddenBySelf = $request->hidden;
-      if ($series->seriesId == null) {
-         $series->hiddenByConference = 0;
-         $series->hiddenBySponsor = 0;
-      }
-      $series->hidden = $request->hidden;
-
-      $series->notes = $request->notes;
-      $series->active = 1;
    }
 }

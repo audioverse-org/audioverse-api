@@ -17,15 +17,23 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-
+/**
+ * @group User Management
+ *
+ * Endpoints for manipulating users.
+ */
 class SignUpController extends Controller
 {
     use Helpers;
+
     /**
-     * Sign up user and send email verification message
+     * Sign up user
+     * 
+     * It also send email verification message as long as the background job is running.
      *
-     * @param SignUpRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @authenticated
+     * @queryParam email required string
+     * @queryParam password required string
      */
     public function signUp(SignUpRequest $request) {
 
@@ -64,17 +72,17 @@ class SignUpController extends Controller
         ], 201);
     }
 
-
     /**
-     * Verify user token, if successful set user as validated, subscribe user to newsletter
+     * Verify user token
+     *  
+     * If successful user is set as validated.
      *
-     * @param $token
-     * @return \Illuminate\Http\JsonResponse
+     * @authenticated
+     * @queryParam token required string
      */
     public function verify($token) {
 
         try {
-
             // look for token request
             $request = UserRequest::where(DB::raw('MD5(requestId)'), '=', $token)->firstOrFail();
 
@@ -101,9 +109,7 @@ class SignUpController extends Controller
             ], 201);
 
         } catch (ModelNotFoundException $e) {
-
             throw new ConflictHttpException('Invalid request token');
         }
-
     }
 }

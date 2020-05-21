@@ -5,7 +5,13 @@ use App\License;
 use App\Api\V1\Requests\LicenseRequest;
 use App\Transformers\Admin\LicenseTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Legal Lincense
+ *
+ * Endpoints for manipulating licenses.
+ * Licenses are the terms and conditions that our website visitors must abide by when 
+ * downloading and/or sharing recordings.
+ */
 class LicenseController extends BaseController 
 {
    public function all() {

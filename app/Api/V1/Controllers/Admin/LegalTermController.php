@@ -5,7 +5,11 @@ use App\LegalTerm;
 use App\Api\V1\Requests\LegalTermRequest;
 use App\Transformers\Admin\LegalTermTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+/**
+ * @group Legal Term
+ *
+ * Endpoints for manipulating legal terms.
+ */
 class LegalTermController extends BaseController 
 {
    public function all() {

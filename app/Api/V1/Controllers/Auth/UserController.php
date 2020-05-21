@@ -16,17 +16,19 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group User Management
+ *
+ * Endpoints for manipulating users.
+ */
 class UserController extends Controller
 {
     use Helpers;
 
     /**
-     * Returns user
+     * Get user data
      *
      * Returns authenticated user data
-     *
-     * @Post("/")
-     * @Versions({"v1"})
      */
     public function user() {
 
@@ -34,6 +36,11 @@ class UserController extends Controller
         return $this->response->item($user, new UserTransformer);
     }
 
+    /**
+     * Update user
+     *
+     * Returns authenticated user data
+     */
     public function update(Request $request) {
 
         $user = app('Dingo\Api\Auth\Auth')->user();
@@ -112,7 +119,6 @@ class UserController extends Controller
             return $this->response->created();
 
         } else {
-
             return $this->response->errorNotFound("Not Authorized");
         }
     }

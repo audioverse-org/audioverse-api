@@ -8,11 +8,21 @@ use App\Http\Controllers\Controller;
 use App\Api\V1\Requests\LoginRequest;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Support\Facades\Auth;
-
+/**
+ * @group User Management
+ *
+ * Endpoints for manipulating users.
+ */
 class LoginController extends Controller
 {
     use Helpers;
-
+   /**
+    * Login user
+    * 
+    * @authenticated
+    * @queryParam email required string
+    * @queryParam password required string
+    */
     public function login(LoginRequest $request)
     {
         $credentials = $request->only(['email', 'password']);

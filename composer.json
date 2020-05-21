@@ -6,14 +6,15 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "laravel/framework": "5.8.*",
-        "fideloper/proxy": "^4.0",
         "dingo/api": "^2",
-        "laravel/passport": "^1.0",
         "doctrine/dbal": "^2.5",
-        "mdanter/ecc": "^0.4.2",
+        "fideloper/proxy": "^4.0",
         "indigophp/hash-compat": "^1.1",
-        "laravel/tinker": "^1.0"
+        "laravel/framework": "5.8.*",
+        "laravel/passport": "^1.0",
+        "laravel/tinker": "^1.0",
+        "mdanter/ecc": "^0.4.2",
+        "mpociot/laravel-apidoc-generator": "^4.6"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
