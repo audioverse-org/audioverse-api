@@ -55,6 +55,7 @@ class SignUpController extends Controller
             // new user
             $user->is_crypt_password = 1; // migration purpose
             $user->name = '';
+            $user->roles = '[]';
 
             if ( !$user->fill(['password' => Hash::make($request->password)])->save() ) {
                 throw new HttpException(500);
