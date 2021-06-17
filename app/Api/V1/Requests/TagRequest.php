@@ -6,13 +6,26 @@ use Dingo\Api\Http\FormRequest;
 
 class TagRequest extends FormRequest
 {
-    public function rules()
-    {
-        return config('avorg.tags.validation_rules');
-    }
+   public function rules()
+   {
+      $rules = [
+         'name.*' => 'required|string|distinct|min:3'
+      ];
 
-    public function authorize()
-    {
-        return true;
-    }
+      if ($this->method() == 'POST') {
+         return $rules;
+      } else if ($this->method() == 'PUT') {
+         $rules['id'] = 'required|numeric';
+         return $rules;
+      } else if ($this->method() == 'DELETE') {
+         return ['id' => 'required|numeric'];
+      } 
+      
+      return $rules;
+   }
+
+   public function authorize()
+   {
+      return true;
+   }
 }

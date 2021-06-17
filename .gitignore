@@ -8,3 +8,6 @@ Homestead.yaml
 .env
 composer.phar
 /logs
+.vscode
+/storage/oauth-private.key
+/storage/oauth-public.key

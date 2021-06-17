@@ -42,12 +42,12 @@ class EncodingController extends Controller
             $mediaFile->active= 1;
             $mediaFile->save();
             return response()->json([
-                'message' => 'Flavor Added.',
+                'message' => 'Flavor added.',
                 'status_code' => 201
             ], 201);
 
         } catch( ModelNotFoundException $e ) {
-            return $this->response->errorNotFound("Presentation {$flavorRequest->recordingId} not found");
+            return $this->response->errorNotFound("Presentation {$flavorRequest->recordingId} not found.");
         }
     }
 }

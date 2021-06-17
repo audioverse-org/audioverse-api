@@ -7,23 +7,22 @@ use App\Recording;
 class MusicController extends BaseController
 {
     public function latest() {
-        $temp = Recording::search('Jesus');
-        print_r($temp);
+      // TODO
     }
 
     public function albums() {
-
+      // TODO
     }
 
     public function books() {
-
+      // TODO
     }
 
     public function mood() {
-
+      // TODO
     }
 
     public function genre() {
-
-    }
+      // TODO
+    } 
 }

@@ -10,24 +10,25 @@ namespace App\Api\v1\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use App\Transformers\UserTransformer;
+use App\Transformers\World\UserTransformer;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group User Management
+ *
+ * Endpoints for manipulating users.
+ */
 class UserController extends Controller
 {
-
     use Helpers;
 
     /**
-     * Returns user
+     * Get user data
      *
-     * Returns authenticated user data
-     *
-     * @Post("/")
-     * @Versions({"v1"})
+     * Returns OAuth authenticated client user data.
      */
     public function user() {
 
@@ -35,13 +36,29 @@ class UserController extends Controller
         return $this->response->item($user, new UserTransformer);
     }
 
+    /**
+     * Update user
+     *
+     * Returns authenticated user data
+     * @queryParam userId required int
+     * @queryParam new_password required string
+     * @queryParam firstName required string
+     * @queryParam lastName required string
+     * @queryParam addressLine1 required string
+     * @queryParam addressLine2 required string
+     * @queryParam municipality required string
+     * @queryParam province required string
+     * @queryParam postalCode required string
+     * @queryParam country required string
+     * @queryParam subscribed required int
+     */
     public function update(Request $request) {
 
         $user = app('Dingo\Api\Auth\Auth')->user();
-
+      
+        // Hard coded Oauth client.
         if ( $user->email == 'audioverseministry@gmail.com' ) {
             // validate password
-
             try {
 
                 $user = User::findOrFail($request->get('userId'));
@@ -85,10 +102,9 @@ class UserController extends Controller
         }
 
     }
+    
     /**
      * Temporary Administrative update password function
-     * @param Request $request
-     * @return \Dingo\Api\Http\Response|void
      */
     public function update_password(Request $request) {
 
@@ -113,7 +129,6 @@ class UserController extends Controller
             return $this->response->created();
 
         } else {
-
             return $this->response->errorNotFound("Not Authorized");
         }
     }

@@ -3,8 +3,8 @@
 namespace App\Api\V1\Controllers\World;
 
 use App\Presenter;
-use App\Transformers\PresenterTransformer;
-use App\Transformers\RecordingTransformer;
+use App\Transformers\World\PresenterTransformer;
+use App\Transformers\World\RecordingTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PresenterController extends BaseController {
